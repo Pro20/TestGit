@@ -1,0 +1,2075 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F60528BA-CAA7-4726-9E48-D378C4C81512}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>airbornefrs</RootNamespace>
+    <AssemblyName>airbornefrs</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PayPal, Version=1.8.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.8.0\lib\net45\PayPal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.9.3.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.9.3\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderManagerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StoreManagerController.cs" />
+    <Compile Include="Areas\Shopping\Controllers\PaypalController.cs" />
+    <Compile Include="Areas\Shopping\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Shopping\ShoppingAreaRegistration.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BuyController.cs" />
+    <Compile Include="Controllers\FeaturesController.cs" />
+    <Compile Include="Controllers\GCNavigationController.cs" />
+    <Compile Include="Controllers\GCServiceController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageProductController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SupportController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactModels.cs" />
+    <Compile Include="Models\GCServiceModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MobileAppModel.cs" />
+    <Compile Include="Models\PaymentConfiguration.cs" />
+    <Compile Include="Models\PurchasedProductModel.cs" />
+    <Compile Include="Models\RmaModel.cs" />
+    <Compile Include="Models\ShoppingcartModel.cs" />
+    <Compile Include="Models\SupportCorporateAdvertising.cs" />
+    <Compile Include="Models\SupportGeneral.cs" />
+    <Compile Include="Models\SupportPreSales.cs" />
+    <Compile Include="Models\SupportReseller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets-vendor\js\libs\angular\angular-animate.min.js" />
+    <Content Include="assets-vendor\js\libs\angular\angular-aria.min.js" />
+    <Content Include="assets-vendor\js\libs\angular\angular-material.min.js" />
+    <Content Include="assets-vendor\js\libs\angular\angular.min.js" />
+    <Content Include="assets-vendor\js\libs\angular\app.js" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\intlTelInput.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\museosans-300-webfont.svg" />
+    <Content Include="assets\fonts\museosans_500-webfont.svg" />
+    <Content Include="assets\fonts\museosans_700-webfont.svg" />
+    <Content Include="assets\fonts\museosans_900-webfont.svg" />
+    <Content Include="assets\image\bannerfifth.jpg" />
+    <Content Include="assets\image\bannerfirst.jpg" />
+    <Content Include="assets\image\bannerfourth.jpg" />
+    <Content Include="assets\image\bannersecond.jpg" />
+    <Content Include="assets\image\bannerthird.jpg" />
+    <Content Include="assets\image\check-yellow.png" />
+    <Content Include="assets\image\check.png" />
+    <Content Include="assets\image\company-icon.svg" />
+    <Content Include="assets\image\driver-handle-icon-orange.png" />
+    <Content Include="assets\image\favicon.png" />
+    <Content Include="assets\image\handle-icon.svg" />
+    <Content Include="assets\image\popup-bg.png" />
+    <Content Include="assets\image\requirement-icon.svg" />
+    <Content Include="assets\image\shield-icon.svg" />
+    <Content Include="assets\image\smiley-icon.svg" />
+    <Content Include="assets\img\flags.png" />
+    <Content Include="assets\js\app.jQuery.js" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\bootstrap.min2.js" />
+    <Content Include="assets\js\controllers\applynowCtl.js" />
+    <Content Include="assets\js\controllers\mobileappCtrl.js" />
+    <Content Include="assets\js\controllers\purchasedProductCtrl.js" />
+    <Content Include="assets\js\controllers\rmaCtrl.js" />
+    <Content Include="assets\js\controllers\routeConfig.js" />
+    <Content Include="assets\js\controllers\supportCorporateAdvertising.js" />
+    <Content Include="assets\js\controllers\supportGeneral.js" />
+    <Content Include="assets\js\controllers\supportPreSales.js" />
+    <Content Include="assets\js\controllers\supportReseller.js" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\directives\pagination.js" />
+    <Content Include="assets\js\formValidation.min.js" />
+    <Content Include="assets\js\general.js" />
+    <Content Include="assets\js\intlTelInput.min.js" />
+    <Content Include="assets\js\jquery-1.11.1.min.js" />
+    <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\jQueryFn\searchGoogleMap.js" />
+    <Content Include="assets\js\lib\jquery-2.1.4.min.js" />
+    <Content Include="assets\js\modernizr.custom.03515.js" />
+    <Content Include="assets\js\npm.js" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\css\jquery-confirm.css" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\demo.min.css" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\demo.min.js" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\bootstrap-theme.min.css" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\bootstrap.min.css" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\bootstrap.min.js" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\default.min.css" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\font-awesome.min.css" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\highlight.min.js" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\jquery.min.js" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\libs\pretty.js" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\logo-name.svg" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\index.html" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\js\jquery-confirm.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\css\formValidation.css" />
+    <Content Include="assets\js\plugins\formvalidation\dist\css\formValidation.min.css" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\formValidation.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\formValidation.min.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\formValidation.popular.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\formValidation.popular.min.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\bootstrap.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\bootstrap.min.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\foundation.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\foundation.min.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\pure.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\pure.min.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\semantic.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\semantic.min.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\uikit.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\framework\uikit.min.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\ar_MA.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\bg_BG.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\ca_ES.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\cs_CZ.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\da_DK.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\de_DE.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\el_GR.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\en_US.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\es_CL.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\es_ES.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\eu_ES.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\fa_IR.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\fi_FI.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\fr_BE.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\fr_FR.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\he_IL.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\hi_IN.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\hu_HU.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\id_ID.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\it_IT.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\ja_JP.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\nl_BE.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\nl_NL.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\no_NO.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\pl_PL.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\pt_BR.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\pt_PT.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\ro_RO.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\ru_RU.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\sk_SK.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\sq_AL.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\sr_RS.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\sv_SE.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\th_TH.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\tr_TR.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\ua_UA.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\vi_VN.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\zh_CN.js" />
+    <Content Include="assets\js\plugins\formvalidation\dist\js\language\zh_TW.js" />
+    <Content Include="assets\js\plugins\formvalidation\LICENSE.txt" />
+    <Content Include="assets\js\plugins\formvalidation\src\css\formValidation.css" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\base.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\framework\bootstrap.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\framework\foundation.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\framework\pure.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\framework\semantic.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\framework\uikit.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\helper.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\ar_MA.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\bg_BG.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\ca_ES.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\cs_CZ.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\da_DK.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\de_DE.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\el_GR.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\en_US.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\es_CL.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\es_ES.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\eu_ES.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\fa_IR.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\fi_FI.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\fr_BE.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\fr_FR.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\he_IL.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\hi_IN.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\hu_HU.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\id_ID.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\it_IT.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\ja_JP.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\nl_BE.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\nl_NL.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\no_NO.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\pl_PL.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\pt_BR.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\pt_PT.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\ro_RO.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\ru_RU.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\sk_SK.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\sq_AL.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\sr_RS.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\sv_SE.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\th_TH.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\tr_TR.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\ua_UA.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\vi_VN.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\zh_CN.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\language\zh_TW.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\base64.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\between.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\bic.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\blank.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\callback.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\choice.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\color.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\creditCard.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\cusip.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\cvv.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\date.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\different.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\digits.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\ean.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\ein.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\emailAddress.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\file.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\greaterThan.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\grid.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\hex.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\iban.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\id.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\identical.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\imei.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\imo.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\integer.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\ip.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\isbn.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\isin.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\ismn.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\issn.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\lessThan.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\mac.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\meid.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\notEmpty.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\numeric.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\phone.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\promise.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\regexp.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\remote.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\rtn.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\sedol.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\siren.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\siret.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\step.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\stringCase.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\stringLength.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\uri.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\uuid.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\vat.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\vin.js" />
+    <Content Include="assets\js\plugins\formvalidation\src\js\validator\zipCode.js" />
+    <Content Include="assets\js\plugins\moment.min.js" />
+    <Content Include="assets\js\reCaptcha2.js" />
+    <Content Include="assets\js\respond.min.js" />
+    <Content Include="assets\js\responsive-tabs.js" />
+    <Content Include="assets\js\services\ApplyData.js" />
+    <Content Include="assets\js\services\ContentData.js" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\css\jquery-confirm.css" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\demo.min.css" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\demo.min.js" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\bootstrap-theme.min.css" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\bootstrap.min.css" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\bootstrap.min.js" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\default.min.css" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\font-awesome.min.css" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\highlight.min.js" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\jquery.min.js" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\libs\pretty.js" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\logo-name.svg" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\index.html" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\js\jquery-confirm.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\css\formValidation.css" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\css\formValidation.min.css" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\formValidation.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\formValidation.min.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\formValidation.popular.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\formValidation.popular.min.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\bootstrap.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\bootstrap.min.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\foundation.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\foundation.min.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\pure.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\pure.min.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\semantic.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\semantic.min.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\uikit.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\framework\uikit.min.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\ar_MA.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\bg_BG.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\ca_ES.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\cs_CZ.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\da_DK.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\de_DE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\el_GR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\en_US.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\es_CL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\es_ES.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\eu_ES.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\fa_IR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\fi_FI.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\fr_BE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\fr_FR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\he_IL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\hi_IN.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\hu_HU.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\id_ID.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\it_IT.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\ja_JP.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\nl_BE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\nl_NL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\no_NO.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\pl_PL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\pt_BR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\pt_PT.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\ro_RO.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\ru_RU.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\sk_SK.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\sq_AL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\sr_RS.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\sv_SE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\th_TH.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\tr_TR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\ua_UA.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\vi_VN.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\zh_CN.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\dist\js\language\zh_TW.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\LICENSE.txt" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\css\formValidation.css" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\base.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\framework\bootstrap.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\framework\foundation.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\framework\pure.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\framework\semantic.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\framework\uikit.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\helper.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\ar_MA.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\bg_BG.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\ca_ES.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\cs_CZ.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\da_DK.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\de_DE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\el_GR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\en_US.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\es_CL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\es_ES.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\eu_ES.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\fa_IR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\fi_FI.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\fr_BE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\fr_FR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\he_IL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\hi_IN.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\hu_HU.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\id_ID.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\it_IT.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\ja_JP.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\nl_BE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\nl_NL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\no_NO.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\pl_PL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\pt_BR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\pt_PT.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\ro_RO.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\ru_RU.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\sk_SK.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\sq_AL.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\sr_RS.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\sv_SE.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\th_TH.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\tr_TR.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\ua_UA.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\vi_VN.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\zh_CN.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\language\zh_TW.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\base64.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\between.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\bic.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\blank.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\callback.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\choice.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\color.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\creditCard.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\cusip.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\cvv.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\date.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\different.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\digits.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\ean.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\ein.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\emailAddress.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\file.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\greaterThan.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\grid.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\hex.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\iban.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\id.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\identical.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\imei.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\imo.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\integer.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\ip.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\isbn.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\isin.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\ismn.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\issn.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\lessThan.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\mac.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\meid.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\notEmpty.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\numeric.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\phone.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\promise.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\regexp.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\remote.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\rtn.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\sedol.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\siren.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\siret.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\step.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\stringCase.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\stringLength.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\uri.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\uuid.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\vat.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\vin.js" />
+    <Content Include="assets\js\services\plugins\formvalidation\src\js\validator\zipCode.js" />
+    <Content Include="assets\js\services\plugins\moment.min.js" />
+    <Content Include="assets\js\utils.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min-old.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Custom\shoppingCart.css" />
+    <Content Include="Content\Custom\shoppingDetail.css" />
+    <Content Include="Content\ie9.css" />
+    <Content Include="Content\intlTelInput.css" />
+    <Content Include="Content\lightbox\css\lightbox.css" />
+    <Content Include="Content\lightbox\css\lightbox.min.css" />
+    <Content Include="Content\lightbox\images\close.png" />
+    <Content Include="Content\lightbox\images\loading.gif" />
+    <Content Include="Content\lightbox\images\next.png" />
+    <Content Include="Content\lightbox\images\prev.png" />
+    <Content Include="Content\lightbox\js\lightbox-plus-jquery.js" />
+    <Content Include="Content\lightbox\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Content\lightbox\js\lightbox.js" />
+    <Content Include="Content\lightbox\js\lightbox.min.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\style_backup.css" />
+    <Content Include="Content\touch.css" />
+    <Content Include="external\animated-header\css\component.css" />
+    <Content Include="external\animated-header\img\demo-1-bg.jpg" />
+    <Content Include="external\animated-header\img\demo-2-bg.jpg" />
+    <Content Include="external\animated-header\js\animation-bubble-fixed.js" />
+    <Content Include="external\animated-header\js\animation-bubble.js" />
+    <Content Include="external\animated-header\js\EasePack.min.js" />
+    <Content Include="external\animated-header\js\header-animate.js" />
+    <Content Include="external\animated-header\js\rAF.js" />
+    <Content Include="external\animated-header\js\TweenLite.min.js" />
+    <Content Include="external\bootstrap-datepicker\bootstrap-datepicker.js" />
+    <Content Include="external\bootstrap-datepicker\datepicker.css" />
+    <Content Include="external\bootstrap-select\bootstrap-select.css" />
+    <Content Include="external\bootstrap-select\bootstrap-select.js" />
+    <Content Include="external\classList\classList.js" />
+    <Content Include="external\count\count.down.js" />
+    <Content Include="external\flexslider\flexslider.css" />
+    <Content Include="external\flexslider\jquery.flexslider-min.js" />
+    <Content Include="external\flickr\colorbox.css" />
+    <Content Include="external\flickr\images\border.png" />
+    <Content Include="external\flickr\images\controls.png" />
+    <Content Include="external\flickr\images\loading.gif" />
+    <Content Include="external\flickr\images\loading_background.png" />
+    <Content Include="external\flickr\images\overlay.png" />
+    <Content Include="external\flickr\jflickrfeed.js" />
+    <Content Include="external\flickr\jquery.colorbox.js" />
+    <Content Include="external\galleriffic\jquery.galleriffic.js" />
+    <Content Include="external\GC\GreatCircle.js" />
+    <Content Include="external\GC\JSLINQ.js" />
+    <Content Include="external\GC\moment.js" />
+    <Content Include="external\inview\jquery.inview.js" />
+    <Content Include="external\isotope\isotope.css" />
+    <Content Include="external\isotope\jquery.isotope.js" />
+    <Content Include="external\jquery\jquery-1.10.1.min.js" />
+    <Content Include="external\knob\jquery.knob.js" />
+    <Content Include="external\livicons\livicons-1.3.min.js" />
+    <Content Include="external\livicons\raphael-min.js" />
+    <Content Include="external\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="external\magnific-popup\magnific-popup.css" />
+    <Content Include="external\mCustomScrollbar\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="external\mCustomScrollbar\jquery.mCustomScrollbar.css" />
+    <Content Include="external\modernizr\modernizr.custom.js" />
+    <Content Include="external\page-pilling\jquery.pagepiling.css" />
+    <Content Include="external\page-pilling\jquery.pagepiling.js" />
+    <Content Include="external\page-pilling\jquery.pagepiling.min.js" />
+    <Content Include="external\quickview\css\style.css" />
+    <Content Include="external\quickview\js\main.js" />
+    <Content Include="external\quickview\js\velocity.min.js" />
+    <Content Include="external\range-slider\jquery.nouislider.css" />
+    <Content Include="external\range-slider\jquery.nouislider.min.js" />
+    <Content Include="external\raty\images\cancel-off.png" />
+    <Content Include="external\raty\images\cancel-on.png" />
+    <Content Include="external\raty\images\star-half.png" />
+    <Content Include="external\raty\images\star-off.png" />
+    <Content Include="external\raty\images\star-off.svg" />
+    <Content Include="external\raty\images\star-on.png" />
+    <Content Include="external\raty\images\star-on.svg" />
+    <Content Include="external\raty\jquery.raty.css" />
+    <Content Include="external\raty\jquery.raty.js" />
+    <Content Include="external\royalslider\grab.png" />
+    <Content Include="external\royalslider\grabbing.png" />
+    <Content Include="external\royalslider\jquery.easing-1.3.js" />
+    <Content Include="external\royalslider\jquery.royalslider.min.js" />
+    <Content Include="external\royalslider\royalslider.css" />
+    <Content Include="external\rs-plugin\assets\arrowleft.png" />
+    <Content Include="external\rs-plugin\assets\arrowright.png" />
+    <Content Include="external\rs-plugin\assets\arrow_large_left.png" />
+    <Content Include="external\rs-plugin\assets\arrow_large_right.png" />
+    <Content Include="external\rs-plugin\assets\arrow_left.png" />
+    <Content Include="external\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="external\rs-plugin\assets\arrow_right.png" />
+    <Content Include="external\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="external\rs-plugin\assets\black50.png" />
+    <Content Include="external\rs-plugin\assets\boxed_bgtile.png" />
+    <Content Include="external\rs-plugin\assets\bullet.png" />
+    <Content Include="external\rs-plugin\assets\bullets.png" />
+    <Content Include="external\rs-plugin\assets\bullets2.png" />
+    <Content Include="external\rs-plugin\assets\bullet_boxed.png" />
+    <Content Include="external\rs-plugin\assets\coloredbg.png" />
+    <Content Include="external\rs-plugin\assets\grain.png" />
+    <Content Include="external\rs-plugin\assets\gridtile.png" />
+    <Content Include="external\rs-plugin\assets\gridtile_3x3.png" />
+    <Content Include="external\rs-plugin\assets\gridtile_3x3_white.png" />
+    <Content Include="external\rs-plugin\assets\gridtile_white.png" />
+    <Content Include="external\rs-plugin\assets\large_left.png" />
+    <Content Include="external\rs-plugin\assets\large_right.png" />
+    <Content Include="external\rs-plugin\assets\loader.gif" />
+    <Content Include="external\rs-plugin\assets\loader2.gif" />
+    <Content Include="external\rs-plugin\assets\navigdots.png" />
+    <Content Include="external\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="external\rs-plugin\assets\shadow1.png" />
+    <Content Include="external\rs-plugin\assets\shadow2.png" />
+    <Content Include="external\rs-plugin\assets\shadow3.png" />
+    <Content Include="external\rs-plugin\assets\small_left.png" />
+    <Content Include="external\rs-plugin\assets\small_left_boxed.png" />
+    <Content Include="external\rs-plugin\assets\small_right.png" />
+    <Content Include="external\rs-plugin\assets\small_right_boxed.png" />
+    <Content Include="external\rs-plugin\assets\timer.png" />
+    <Content Include="external\rs-plugin\assets\timerdot.png" />
+    <Content Include="external\rs-plugin\assets\transparent.jpg" />
+    <Content Include="external\rs-plugin\assets\white50.png" />
+    <Content Include="external\rs-plugin\css\settings-ie8.css" />
+    <Content Include="external\rs-plugin\css\settings.css" />
+    <Content Include="external\rs-plugin\font\revicons.svg" />
+    <Content Include="external\rs-plugin\images\decor_inside.png" />
+    <Content Include="external\rs-plugin\images\decor_inside_white.png" />
+    <Content Include="external\rs-plugin\images\decor_testimonial.png" />
+    <Content Include="external\rs-plugin\images\gradient\g30.png" />
+    <Content Include="external\rs-plugin\images\gradient\g40.png" />
+    <Content Include="external\rs-plugin\js\jquery.themepunch.enablelog.js" />
+    <Content Include="external\rs-plugin\js\jquery.themepunch.revolution.js" />
+    <Content Include="external\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="external\rs-plugin\js\jquery.themepunch.tools.min.js" />
+    <Content Include="external\scrollto\jquery.scrollTo.min.js" />
+    <Content Include="external\SmoothScroll\SmoothScroll.js" />
+    <Content Include="external\snow\min\rectangleEmitter.min.js" />
+    <Content Include="external\snow\min\snow.min.js" />
+    <Content Include="external\snow\rectangleEmitter.js" />
+    <Content Include="external\snow\snow.js" />
+    <Content Include="external\swiper\idangerous.swiper.css" />
+    <Content Include="external\swiper\idangerous.swiper.js" />
+    <Content Include="external\tabs\cbpFWTabs.js" />
+    <Content Include="external\tabs\tabs.css" />
+    <Content Include="external\tabs\tabstyles.css" />
+    <Content Include="external\tooltip\images\tooltip1.svg" />
+    <Content Include="external\tooltip\images\tooltip2.svg" />
+    <Content Include="external\tooltip\images\tooltip3.png" />
+    <Content Include="external\tooltip\images\tooltip3.svg" />
+    <Content Include="external\tooltip\images\tooltip4.svg" />
+    <Content Include="external\tooltip\tooltip-box.css" />
+    <Content Include="external\tooltip\tooltip-classic.css" />
+    <Content Include="external\tooltip\tooltip-flip.css" />
+    <Content Include="external\tooltip\tooltip-line.css" />
+    <Content Include="external\tooltip\tooltip-round.css" />
+    <Content Include="external\twitterfeed\twitterfeed.js" />
+    <Content Include="external\waypoint\waypoints.min.js" />
+    <Content Include="external\z-nav\jquery.mobile.menu.js" />
+    <Content Include="external\z-nav\z-nav.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\about-img.jpg" />
+    <Content Include="images\ADSB.png" />
+    <Content Include="images\AirborneBaseSystem.png" />
+    <Content Include="images\AirborneC100.png" />
+    <Content Include="images\AirborneC200.png" />
+    <Content Include="images\AirborneD500.png" />
+    <Content Include="images\AirborneDemoKit.png" />
+    <Content Include="images\AirborneS100.png" />
+    <Content Include="images\AirborneS200.png" />
+    <Content Include="images\AirborneSensors.png" />
+    <Content Include="images\airvehicledash.png" />
+    <Content Include="images\AirWave.png" />
+    <Content Include="images\alerts.png" />
+    <Content Include="images\app-store.png" />
+    <Content Include="images\captcha.png" />
+    <Content Include="images\chat.jpg" />
+    <Content Include="images\comm.png" />
+    <Content Include="images\components\badge.png" />
+    <Content Include="images\components\blanck.png" />
+    <Content Include="images\components\brand-circle-large.png" />
+    <Content Include="images\components\brand-circle.png" />
+    <Content Include="images\components\browser.png" />
+    <Content Include="images\components\comming-soon.jpg" />
+    <Content Include="images\components\corner-1.png" />
+    <Content Include="images\components\corner-2.png" />
+    <Content Include="images\components\corner-3.png" />
+    <Content Include="images\components\count-pattern.jpg" />
+    <Content Include="images\components\dashboard1.png" />
+    <Content Include="images\components\dashboard2.png" />
+    <Content Include="images\components\dashboards.png" />
+    <Content Include="images\components\error-stars.png" />
+    <Content Include="images\components\error.png" />
+    <Content Include="images\components\footer-stars.png" />
+    <Content Include="images\components\icon-bg.png" />
+    <Content Include="images\components\icons-bg.png" />
+    <Content Include="images\components\illustration.png" />
+    <Content Include="images\components\illustration2x.png" />
+    <Content Include="images\components\laptop.jpg" />
+    <Content Include="images\components\link-underline-hover.svg" />
+    <Content Include="images\components\link-underline.svg" />
+    <Content Include="images\components\marker.png" />
+    <Content Include="images\components\planet-huge.png" />
+    <Content Include="images\components\planet-large.png" />
+    <Content Include="images\components\planet-small.png" />
+    <Content Include="images\components\progress-stripe-angle.png" />
+    <Content Include="images\components\progress-stripe.png" />
+    <Content Include="images\components\promo-brand.jpg" />
+    <Content Include="images\components\promo-brand.png" />
+    <Content Include="images\components\promo-primary.png" />
+    <Content Include="images\components\rocket-path-sm.png" />
+    <Content Include="images\components\rocket-path.png" />
+    <Content Include="images\components\rocket.png" />
+    <Content Include="images\components\rockets.png" />
+    <Content Include="images\components\snowflake-hover.svg" />
+    <Content Include="images\components\snowflake.svg" />
+    <Content Include="images\components\strip-bottom.png" />
+    <Content Include="images\components\strip-left.png" />
+    <Content Include="images\components\strip-right.png" />
+    <Content Include="images\components\strip-top.png" />
+    <Content Include="images\components\stripe.png" />
+    <Content Include="images\components\twiiter.jpg" />
+    <Content Include="images\error.png" />
+    <Content Include="images\flightpath-icon.png" />
+    <Content Include="images\flightplan.png" />
+    <Content Include="images\history.png" />
+    <Content Include="images\homepage-assets\icon-bg.png" />
+    <Content Include="images\icons\android-dark.svg" />
+    <Content Include="images\icons\android.svg" />
+    <Content Include="images\icons\apple-dark.svg" />
+    <Content Include="images\icons\apple.svg" />
+    <Content Include="images\icons\arrow-smooth.svg" />
+    <Content Include="images\icons\chart.svg" />
+    <Content Include="images\icons\cloud--decorated.svg" />
+    <Content Include="images\icons\code.svg" />
+    <Content Include="images\icons\desktop-decorated.svg" />
+    <Content Include="images\icons\desktop.svg" />
+    <Content Include="images\icons\fave-hover.svg" />
+    <Content Include="images\icons\fave-null.svg" />
+    <Content Include="images\icons\fave-sp.svg" />
+    <Content Include="images\icons\fave.svg" />
+    <Content Include="images\icons\menu-icon.svg" />
+    <Content Include="images\icons\mouse.svg" />
+    <Content Include="images\icons\quality.svg" />
+    <Content Include="images\icons\radio-check.svg" />
+    <Content Include="images\icons\reply-hover.svg" />
+    <Content Include="images\icons\reply-null.svg" />
+    <Content Include="images\icons\reply-sp.svg" />
+    <Content Include="images\icons\reply.svg" />
+    <Content Include="images\icons\retweet-hover.svg" />
+    <Content Include="images\icons\retweet-null.svg" />
+    <Content Include="images\icons\retweet-sp.svg" />
+    <Content Include="images\icons\retweet.svg" />
+    <Content Include="images\icons\rocket-decorated.svg" />
+    <Content Include="images\icons\sparkle-large.svg" />
+    <Content Include="images\icons\sparkle-null.svg" />
+    <Content Include="images\icons\sparkle.svg" />
+    <Content Include="images\icons\star-off.svg" />
+    <Content Include="images\icons\star-on.svg" />
+    <Content Include="images\icons\star.svg" />
+    <Content Include="images\icons\stars.svg" />
+    <Content Include="images\icons\support.svg" />
+    <Content Include="images\icons\three-lines.svg" />
+    <Content Include="images\icons\track.svg" />
+    <Content Include="images\icons\users-decorated.svg" />
+    <Content Include="images\install.png" />
+    <Content Include="images\invented.png" />
+    <Content Include="images\joystick.png" />
+    <Content Include="images\logo-full-light.png" />
+    <Content Include="images\logo-small.png" />
+    <Content Include="images\mail.png" />
+    <Content Include="images\mobile-icon.png" />
+    <Content Include="images\mobileapp.png" />
+    <Content Include="images\nextgen-icon.png" />
+    <Content Include="images\notice-icon.png" />
+    <Content Include="images\paypal.png" />
+    <Content Include="images\play-store.png" />
+    <Content Include="images\praxislogo.png" />
+    <Content Include="images\Products\500-2.jpg" />
+    <Content Include="images\Products\600X500-1.jpg" />
+    <Content Include="images\Products\AccessPoint.png" />
+    <Content Include="images\Products\AirborneBaseSystem.png" />
+    <Content Include="images\Products\AirborneC100.png" />
+    <Content Include="images\Products\AirborneC200.png" />
+    <Content Include="images\Products\AirborneD500.png" />
+    <Content Include="images\Products\AirborneS100.png" />
+    <Content Include="images\Products\AirborneS200.png" />
+    <Content Include="images\Products\AirborneSensors.png" />
+    <Content Include="images\Products\alerts.png" />
+    <Content Include="images\Products\basketball.jpg" />
+    <Content Include="images\Products\blank.gif" />
+    <Content Include="images\Products\CD.png" />
+    <Content Include="images\Products\church3.jpg" />
+    <Content Include="images\Products\church4.jpg" />
+    <Content Include="images\Products\cricket.jpg" />
+    <Content Include="images\Products\DesktopComputer.png" />
+    <Content Include="images\Products\download %281%29.jpg" />
+    <Content Include="images\Products\download.jpg" />
+    <Content Include="images\Products\DVD.png" />
+    <Content Include="images\Products\DVDPlayer.png" />
+    <Content Include="images\Products\Floppy.png" />
+    <Content Include="images\Products\football.jpg" />
+    <Content Include="images\Products\HDD.png" />
+    <Content Include="images\Products\hockey.jpg" />
+    <Content Include="images\Products\img2.png" />
+    <Content Include="images\Products\img3.png" />
+    <Content Include="images\Products\img4.png" />
+    <Content Include="images\Products\img6.png" />
+    <Content Include="images\Products\joystick.png" />
+    <Content Include="images\Products\logo2.jpg" />
+    <Content Include="images\Products\MobilePhone.png" />
+    <Content Include="images\Products\Mouse.png" />
+    <Content Include="images\Products\MultimediaPlayer.png" />
+    <Content Include="images\Products\Notebook.png" />
+    <Content Include="images\Products\Printer.png" />
+    <Content Include="images\Products\RAM.png" />
+    <Content Include="images\Products\SmartPhone.png" />
+    <Content Include="images\Products\tennis.jpg" />
+    <Content Include="images\Products\track.png" />
+    <Content Include="images\Products\training.png" />
+    <Content Include="images\Products\USB.png" />
+    <Content Include="images\safety-icon.png" />
+    <Content Include="images\safety.png" />
+    <Content Include="images\security.png" />
+    <Content Include="images\slider\full-width\4.jpg" />
+    <Content Include="images\slider\full-width\brand-phone.png" />
+    <Content Include="images\slider\full-width\image1.jpg" />
+    <Content Include="images\slider\full-width\image2-alt.jpg" />
+    <Content Include="images\slider\full-width\image2.jpg" />
+    <Content Include="images\slider\full-width\image3-alt.jpg" />
+    <Content Include="images\slider\full-width\image3.jpg" />
+    <Content Include="images\slider\full-width\image4.jpg" />
+    <Content Include="images\slider\full-width\image5.jpg" />
+    <Content Include="images\slider\full-width\image6.jpg" />
+    <Content Include="images\slider\full-width\ipads.png" />
+    <Content Include="images\slider\full-width\laptop.png" />
+    <Content Include="images\slider\full-width\secondary.jpg" />
+    <Content Include="images\slider\full-width\thumb1.jpg" />
+    <Content Include="images\slider\full-width\thumb2.jpg" />
+    <Content Include="images\slider\full-width\thumb3.jpg" />
+    <Content Include="images\slider\safety-icon.png" />
+    <Content Include="images\spinner.gif" />
+    <Content Include="images\system-icon.png" />
+    <Content Include="images\systems.png" />
+    <Content Include="images\track.png" />
+    <Content Include="images\training.png" />
+    <Content Include="img\flags.png" />
+    <Content Include="img\EmailLogo.png" />
+    <Content Include="Mailer\ForgotPasswordMail.html" />
+    <Content Include="Mailer\PurchaseOrderMail.html" />
+    <Content Include="Mailer\PurchaseOrderMail_old.html" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Scripts\angular-file-upload.js" />
+    <Content Include="Scripts\angular-loader.js" />
+    <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-message-format.js" />
+    <Content Include="Scripts\angular-message-format.min.js" />
+    <Content Include="Scripts\angular-messages.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-parse-ext.js" />
+    <Content Include="Scripts\angular-parse-ext.min.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-sanitize.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-scenario.js" />
+    <Content Include="Scripts\angular-touch.js" />
+    <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Angular\angular-material.js" />
+    <Content Include="Scripts\Angular\AngularCustom.css" />
+    <Content Include="Scripts\Angular\CartController.js" />
+    <Content Include="Scripts\Angular\Controllers.js" />
+    <Content Include="Scripts\Angular\External_Addtocart.js" />
+    <Content Include="Scripts\Angular\Modules.js" />
+    <Content Include="Scripts\Angular\OrdermanagerController.js" />
+    <Content Include="Scripts\Angular\Services.js" />
+    <Content Include="Scripts\Angular\shoppingController.js" />
+    <Content Include="Scripts\Angular\svg-assets-cache.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="external\bootstrap\less\.csscomb.json" />
+    <Content Include="external\bootstrap\less\.csslintrc" />
+    <Content Include="external\bootstrap\less\alerts.less" />
+    <Content Include="external\bootstrap\less\badges.less" />
+    <Content Include="external\bootstrap\less\bootstrap.less" />
+    <Content Include="external\bootstrap\less\breadcrumbs.less" />
+    <Content Include="external\bootstrap\less\button-groups.less" />
+    <Content Include="external\bootstrap\less\buttons.less" />
+    <Content Include="external\bootstrap\less\carousel.less" />
+    <Content Include="external\bootstrap\less\close.less" />
+    <Content Include="external\bootstrap\less\code.less" />
+    <Content Include="external\bootstrap\less\component-animations.less" />
+    <Content Include="external\bootstrap\less\dropdowns.less" />
+    <Content Include="external\bootstrap\less\forms.less" />
+    <Content Include="external\bootstrap\less\glyphicons.less" />
+    <Content Include="external\bootstrap\less\grid.less" />
+    <Content Include="external\bootstrap\less\input-groups.less" />
+    <Content Include="external\bootstrap\less\jumbotron.less" />
+    <Content Include="external\bootstrap\less\labels.less" />
+    <Content Include="external\bootstrap\less\list-group.less" />
+    <Content Include="external\bootstrap\less\media.less" />
+    <Content Include="external\bootstrap\less\mixins.less" />
+    <Content Include="external\bootstrap\less\mixins\alerts.less" />
+    <Content Include="external\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="external\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="external\bootstrap\less\mixins\buttons.less" />
+    <Content Include="external\bootstrap\less\mixins\center-block.less" />
+    <Content Include="external\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="external\bootstrap\less\mixins\forms.less" />
+    <Content Include="external\bootstrap\less\mixins\gradients.less" />
+    <Content Include="external\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="external\bootstrap\less\mixins\grid.less" />
+    <Content Include="external\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="external\bootstrap\less\mixins\image.less" />
+    <Content Include="external\bootstrap\less\mixins\labels.less" />
+    <Content Include="external\bootstrap\less\mixins\list-group.less" />
+    <Content Include="external\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="external\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="external\bootstrap\less\mixins\opacity.less" />
+    <Content Include="external\bootstrap\less\mixins\pagination.less" />
+    <Content Include="external\bootstrap\less\mixins\panels.less" />
+    <Content Include="external\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="external\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="external\bootstrap\less\mixins\resize.less" />
+    <Content Include="external\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="external\bootstrap\less\mixins\size.less" />
+    <Content Include="external\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="external\bootstrap\less\mixins\table-row.less" />
+    <Content Include="external\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="external\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="external\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="external\bootstrap\less\modals.less" />
+    <Content Include="external\bootstrap\less\navbar.less" />
+    <Content Include="external\bootstrap\less\navs.less" />
+    <Content Include="external\bootstrap\less\normalize.less" />
+    <Content Include="external\bootstrap\less\pager.less" />
+    <Content Include="external\bootstrap\less\pagination.less" />
+    <Content Include="external\bootstrap\less\panels.less" />
+    <Content Include="external\bootstrap\less\popovers.less" />
+    <Content Include="external\bootstrap\less\print.less" />
+    <Content Include="external\bootstrap\less\progress-bars.less" />
+    <Content Include="external\bootstrap\less\responsive-embed.less" />
+    <Content Include="external\bootstrap\less\responsive-utilities.less" />
+    <Content Include="external\bootstrap\less\scaffolding.less" />
+    <Content Include="external\bootstrap\less\tables.less" />
+    <Content Include="external\bootstrap\less\theme.less" />
+    <Content Include="external\bootstrap\less\thumbnails.less" />
+    <Content Include="external\bootstrap\less\tooltip.less" />
+    <Content Include="external\bootstrap\less\type.less" />
+    <Content Include="external\bootstrap\less\utilities.less" />
+    <Content Include="external\bootstrap\less\variables.less" />
+    <Content Include="external\bootstrap\less\wells.less" />
+    <Content Include="external\rs-plugin\assets\arrows.psd" />
+    <Content Include="external\rs-plugin\assets\bullets.psd" />
+    <Content Include="external\rs-plugin\assets\small_arrows.psd" />
+    <Content Include="external\rs-plugin\font\revicons.eot" />
+    <Content Include="external\rs-plugin\font\revicons.ttf" />
+    <Content Include="external\rs-plugin\font\revicons.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\fonts\museosans-300-webfont.eot" />
+    <Content Include="assets\fonts\museosans-300-webfont.ttf" />
+    <Content Include="assets\fonts\museosans-300-webfont.woff" />
+    <Content Include="assets\fonts\museosans-300-webfont.woff2" />
+    <Content Include="assets\fonts\museosans_500-webfont.eot" />
+    <Content Include="assets\fonts\museosans_500-webfont.ttf" />
+    <Content Include="assets\fonts\museosans_500-webfont.woff" />
+    <Content Include="assets\fonts\museosans_500-webfont.woff2" />
+    <Content Include="assets\fonts\museosans_700-webfont.eot" />
+    <Content Include="assets\fonts\museosans_700-webfont.ttf" />
+    <Content Include="assets\fonts\museosans_700-webfont.woff" />
+    <Content Include="assets\fonts\museosans_700-webfont.woff2" />
+    <Content Include="assets\fonts\museosans_900-webfont.eot" />
+    <Content Include="assets\fonts\museosans_900-webfont.ttf" />
+    <Content Include="assets\fonts\museosans_900-webfont.woff" />
+    <Content Include="assets\fonts\museosans_900-webfont.woff2" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\css\jquery-confirm.less" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\FontAwesome.otf" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\js\plugins\craftpip-jquery-confirm\README.md" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\css\jquery-confirm.less" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\FontAwesome.otf" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\demo\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\js\services\plugins\craftpip-jquery-confirm\README.md" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Shopping\Views\web.config" />
+    <Content Include="Areas\Shopping\Views\Paypal\FailureView.cshtml" />
+    <Content Include="Areas\Shopping\Views\Paypal\SuccessView.cshtml" />
+    <Content Include="Areas\Shopping\Views\Product\Buynow.cshtml" />
+    <Content Include="Areas\Shopping\Views\Product\Cart.cshtml" />
+    <Content Include="Areas\Shopping\Views\Product\Detail.cshtml" />
+    <Content Include="Areas\Shopping\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderManager\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderManager\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\StoreManager\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\StoreManager\Index.cshtml" />
+    <Content Include="Areas\Shopping\Views\_ViewStart.cshtml" />
+    <Content Include="Content\lightbox\js\lightbox-plus-jquery.min.map" />
+    <Content Include="Content\lightbox\js\lightbox.min.map" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <None Include="Properties\PublishProfiles\airbornefrs.com.pubxml" />
+    <None Include="Properties\PublishProfiles\airbornWebsite.pubxml" />
+    <Content Include="Scripts\errors.json" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-parse-ext.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-message-format.min.js.map" />
+    <Content Include="Scripts\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\custom.min.js" />
+    <Content Include="Scripts\form.js" />
+    <Content Include="Scripts\formValidation.min.js" />
+    <Content Include="Scripts\i18n\angular-locale_af-na.js" />
+    <Content Include="Scripts\i18n\angular-locale_af-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_af.js" />
+    <Content Include="Scripts\i18n\angular-locale_agq-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_agq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ak-gh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ak.js" />
+    <Content Include="Scripts\i18n\angular-locale_am-et.js" />
+    <Content Include="Scripts\i18n\angular-locale_am.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ae.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-bh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-dj.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-dz.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-eg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-eh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-er.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-il.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-iq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-jo.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-km.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-kw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-lb.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ly.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-mr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-om.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ps.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-qa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sd.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-so.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ss.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sy.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-td.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-tn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-xb.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ye.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar.js" />
+    <Content Include="Scripts\i18n\angular-locale_as-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_as.js" />
+    <Content Include="Scripts\i18n\angular-locale_asa-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_asa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ast-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_ast.js" />
+    <Content Include="Scripts\i18n\angular-locale_az-cyrl-az.js" />
+    <Content Include="Scripts\i18n\angular-locale_az-cyrl.js" />
+    <Content Include="Scripts\i18n\angular-locale_az-latn-az.js" />
+    <Content Include="Scripts\i18n\angular-locale_az-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_az.js" />
+    <Content Include="Scripts\i18n\angular-locale_bas-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_bas.js" />
+    <Content Include="Scripts\i18n\angular-locale_be-by.js" />
+    <Content Include="Scripts\i18n\angular-locale_be.js" />
+    <Content Include="Scripts\i18n\angular-locale_bem-zm.js" />
+    <Content Include="Scripts\i18n\angular-locale_bem.js" />
+    <Content Include="Scripts\i18n\angular-locale_bez-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_bez.js" />
+    <Content Include="Scripts\i18n\angular-locale_bg-bg.js" />
+    <Content Include="Scripts\i18n\angular-locale_bg.js" />
+    <Content Include="Scripts\i18n\angular-locale_bm-ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_bm.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn-bd.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn.js" />
+    <Content Include="Scripts\i18n\angular-locale_bo-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_bo-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_bo.js" />
+    <Content Include="Scripts\i18n\angular-locale_br-fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_br.js" />
+    <Content Include="Scripts\i18n\angular-locale_brx-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_brx.js" />
+    <Content Include="Scripts\i18n\angular-locale_bs-cyrl-ba.js" />
+    <Content Include="Scripts\i18n\angular-locale_bs-cyrl.js" />
+    <Content Include="Scripts\i18n\angular-locale_bs-latn-ba.js" />
+    <Content Include="Scripts\i18n\angular-locale_bs-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_bs.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-ad.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-es-valencia.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-it.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_ce-ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_ce.js" />
+    <Content Include="Scripts\i18n\angular-locale_cgg-ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_cgg.js" />
+    <Content Include="Scripts\i18n\angular-locale_chr-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_chr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb-arab-iq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb-arab-ir.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb-arab.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb-iq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb-ir.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb-latn-iq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ckb.js" />
+    <Content Include="Scripts\i18n\angular-locale_cs-cz.js" />
+    <Content Include="Scripts\i18n\angular-locale_cs.js" />
+    <Content Include="Scripts\i18n\angular-locale_cu-ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_cu.js" />
+    <Content Include="Scripts\i18n\angular-locale_cy-gb.js" />
+    <Content Include="Scripts\i18n\angular-locale_cy.js" />
+    <Content Include="Scripts\i18n\angular-locale_da-dk.js" />
+    <Content Include="Scripts\i18n\angular-locale_da-gl.js" />
+    <Content Include="Scripts\i18n\angular-locale_da.js" />
+    <Content Include="Scripts\i18n\angular-locale_dav-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_dav.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-at.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-de.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-li.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_de.js" />
+    <Content Include="Scripts\i18n\angular-locale_dje-ne.js" />
+    <Content Include="Scripts\i18n\angular-locale_dje.js" />
+    <Content Include="Scripts\i18n\angular-locale_dsb-de.js" />
+    <Content Include="Scripts\i18n\angular-locale_dsb.js" />
+    <Content Include="Scripts\i18n\angular-locale_dua-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_dua.js" />
+    <Content Include="Scripts\i18n\angular-locale_dyo-sn.js" />
+    <Content Include="Scripts\i18n\angular-locale_dyo.js" />
+    <Content Include="Scripts\i18n\angular-locale_dz-bt.js" />
+    <Content Include="Scripts\i18n\angular-locale_dz.js" />
+    <Content Include="Scripts\i18n\angular-locale_ebu-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_ebu.js" />
+    <Content Include="Scripts\i18n\angular-locale_ee-gh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ee-tg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ee.js" />
+    <Content Include="Scripts\i18n\angular-locale_el-cy.js" />
+    <Content Include="Scripts\i18n\angular-locale_el-gr.js" />
+    <Content Include="Scripts\i18n\angular-locale_el.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-150.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ag.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ai.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-as.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-at.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-au.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bb.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bi.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bs.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-cc.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ck.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-cx.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-cy.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-de.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-dg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-dk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-dm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-er.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-fj.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-fk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-fm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gb.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gd.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gh.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gi.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gy.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ie.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-il.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-im.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-io.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-iso.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-je.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-jm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ki.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-kn.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ky.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-lc.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-lr.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ls.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mh.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mo.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mp.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ms.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-my.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-na.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-nf.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ng.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-nr.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-nu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-nz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pn.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pr.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-rw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sb.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sc.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sd.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-se.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sh.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-si.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sl.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ss.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sx.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tc.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-to.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tv.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-um.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vc.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vi.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ws.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-xa.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-zm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-zw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\i18n\angular-locale_eo-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_eo.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-419.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ar.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-bo.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-br.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-cl.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-co.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-cr.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-cu.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-do.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ea.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ec.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-gq.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-gt.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-hn.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ic.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-mx.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ni.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pa.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pe.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pr.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-py.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-sv.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-uy.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ve.js" />
+    <Content Include="Scripts\i18n\angular-locale_es.js" />
+    <Content Include="Scripts\i18n\angular-locale_et-ee.js" />
+    <Content Include="Scripts\i18n\angular-locale_et.js" />
+    <Content Include="Scripts\i18n\angular-locale_eu-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_eu.js" />
+    <Content Include="Scripts\i18n\angular-locale_ewo-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_ewo.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa-af.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa-ir.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ff-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_ff-gn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ff-mr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ff-sn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ff.js" />
+    <Content Include="Scripts\i18n\angular-locale_fi-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fil-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_fil.js" />
+    <Content Include="Scripts\i18n\angular-locale_fo-dk.js" />
+    <Content Include="Scripts\i18n\angular-locale_fo-fo.js" />
+    <Content Include="Scripts\i18n\angular-locale_fo.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bj.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bl.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ci.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-dj.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-dz.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ga.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gn.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gp.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gq.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ht.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-km.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mc.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mq.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mr.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mu.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-nc.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ne.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-pf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-pm.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-re.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-rw.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-sc.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-sn.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-sy.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-td.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-tg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-tn.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-vu.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-wf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-yt.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_fur-it.js" />
+    <Content Include="Scripts\i18n\angular-locale_fur.js" />
+    <Content Include="Scripts\i18n\angular-locale_fy-nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_fy.js" />
+    <Content Include="Scripts\i18n\angular-locale_ga-ie.js" />
+    <Content Include="Scripts\i18n\angular-locale_ga.js" />
+    <Content Include="Scripts\i18n\angular-locale_gd-gb.js" />
+    <Content Include="Scripts\i18n\angular-locale_gd.js" />
+    <Content Include="Scripts\i18n\angular-locale_gl-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_gl.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw-fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw-li.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw.js" />
+    <Content Include="Scripts\i18n\angular-locale_gu-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_gu.js" />
+    <Content Include="Scripts\i18n\angular-locale_guz-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_guz.js" />
+    <Content Include="Scripts\i18n\angular-locale_gv-im.js" />
+    <Content Include="Scripts\i18n\angular-locale_gv.js" />
+    <Content Include="Scripts\i18n\angular-locale_ha-gh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ha-ne.js" />
+    <Content Include="Scripts\i18n\angular-locale_ha-ng.js" />
+    <Content Include="Scripts\i18n\angular-locale_ha.js" />
+    <Content Include="Scripts\i18n\angular-locale_haw-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_haw.js" />
+    <Content Include="Scripts\i18n\angular-locale_he-il.js" />
+    <Content Include="Scripts\i18n\angular-locale_he.js" />
+    <Content Include="Scripts\i18n\angular-locale_hi-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_hi.js" />
+    <Content Include="Scripts\i18n\angular-locale_hr-ba.js" />
+    <Content Include="Scripts\i18n\angular-locale_hr-hr.js" />
+    <Content Include="Scripts\i18n\angular-locale_hr.js" />
+    <Content Include="Scripts\i18n\angular-locale_hsb-de.js" />
+    <Content Include="Scripts\i18n\angular-locale_hsb.js" />
+    <Content Include="Scripts\i18n\angular-locale_hu-hu.js" />
+    <Content Include="Scripts\i18n\angular-locale_hu.js" />
+    <Content Include="Scripts\i18n\angular-locale_hy-am.js" />
+    <Content Include="Scripts\i18n\angular-locale_hy.js" />
+    <Content Include="Scripts\i18n\angular-locale_id-id.js" />
+    <Content Include="Scripts\i18n\angular-locale_id.js" />
+    <Content Include="Scripts\i18n\angular-locale_ig-ng.js" />
+    <Content Include="Scripts\i18n\angular-locale_ig.js" />
+    <Content Include="Scripts\i18n\angular-locale_ii-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ii.js" />
+    <Content Include="Scripts\i18n\angular-locale_in.js" />
+    <Content Include="Scripts\i18n\angular-locale_is-is.js" />
+    <Content Include="Scripts\i18n\angular-locale_is.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-it.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-sm.js" />
+    <Content Include="Scripts\i18n\angular-locale_it.js" />
+    <Content Include="Scripts\i18n\angular-locale_iw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ja-jp.js" />
+    <Content Include="Scripts\i18n\angular-locale_ja.js" />
+    <Content Include="Scripts\i18n\angular-locale_jgo-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_jgo.js" />
+    <Content Include="Scripts\i18n\angular-locale_jmc-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_jmc.js" />
+    <Content Include="Scripts\i18n\angular-locale_ka-ge.js" />
+    <Content Include="Scripts\i18n\angular-locale_ka.js" />
+    <Content Include="Scripts\i18n\angular-locale_kab-dz.js" />
+    <Content Include="Scripts\i18n\angular-locale_kab.js" />
+    <Content Include="Scripts\i18n\angular-locale_kam-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_kam.js" />
+    <Content Include="Scripts\i18n\angular-locale_kde-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_kde.js" />
+    <Content Include="Scripts\i18n\angular-locale_kea-cv.js" />
+    <Content Include="Scripts\i18n\angular-locale_kea.js" />
+    <Content Include="Scripts\i18n\angular-locale_khq-ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_khq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ki-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_ki.js" />
+    <Content Include="Scripts\i18n\angular-locale_kk-kz.js" />
+    <Content Include="Scripts\i18n\angular-locale_kk.js" />
+    <Content Include="Scripts\i18n\angular-locale_kkj-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_kkj.js" />
+    <Content Include="Scripts\i18n\angular-locale_kl-gl.js" />
+    <Content Include="Scripts\i18n\angular-locale_kl.js" />
+    <Content Include="Scripts\i18n\angular-locale_kln-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_kln.js" />
+    <Content Include="Scripts\i18n\angular-locale_km-kh.js" />
+    <Content Include="Scripts\i18n\angular-locale_km.js" />
+    <Content Include="Scripts\i18n\angular-locale_kn-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_kn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ko-kp.js" />
+    <Content Include="Scripts\i18n\angular-locale_ko-kr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ko.js" />
+    <Content Include="Scripts\i18n\angular-locale_kok-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_kok.js" />
+    <Content Include="Scripts\i18n\angular-locale_ks-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ks.js" />
+    <Content Include="Scripts\i18n\angular-locale_ksb-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_ksb.js" />
+    <Content Include="Scripts\i18n\angular-locale_ksf-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_ksf.js" />
+    <Content Include="Scripts\i18n\angular-locale_ksh-de.js" />
+    <Content Include="Scripts\i18n\angular-locale_ksh.js" />
+    <Content Include="Scripts\i18n\angular-locale_kw-gb.js" />
+    <Content Include="Scripts\i18n\angular-locale_kw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ky-kg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ky.js" />
+    <Content Include="Scripts\i18n\angular-locale_lag-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_lag.js" />
+    <Content Include="Scripts\i18n\angular-locale_lb-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_lb.js" />
+    <Content Include="Scripts\i18n\angular-locale_lg-ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_lg.js" />
+    <Content Include="Scripts\i18n\angular-locale_lkt-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_lkt.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln-ao.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln-cf.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln-cg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln.js" />
+    <Content Include="Scripts\i18n\angular-locale_lo-la.js" />
+    <Content Include="Scripts\i18n\angular-locale_lo.js" />
+    <Content Include="Scripts\i18n\angular-locale_lrc-iq.js" />
+    <Content Include="Scripts\i18n\angular-locale_lrc-ir.js" />
+    <Content Include="Scripts\i18n\angular-locale_lrc.js" />
+    <Content Include="Scripts\i18n\angular-locale_lt-lt.js" />
+    <Content Include="Scripts\i18n\angular-locale_lt.js" />
+    <Content Include="Scripts\i18n\angular-locale_lu-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_luo-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_luo.js" />
+    <Content Include="Scripts\i18n\angular-locale_luy-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_luy.js" />
+    <Content Include="Scripts\i18n\angular-locale_lv-lv.js" />
+    <Content Include="Scripts\i18n\angular-locale_lv.js" />
+    <Content Include="Scripts\i18n\angular-locale_mas-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_mas-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_mas.js" />
+    <Content Include="Scripts\i18n\angular-locale_mer-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_mer.js" />
+    <Content Include="Scripts\i18n\angular-locale_mfe-mu.js" />
+    <Content Include="Scripts\i18n\angular-locale_mfe.js" />
+    <Content Include="Scripts\i18n\angular-locale_mg-mg.js" />
+    <Content Include="Scripts\i18n\angular-locale_mg.js" />
+    <Content Include="Scripts\i18n\angular-locale_mgh-mz.js" />
+    <Content Include="Scripts\i18n\angular-locale_mgh.js" />
+    <Content Include="Scripts\i18n\angular-locale_mgo-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_mgo.js" />
+    <Content Include="Scripts\i18n\angular-locale_mk-mk.js" />
+    <Content Include="Scripts\i18n\angular-locale_mk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ml-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_mn-mn.js" />
+    <Content Include="Scripts\i18n\angular-locale_mn.js" />
+    <Content Include="Scripts\i18n\angular-locale_mr-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_mr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms-bn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms-my.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms-sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms.js" />
+    <Content Include="Scripts\i18n\angular-locale_mt-mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_mua-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_mua.js" />
+    <Content Include="Scripts\i18n\angular-locale_my-mm.js" />
+    <Content Include="Scripts\i18n\angular-locale_my.js" />
+    <Content Include="Scripts\i18n\angular-locale_mzn-ir.js" />
+    <Content Include="Scripts\i18n\angular-locale_mzn.js" />
+    <Content Include="Scripts\i18n\angular-locale_naq-na.js" />
+    <Content Include="Scripts\i18n\angular-locale_naq.js" />
+    <Content Include="Scripts\i18n\angular-locale_nb-no.js" />
+    <Content Include="Scripts\i18n\angular-locale_nb-sj.js" />
+    <Content Include="Scripts\i18n\angular-locale_nb.js" />
+    <Content Include="Scripts\i18n\angular-locale_nd-zw.js" />
+    <Content Include="Scripts\i18n\angular-locale_nd.js" />
+    <Content Include="Scripts\i18n\angular-locale_ne-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ne-np.js" />
+    <Content Include="Scripts\i18n\angular-locale_ne.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-aw.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-bq.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-cw.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-sr.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-sx.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_nmg-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_nmg.js" />
+    <Content Include="Scripts\i18n\angular-locale_nn-no.js" />
+    <Content Include="Scripts\i18n\angular-locale_nn.js" />
+    <Content Include="Scripts\i18n\angular-locale_nnh-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_nnh.js" />
+    <Content Include="Scripts\i18n\angular-locale_no-no.js" />
+    <Content Include="Scripts\i18n\angular-locale_no.js" />
+    <Content Include="Scripts\i18n\angular-locale_nus-ss.js" />
+    <Content Include="Scripts\i18n\angular-locale_nus.js" />
+    <Content Include="Scripts\i18n\angular-locale_nyn-ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_nyn.js" />
+    <Content Include="Scripts\i18n\angular-locale_om-et.js" />
+    <Content Include="Scripts\i18n\angular-locale_om-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_om.js" />
+    <Content Include="Scripts\i18n\angular-locale_or-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_or.js" />
+    <Content Include="Scripts\i18n\angular-locale_os-ge.js" />
+    <Content Include="Scripts\i18n\angular-locale_os-ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_os.js" />
+    <Content Include="Scripts\i18n\angular-locale_pa-arab-pk.js" />
+    <Content Include="Scripts\i18n\angular-locale_pa-arab.js" />
+    <Content Include="Scripts\i18n\angular-locale_pa-guru-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_pa-guru.js" />
+    <Content Include="Scripts\i18n\angular-locale_pa.js" />
+    <Content Include="Scripts\i18n\angular-locale_pl-pl.js" />
+    <Content Include="Scripts\i18n\angular-locale_pl.js" />
+    <Content Include="Scripts\i18n\angular-locale_prg-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_prg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ps-af.js" />
+    <Content Include="Scripts\i18n\angular-locale_ps.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-ao.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-br.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-cv.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-gq.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-gw.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-mo.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-mz.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-pt.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-st.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-tl.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt.js" />
+    <Content Include="Scripts\i18n\angular-locale_qu-bo.js" />
+    <Content Include="Scripts\i18n\angular-locale_qu-ec.js" />
+    <Content Include="Scripts\i18n\angular-locale_qu-pe.js" />
+    <Content Include="Scripts\i18n\angular-locale_qu.js" />
+    <Content Include="Scripts\i18n\angular-locale_rm-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_rm.js" />
+    <Content Include="Scripts\i18n\angular-locale_rn-bi.js" />
+    <Content Include="Scripts\i18n\angular-locale_rn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro-md.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro-ro.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro.js" />
+    <Content Include="Scripts\i18n\angular-locale_rof-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_rof.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-by.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-kg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-kz.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-md.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-ua.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_rw-rw.js" />
+    <Content Include="Scripts\i18n\angular-locale_rw.js" />
+    <Content Include="Scripts\i18n\angular-locale_rwk-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_rwk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sah-ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_sah.js" />
+    <Content Include="Scripts\i18n\angular-locale_saq-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_saq.js" />
+    <Content Include="Scripts\i18n\angular-locale_sbp-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_sbp.js" />
+    <Content Include="Scripts\i18n\angular-locale_se-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_se-no.js" />
+    <Content Include="Scripts\i18n\angular-locale_se-se.js" />
+    <Content Include="Scripts\i18n\angular-locale_se.js" />
+    <Content Include="Scripts\i18n\angular-locale_seh-mz.js" />
+    <Content Include="Scripts\i18n\angular-locale_seh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ses-ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_ses.js" />
+    <Content Include="Scripts\i18n\angular-locale_sg-cf.js" />
+    <Content Include="Scripts\i18n\angular-locale_sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_shi-latn-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_shi-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_shi-tfng-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_shi-tfng.js" />
+    <Content Include="Scripts\i18n\angular-locale_shi.js" />
+    <Content Include="Scripts\i18n\angular-locale_si-lk.js" />
+    <Content Include="Scripts\i18n\angular-locale_si.js" />
+    <Content Include="Scripts\i18n\angular-locale_sk-sk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sl-si.js" />
+    <Content Include="Scripts\i18n\angular-locale_sl.js" />
+    <Content Include="Scripts\i18n\angular-locale_smn-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_smn.js" />
+    <Content Include="Scripts\i18n\angular-locale_sn-zw.js" />
+    <Content Include="Scripts\i18n\angular-locale_sn.js" />
+    <Content Include="Scripts\i18n\angular-locale_so-dj.js" />
+    <Content Include="Scripts\i18n\angular-locale_so-et.js" />
+    <Content Include="Scripts\i18n\angular-locale_so-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_so-so.js" />
+    <Content Include="Scripts\i18n\angular-locale_so.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq-al.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq-mk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq-xk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-ba.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-me.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-rs.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-xk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-ba.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-me.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-rs.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-xk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv-ax.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv-se.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw-ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta-lk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta-my.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta-sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta.js" />
+    <Content Include="Scripts\i18n\angular-locale_te-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_te.js" />
+    <Content Include="Scripts\i18n\angular-locale_teo-ke.js" />
+    <Content Include="Scripts\i18n\angular-locale_teo-ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_teo.js" />
+    <Content Include="Scripts\i18n\angular-locale_th-th.js" />
+    <Content Include="Scripts\i18n\angular-locale_th.js" />
+    <Content Include="Scripts\i18n\angular-locale_ti-er.js" />
+    <Content Include="Scripts\i18n\angular-locale_ti-et.js" />
+    <Content Include="Scripts\i18n\angular-locale_ti.js" />
+    <Content Include="Scripts\i18n\angular-locale_tk-tm.js" />
+    <Content Include="Scripts\i18n\angular-locale_tk.js" />
+    <Content Include="Scripts\i18n\angular-locale_tl.js" />
+    <Content Include="Scripts\i18n\angular-locale_to-to.js" />
+    <Content Include="Scripts\i18n\angular-locale_to.js" />
+    <Content Include="Scripts\i18n\angular-locale_tr-cy.js" />
+    <Content Include="Scripts\i18n\angular-locale_tr-tr.js" />
+    <Content Include="Scripts\i18n\angular-locale_tr.js" />
+    <Content Include="Scripts\i18n\angular-locale_twq-ne.js" />
+    <Content Include="Scripts\i18n\angular-locale_twq.js" />
+    <Content Include="Scripts\i18n\angular-locale_tzm-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_tzm.js" />
+    <Content Include="Scripts\i18n\angular-locale_ug-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_uk-ua.js" />
+    <Content Include="Scripts\i18n\angular-locale_uk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur-pk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur.js" />
+    <Content Include="Scripts\i18n\angular-locale_uz-arab-af.js" />
+    <Content Include="Scripts\i18n\angular-locale_uz-arab.js" />
+    <Content Include="Scripts\i18n\angular-locale_uz-cyrl-uz.js" />
+    <Content Include="Scripts\i18n\angular-locale_uz-cyrl.js" />
+    <Content Include="Scripts\i18n\angular-locale_uz-latn-uz.js" />
+    <Content Include="Scripts\i18n\angular-locale_uz-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_uz.js" />
+    <Content Include="Scripts\i18n\angular-locale_vai-latn-lr.js" />
+    <Content Include="Scripts\i18n\angular-locale_vai-latn.js" />
+    <Content Include="Scripts\i18n\angular-locale_vai-vaii-lr.js" />
+    <Content Include="Scripts\i18n\angular-locale_vai-vaii.js" />
+    <Content Include="Scripts\i18n\angular-locale_vai.js" />
+    <Content Include="Scripts\i18n\angular-locale_vi-vn.js" />
+    <Content Include="Scripts\i18n\angular-locale_vi.js" />
+    <Content Include="Scripts\i18n\angular-locale_vo-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_vo.js" />
+    <Content Include="Scripts\i18n\angular-locale_vun-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_vun.js" />
+    <Content Include="Scripts\i18n\angular-locale_wae-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_wae.js" />
+    <Content Include="Scripts\i18n\angular-locale_xog-ug.js" />
+    <Content Include="Scripts\i18n\angular-locale_xog.js" />
+    <Content Include="Scripts\i18n\angular-locale_yav-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_yav.js" />
+    <Content Include="Scripts\i18n\angular-locale_yi-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_yi.js" />
+    <Content Include="Scripts\i18n\angular-locale_yo-bj.js" />
+    <Content Include="Scripts\i18n\angular-locale_yo-ng.js" />
+    <Content Include="Scripts\i18n\angular-locale_yo.js" />
+    <Content Include="Scripts\i18n\angular-locale_yue-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_yue.js" />
+    <Content Include="Scripts\i18n\angular-locale_zgh-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_zgh.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-mo.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant-mo.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant-tw.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hant.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh.js" />
+    <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\intlTelInput.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\reCaptcha2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toast\toastr.min.css" />
+    <Content Include="Scripts\toast\toastr.min.js" />
+    <Content Include="Scripts\utils.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="shortcodes\accordions.html" />
+    <Content Include="shortcodes\animation.html" />
+    <Content Include="shortcodes\buttons.html" />
+    <Content Include="shortcodes\charts.html" />
+    <Content Include="shortcodes\column.html" />
+    <Content Include="shortcodes\counters.html" />
+    <Content Include="shortcodes\css\touch.css" />
+    <Content Include="shortcodes\dividers.html" />
+    <Content Include="shortcodes\external\waypoint\waypoints.min.js" />
+    <Content Include="shortcodes\forms.html" />
+    <Content Include="shortcodes\icons.html" />
+    <Content Include="shortcodes\images.html" />
+    <Content Include="shortcodes\maps.html" />
+    <Content Include="shortcodes\media-embeds.html" />
+    <Content Include="shortcodes\notifications.html" />
+    <Content Include="shortcodes\paginations.html" />
+    <Content Include="shortcodes\progress.html" />
+    <Content Include="shortcodes\promo.html" />
+    <Content Include="shortcodes\sequences.html" />
+    <Content Include="shortcodes\sliders.html" />
+    <Content Include="shortcodes\tables.html" />
+    <Content Include="shortcodes\tabs.html" />
+    <Content Include="shortcodes\temp-shortcodes.html" />
+    <Content Include="shortcodes\testimonials.html" />
+    <Content Include="shortcodes\tooltips.html" />
+    <Content Include="shortcodes\typography.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_headerPartial.cshtml" />
+    <Content Include="Views\Shared\_footerPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Support\BecomeReseller.cshtml" />
+    <Content Include="Views\Buy\Index.cshtml" />
+    <Content Include="Views\Support\CorporateAdvertising.cshtml" />
+    <Content Include="Views\Support\Eula.cshtml" />
+    <Content Include="Views\Features\Index.cshtml" />
+    <Content Include="Views\Support\LiveChat.cshtml" />
+    <Content Include="Views\Support\PreSale.cshtml" />
+    <Content Include="Views\Support\PurchasedProduct.cshtml" />
+    <Content Include="Views\Support\Rma.cshtml" />
+    <Content Include="Views\Support\MobileApplication.cshtml" />
+    <Content Include="Views\Support\General.cshtml" />
+    <Content Include="shortcodes\get-tweets1.1.php" />
+    <Content Include="shortcodes\twitteroauth\OAuth.php" />
+    <Content Include="shortcodes\twitteroauth\twitteroauth.php" />
+    <Content Include="Views\Support\TestPage.cshtml" />
+    <Content Include="Views\GCNavigation\Index.cshtml" />
+    <Content Include="Views\GCNavigation\Index1.cshtml" />
+    <Content Include="Views\GCNavigation\IndexO.cshtml" />
+    <Content Include="Scripts\version.json" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Shopping\Models\" />
+    <Folder Include="Areas\Shopping\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\airbornefrs.Data\airbornefrs.Data.csproj">
+      <Project>{6e20c956-ba56-43c7-883a-09bfdb0f29b4}</Project>
+      <Name>airbornefrs.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\airbornefrs.Entities\airbornefrs.Entities.csproj">
+      <Project>{386cb280-fe33-4561-85a7-6f327ac83c12}</Project>
+      <Name>airbornefrs.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\airbornefrs.Framework\airbornefrs.Framework.csproj">
+      <Project>{39e02f19-9270-4309-96e6-c2a7800036af}</Project>
+      <Name>airbornefrs.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>36244</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36244/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

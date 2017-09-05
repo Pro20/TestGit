@@ -1,0 +1,808 @@
+﻿
+@{
+    ViewBag.Title = "Airborne FRS: Flight Plan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<style>
+    /*.row {
+        margin-top: 40px;
+        padding: 0 10px;
+    }*/
+
+    .clickable {
+        cursor: pointer;
+    }
+
+    .panel-heading div {
+        margin-top: -18px;
+        font-size: 15px;
+    }
+
+        .panel-heading div span {
+            margin-left: 5px;
+        }
+
+    .panel-body {
+        /*display: none;*/
+    }
+</style>
+
+<style>
+    #map {
+        min-height: 500px;
+        max-width: 100%;
+    }
+
+    .ui-autocomplete {
+        min-height: 100px;
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    .ui-autocomplete-loading {
+        background: white url('/images/spinner.gif') right center no-repeat;
+    }
+
+
+    input, select, textarea {
+        max-width: 100%;
+    }
+
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+        cursor: pointer;
+    }
+
+
+    #SearchSourceclear {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+        height: 14px;
+        margin: auto;
+        font-size: 14px;
+        cursor: pointer;
+        color: #000;
+    }
+
+    #SearchDestinationclear {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+        height: 14px;
+        margin: auto;
+        font-size: 14px;
+        cursor: pointer;
+        color: #000;
+    }
+</style>
+
+
+@*[Dev-arv]*@
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="~/external/GC/moment.js"></script>
+<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css" rel="Stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css">
+<script src="https://unpkg.com/flatpickr"></script>
+<div class="clearfix"><</div>
+<div class="container">
+    <h2>Airborne Flight Path</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 col-lg-4">
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="radio" id="rdTypehead" name="rdTypehead" onchange="rdchange(this);" value="1" checked="checked" />  Find Airport
+                    <input type="radio" id="rdTypehead" name="rdTypehead" onchange="rdchange(this);" value="2" />  Use Lat/Long
+                </div>
+            </div>
+            <div id="Typehead">
+                <p><strong>Source Airport</strong><span style="color:red"> *</span> </p>
+                <div class="form-group">
+                    <div class="col-md-12">
+
+                        <input type="text" id="txtSearchSource" class="form-control" />
+                        <span id="SearchSourceclear" class="glyphicon glyphicon-remove-circle"></span>
+                        <input type="hidden" id="sourceLat" />
+                        <input type="hidden" id="sourceLng" />
+                        <input type="hidden" id="hdnsource_IataCode" />
+                    </div>
+                </div>
+                <p><strong> Destination Airport</strong><span style="color:red"> *</span> </p>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="text" id="txtSearchDestination" class="form-control" />
+                        <span id="SearchDestinationclear" class="glyphicon glyphicon-remove-circle"></span>
+                        <input type="hidden" id="destinationLat" />
+                        <input type="hidden" id="destinationLng" />
+                        <input type="hidden" id="hdndest_IataCode" />
+                    </div>
+                </div>
+                <p><strong>Takeoff Time</strong> </p>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" alt="Click to enter date and time" placeholder="Click to enter date and time" id="txtTakeoffTime">
+                    </div>
+                </div>
+
+                <p><strong>Speed</strong> </p>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <input class="form-control" id="txtSpeed" type="number" pattern="\d*" value="250" step="1"><div class="input-group-addon">Kts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn btn-gray" style="color: #333333;" value="Go Flight Path" onclick="validationTypehead();" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="Manual" style="display:none;">
+                <div class="form-group">
+                    <p><strong>Source Airport</strong><span style="color:red">*</span> </p>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Lat: </label>
+                    <div class="col-md-10">
+                        <input type="text" id="m_sourceLat" placeholder="Example: 39.87189865" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Long: </label>
+                    <div class="col-md-10">
+                        <input type="text" id="m_sourceLng" placeholder="Example: -75.2410965" class="form-control" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group ">
+                    <p><strong> Destination Airport</strong><span style="color:red">*</span> </p>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Lat: </label>
+                    <div class="col-md-10">
+                        <input type="text" id="m_destinationLat" placeholder="Example: 49.87189865" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Long: </label>
+                    <div class="col-md-10">
+                        <input type="text" id="m_destinationLng" placeholder="Example: -73.2410965" class="form-control" />
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <p><strong>Takeoff Time</strong> </p>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" alt="Click to enter date and time" placeholder="Click to enter date and time" id="txtm_TakeoffTime">
+                    </div>
+                </div>
+
+                <p><strong>Speed</strong> </p>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <input class="form-control" id="txtm_Speed" type="number" pattern="\d*" value="250" step="1"><div class="input-group-addon">Kts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn btn-gray" style="color: #333333;" value="Go Flight Path" onclick="validationManual();" />
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <br />
+            <div class="form-group" style="display:none;" id="tblDetails">
+                <br />
+                <br />
+                <div class="col-md-12">
+                    <table>
+                        <thead>
+                            <tr></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Speed : </strong></td><td>&nbsp;<span id="spnSpeed"></span></td></tr>
+                            <tr><td><strong>Distance : </strong></td><td>&nbsp;<span id="spnDistance"></span></td></tr>
+                            <tr><td><strong>ETA : </strong></td><td>&nbsp;<span id="spnETA"></span></td></tr>
+                            <tr><td><strong>Time Enroute : </strong></td><td>&nbsp;<span id="spnTime"></span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="map" class="col-md-8 col-lg-8">
+        </div>
+    </div>
+    <br />
+    <div id="DivDetail" style="display:none;">
+        <input type="hidden" id="hdnTest" />
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12" id="tblSource_address">
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-6 col-xs-12" id="tblDestination_address"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 col-xs-12" id="tblSource_runway"></div>
+            <div class="col-md-6 col-xs-12" id="tblDestination_runway"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 col-xs-12" id="tblSource_Frequency"></div>
+            <div class="col-md-6 col-xs-12" id="tblDestination_Frequency"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 col-xs-12" id="tblSource_navaids"></div>
+            <div class="col-md-6 col-xs-12" id="tblDestination_navaids">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/external/GC/JSLINQ.js"></script>
+<script src="~/external/GC/GreatCircle.js"></script>
+<script type="text/javascript">
+    var ismanual = false;
+    var sap_name = '', sap_ioca = '', sap_iata = '';
+    var dap_name = '', dap_ioca = '', dap_iata = '';
+
+    $(document).ready(function () {
+        getUpdate();
+    });
+
+    function validationTypehead() {
+        debugger;
+        var Source = document.getElementById("txtSearchSource").value;
+        var Destination = document.getElementById("txtSearchDestination").value;
+        if (Source === '') {
+            $("#txtSearchSource").focus();
+            return false;
+        }
+        else if (Destination === '') {
+            $("#txtSearchDestination").focus();
+            return false;
+        }
+        else {
+            getAirbornMap();
+            return true;
+        }
+    }
+    function validationManual() {
+        debugger;
+
+        var Lat1 = document.getElementById("m_sourceLat").value;
+        var Lon1 = document.getElementById("m_sourceLng").value;
+        var Lat2 = document.getElementById("m_destinationLat").value;
+        var Lon2 = document.getElementById("m_destinationLng").value;
+        if (Lat1 === '') {
+            $("#m_sourceLat").focus();
+            return false;
+        }
+        else if (Lon1 === '') {
+            $("#m_sourceLng").focus();
+            return false;
+        }
+        else if (Lat2 === '') {
+            $("#m_destinationLat").focus();
+            return false;
+        }
+        else if (Lon2 === '') {
+            $("#m_destinationLng").focus();
+            return false;
+        }
+        else {
+            getAirbornMap();
+            return true;
+        }
+    }
+
+    //remove the input and hide remove icon button from source airpot input box
+    $("#txtSearchSource").keyup(function () {
+        $("#SearchSourceclear").toggle(Boolean($(this).val()));
+    });
+    $("#SearchSourceclear").toggle(Boolean($("#txtSearchSource").val()));
+    $("#SearchSourceclear").click(function () {
+        $("#txtSearchSource").val('').focus();
+        $("[id$=sourceLat]").val('');
+        $("[id$=sourceLng]").val('');
+        $("[id$=hdnsource_IataCode]").val('');
+        $(this).hide();
+    });
+
+    //remove the input and hide remove icon button from destination airpot input box
+    $("#txtSearchDestination").keyup(function () {
+        $("#SearchDestinationclear").toggle(Boolean($(this).val()));
+    });
+    $("#SearchDestinationclear").toggle(Boolean($("#txtSearchDestination").val()));
+    $("#SearchDestinationclear").click(function () {
+        $("#txtSearchDestination").val('').focus();
+        $("[id$=destinationLat]").val('');
+        $("[id$=destinationLng]").val('');
+        $("[id$=hdndest_IataCode]").val('');
+        $(this).hide();
+    });
+
+
+    flatpickr("#txtTakeoffTime", {
+        //utc: true,
+        defaultDate: new Date(),
+        minDate: new Date(),
+        enableTime: true,
+        altInput: true,
+        altFormat: "F j, Y h:i K"
+    });
+    flatpickr("#txtm_TakeoffTime", {
+        //utc: true,
+        defaultDate: new Date(),
+        minDate: new Date(),
+        enableTime: true,
+        altInput: true,
+        altFormat: "F j, Y h:i K"
+    });
+
+
+    $(function () {
+        $("[id$=txtSearchSource]").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: apiUrl + "api/Navg_Servicecontroller/GetAirportList",
+                    //data: "{ 'aiportname': '" + request.term + "'}",
+                    data: 'aiportname=' + request.term,
+                    dataType: "json",
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.name,
+                                val: item
+                            }
+                        }))
+                    },
+                    error: function (response) {
+                        //alert(response.responseText);
+                    },
+                    failure: function (response) {
+                        //alert(response.responseText);
+                    }
+                });
+            },
+            select: function (e, i) {
+                $("[id$=sourceLat]").val(i.item.val.latitude_deg);
+                $("[id$=sourceLng]").val(i.item.val.longitude_deg);
+                $("[id$=hdnsource_IataCode]").val(i.item.val.ident);
+            },
+            minLength: 3
+        });
+
+        $("[id$=txtSearchDestination]").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: apiUrl + "api/Navg_Servicecontroller/GetAirportList",
+                    data: 'aiportname=' + request.term,
+                    dataType: "json",
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.name,
+                                val: item
+                            }
+                        }))
+                    },
+                    error: function (response) {
+                        //alert(response.responseText);
+                    },
+                    failure: function (response) {
+                        //alert(response.responseText);
+                    }
+                });
+            },
+            select: function (e, i) {
+                $("[id$=destinationLat]").val(i.item.val.latitude_deg);
+                $("[id$=destinationLng]").val(i.item.val.longitude_deg);
+                $("[id$=hdndest_IataCode]").val(i.item.val.ident);
+            },
+            minLength: 3
+        });
+
+    });
+
+    function clearTables() {
+        $('#tblSource_runway').html('');
+        $('#tblSource_Frequency').html('');
+        $('#tblSource_navaids').html('');
+        $('#tblDestination_runway').html('');
+        $('#tblDestination_Frequency').html('');
+        $('#tblDestination_navaids').html('');
+    }
+
+    function getSourceAirportdata(_airportIATACode) {
+        $.ajax({
+            url: apiUrl + "api/Navg_Servicecontroller/GetAirportDetails",
+            data: 'aiportname=' + _airportIATACode,
+            dataType: "json",
+            type: "GET",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                var trHTML_runway = '', trHTML_Frequency = '', trHTML_navaids = '', trHTML_address = '';
+                var data = JSON.parse(response);
+                debugger;
+                if (data !== null && data !== undefined) {
+                    sap_name = data.name, sap_ioca = data.ident, sap_iata = data.iata_code, sap_lat = data.latitude_deg, sap_long = data.longitude_deg;
+
+                    //Bind address table
+                    trHTML_address += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnSourceAirport"> </span></h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead></thead><tbody>';
+                    trHTML_address += '<tr><th>Airport address :</th><td>' + data.name + ',<br/>' + data.AirportRegion + ', ' + data.country + '<br/></td></tr><tr><th>lat/long :</th><td>' + data.latitude_deg + ' , ' + data.longitude_deg + '</td></tr><tr><th>Elevation :</th><td>' + addCommas(data.elevation_ft) + ' FT </td></tr>';
+                    trHTML_address += '</tbody></table></div></div>';
+                    $('#tblSource_address').append(trHTML_address);
+
+                    //Bind runway table
+                    if (data.runwayModelList !== null) {
+                        trHTML_runway += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnSourceAirport"> </span> Runway</h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead><tr><th>ID</th><th>Length (ft)</th><th>Width (ft)</th><th>Surface</th></tr></thead><tbody>';
+                        $(data.runwayModelList).each(function (i, item) {
+                            trHTML_runway += '<tr><td>' + item.he_ident + '</td><td>' + addCommas(item.length_ft) + '</td><td>' + addCommas(item.width_ft) + '</td><td>' + item.surface + '</td></tr>';
+                        });
+                        trHTML_runway += '</tbody></table></div></div>';
+                    }
+                    $('#tblSource_runway').append(trHTML_runway);
+
+                    //Bind frequency table
+                    if (data.frequenciesModelList !== null) {
+                        trHTML_Frequency += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnSourceAirport"> </span> Frequencies</h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead><tr><th>Type</th><th>Description</th><th>Frequency (mhz)</th></tr></thead><tbody>';
+                        $(data.frequenciesModelList).each(function (i, item) {
+                            trHTML_Frequency += '<tr><td>' + item.type + '</td><td>' + item.description + '</td><td>' + addCommas(item.frequency_mhz) + '</td></tr>';
+                        });
+                        trHTML_Frequency += '</tbody></table></div></div>';
+                    }
+                    $('#tblSource_Frequency').append(trHTML_Frequency);
+
+                    //Bind navaids table
+                    if (data.navaidModelList !== null) {
+                        trHTML_navaids += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnSourceAirport"> </span> Navaids</h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead><tr><th>Identity</th><th>Name</th><th>Frequency (khz)</th><th>Magnetic variation (deg)</th><th>Power</th></tr></thead><tbody>';
+                        $(data.navaidModelList).each(function (i, item) {
+                            trHTML_navaids += '<tr><td>' + item.ident + '</td><td>' + item.name + '</td><td>' + addCommas(item.frequency_khz) + '</td><td>' + addCommas(item.magnetic_variation_deg) + '</td><td>' + item.power + '</td></tr>';
+                        });
+                        trHTML_navaids += '</tbody></table></div></div>';
+                    }
+                    $('#tblSource_navaids').append(trHTML_navaids);
+                    $('.spnSourceAirport').html(data.name);
+                }
+            },
+            error: function (response) {
+                //alert(response.responseText);
+            },
+            failure: function (response) {
+                //alert(response.responseText);
+            }
+        });
+    }
+
+    function getDestAirportdata(_airportIATACode) {
+        $.ajax({
+            url: apiUrl + "api/Navg_Servicecontroller/GetAirportDetails",
+            data: 'aiportname=' + _airportIATACode,
+            dataType: "json",
+            type: "GET",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                var data = JSON.parse(response);
+                var trHTML_runway = '', trHTML_Frequency = '', trHTML_navaids = '', trHTML_address = '';
+                if (data !== null && data !== undefined) {
+                    dap_name = data.name, dap_ioca = data.ident, dap_iata = data.iata_code, dap_lat = data.latitude_deg, dap_long = data.longitude_deg;
+
+                    //Bind address table
+                    trHTML_address += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnDestinationAirport"> </span></h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead></thead><tbody>';
+                    trHTML_address += '<tr><th>Airport address :</th><td>' + data.name + ',<br/>' + data.AirportRegion + ', ' + data.country + '<br/></td></tr><tr><th>lat/long :</th><td>' + data.latitude_deg + ' , ' + data.longitude_deg + '</td></tr><tr><th>Elevation :</th><td>' + addCommas(data.elevation_ft) + ' FT </td></tr>';
+                    trHTML_address += '</tbody></table></div></div>';
+                    $('#tblDestination_address').append(trHTML_address);
+
+                    //Bind runway table
+                    if (data.runwayModelList !== null) {
+                        trHTML_runway += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnDestinationAirport"> </span> Runway</h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead><tr><th>ID</th><th>Length (ft)</th><th>Width (ft)</th><th>Surface</th></tr></thead><tbody>';
+                        $(data.runwayModelList).each(function (i, item) {
+                            trHTML_runway += '<tr><td>' + item.he_ident + '</td><td>' + addCommas(item.length_ft) + '</td><td>' + addCommas(item.width_ft) + '</td><td>' + item.surface + '</td></tr>';
+                        });
+                        trHTML_runway += '</tbody></table></div></div>';
+                    }
+                    $('#tblDestination_runway').append(trHTML_runway);
+
+                    //Bind frequency table
+                    if (data.frequenciesModelList !== null) {
+                        trHTML_Frequency += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnDestinationAirport"> </span> Frequencies</h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead><tr><th>Type</th><th>Description</th><th>Frequency (mhz)</th></tr></thead><tbody>';
+                        $(data.frequenciesModelList).each(function (i, item) {
+                            trHTML_Frequency += '<tr><td>' + item.type + '</td><td>' + item.description + '</td><td>' + addCommas(item.frequency_mhz) + '</td></tr>';
+                        });
+                        trHTML_Frequency += '</tbody></table></div></div>';
+                    }
+                    $('#tblDestination_Frequency').append(trHTML_Frequency);
+
+                    //Bind navaids table
+                    if (data.navaidModelList !== null) {
+
+                        trHTML_navaids += '<div class="panel panel-primary "><div class="panel-heading"><h3 class="panel-title"><span class="spnDestinationAirport"> </span> Navaids</h3><div class="pull-right"></div></div><div class="table-responsive"><table class="table table-hover" id="dev-table"><thead><tr><th>Identity</th><th>Name</th><th>Frequency (khz)</th><th>Magnetic variation (deg)</th><th>Power</th></tr></thead><tbody>';
+                        $(data.navaidModelList).each(function (i, item) {
+                            trHTML_navaids += '<tr><td>' + item.ident + '</td><td>' + item.name + '</td><td>' + addCommas(item.frequency_khz) + '</td><td>' + addCommas(item.magnetic_variation_deg) + '</td><td>' + item.power + '</td></tr>';
+                        });
+                        trHTML_navaids += '</tbody></table></div></div>';
+                    }
+                    $('#tblDestination_navaids').append(trHTML_navaids);
+                    $('.spnDestinationAirport').html(data.name);
+                }
+            },
+            error: function (response) {
+                //alert(response.responseText);
+            },
+            failure: function (response) {
+                //alert(response.responseText);
+            }
+        });
+    }
+
+    function rdchange(e) {
+        if (e.value == "1") {
+            $('#Typehead').css('display', '');
+            $('#Manual').css('display', 'none');
+            ismanual = false;
+        }
+
+        if (e.value == "2") {
+            $('#Manual').css('display', '');
+            $('#Typehead').css('display', 'none');
+            ismanual = true;
+        }
+        $('#tblDetails').css('display', 'none');
+        $('#DivDetail').css('display', 'none');
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    // get the update map once the coordinates after first loaded
+    function getUpdate() {
+        //setInterval(getAirbornMap(), 3000);
+        getAirbornMap();
+    }
+
+    //get the calculated coordinate of source and destination airports and generate the map on that basis.
+    function getAirbornMap() {
+        var lat1, lon1, lat2, lon2, unit; //local variable declaration
+        clearTables();
+
+        //when typehead is selected i.e: '1'
+        if (ismanual == false) {
+            lat1 = document.getElementById('sourceLat').value;
+            lon1 = document.getElementById('sourceLng').value;
+            lat2 = document.getElementById('destinationLat').value;
+            lon2 = document.getElementById('destinationLng').value;
+            speed = document.getElementById('txtSpeed').value
+            unit = "NM";
+            takeoffTime = document.getElementById('txtTakeoffTime').value;
+            //Get Ioca from hidden field
+            SourceIATA = document.getElementById('hdnsource_IataCode').value;
+            DesIATA = document.getElementById('hdndest_IataCode').value;
+            //Get source and destination airport details table from database based on Ioca code.
+            getSourceAirportdata(SourceIATA)
+            getDestAirportdata(DesIATA)
+        }
+
+        //when manual input is selected i.e: '2'
+        if (ismanual == true) {
+            lat1 = document.getElementById('m_sourceLat').value;
+            lon1 = document.getElementById('m_sourceLng').value;
+            lat2 = document.getElementById('m_destinationLat').value;
+            lon2 = document.getElementById('m_destinationLng').value;
+            speed = document.getElementById('txtm_Speed').value
+            unit = "NM";
+            takeoffTime = document.getElementById('txtm_TakeoffTime').value;
+            //Get Ioca code based on entered lat/long
+            getReverseGeocodeSource(lat1, lon1);
+            getReverseGeocodeDest(lat2, lon2);
+            //Get Ioca from hidden field
+            SourceIATA = document.getElementById('hdnsource_IataCode').value;
+            DesIATA = document.getElementById('hdndest_IataCode').value;
+            //Get source and destination airport details table from database based on Ioca code.
+            getSourceAirportdata(SourceIATA)
+            getDestAirportdata(DesIATA)
+        }
+
+        var _distance = GreatCircle.distance(lat1, lon1, lat2, lon2, unit);
+        var _bearing = GreatCircle.bearing(lat1, lon1, lat2, lon2);
+        var _destination = GreatCircle.destination("", "", _bearing, _distance, unit);
+        var _time = GreatCircle.time(_distance, speed, unit);
+
+        //get arrival time
+        var arrival = getArrivaltime(txtTakeoffTime.defaultValue, _time);
+
+        $('#spnDistance').html(addCommas(Math.round(_distance)) + " " + unit);
+        $('#spnTime').html(getFormatedSpeed(_time));
+        $('#spnSpeed').html(addCommas(Math.round(speed)) + ' Kts');
+        $('#spnETA').html(arrival);
+
+        if (_distance > 0) {
+            $('#tblDetails').css('display', '');
+            $('#DivDetail').css('display', '');
+        }
+
+        initMapV2(parseFloat(lat1), parseFloat(lon1), parseFloat(lat2), parseFloat(lon2), parseInt(_destination.LAT), parseInt(_destination.LON));
+    }
+
+    //generate the map on the bases of selected source and destination coordinates above.
+    function initMapV2(lat1, lon1, lat2, lon2, LAT, LON) {
+
+        isNaN(lat1)
+        {
+            LAT = 41.850033;
+            LON = -87.6500523;
+        }
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: { lat: LAT, lng: LON },
+            mapTypeId: 'terrain'
+        });
+        var opt = { minZoom: 2, maxZoom: 15, preserveViewport: true };
+        map.setOptions(opt);
+
+        if (isNaN(lat1))
+            return;
+
+        //center the map as per the flight path
+        map.setCenter(new google.maps.LatLng(((lat2 + lat1) / 2.0), ((lon2 + lon1) / 2.0)
+        ));
+
+        var flightPlanCoordinates = [{ lat: lat1, lng: lon1 }, { lat: lat2, lng: lon2 }];
+        var flightPath = new google.maps.Polyline({
+            path: flightPlanCoordinates,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+        flightPath.setMap(map);
+        debugger;
+        //Source marker
+        markerSource = new google.maps.Marker({
+            map: map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+            animation: google.maps.Animation.DROP,
+            position: { lat: lat1, lng: lon1 },
+            title: SourceIATA
+        });
+        //Destination marker
+        markerDestination = new google.maps.Marker({
+            map: map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+            animation: google.maps.Animation.DROP,
+            position: { lat: lat2, lng: lon2 },
+            title: DesIATA
+        });
+
+        //source info window content
+        var infowindowSource = new google.maps.InfoWindow({
+            //content: "<div class=\"infowindow airport\"><span class=\"name\">" + sap_name + "</span><br /><span class=\"icao_code\">VIDP</span>|<span class=\"iata_code\">DEL</span><br /><span class=\"lat\">28&deg;33\'59\"N</span>,<span class=\"lng\">77&deg;6\'11\"E</span><br /><br /><a href=\"en/airport/DEL-VIDP-indira-gandhi-international-airport.html\">More Information</a></div>"
+            content: "<div class=\"infowindow airport\"><span class=\"name\">" + sap_name + "</span><br /><span class=\"lat\">" + sap_lat + "</span>, <span class=\"lng\">" + sap_long + "</span></div>"
+        });
+        //Source info window open
+        markerSource.addListener('click', function () {
+            infowindowSource.open(map, markerSource);
+        });
+
+        //Destination info window content
+        var infowindowDestination = new google.maps.InfoWindow({
+            content: "<div class=\"infowindow airport\"><span class=\"name\">" + dap_name + "</span><br /><span class=\"lat\">" + dap_lat + "</span>, <span class=\"lng\">" + dap_long + "</span></div>"
+        });
+        //Destination info window open
+        markerDestination.addListener('click', function () {
+            infowindowDestination.open(map, markerDestination);
+        });
+    }
+
+
+    // format text to display in comma formated
+    function addCommas(nStr) {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }
+
+    //calculate and format arrival time
+    function getArrivaltime(_dateval, _time) {
+        var arrivalTime = new Date(_dateval);
+        var Totalhours = _time.split(':');
+        var hoursToadd = parseInt(Totalhours[0]);
+        var minutesToadd = parseInt(Totalhours[1].split('h')[0]);
+        arrivalTime.setHours(arrivalTime.getHours() + hoursToadd);
+        arrivalTime.setMinutes(arrivalTime.getMinutes() + minutesToadd);
+        return moment(arrivalTime).format('h:mmA, MMM D, YYYY ');
+    }
+
+    // format speed to display
+    function getFormatedSpeed(_time) {
+        var Totalhours = _time.split(':');
+        var hours = parseInt(Totalhours[0]);
+        var minutes = parseInt(Totalhours[1].split('h')[0]);
+        return hours + ' HRS, ' + minutes + ' MIN';
+    }
+
+    //get source airport code based on lat/lon
+    function getReverseGeocodeSource(lat, long) {
+        $.ajax({
+            url: apiUrl + "api/Navg_Servicecontroller/GetAirportIACO",
+            data: { "aiportLat": lat, "aiportLong": long },
+            dataType: "json",
+            type: "GET",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                var d = JSON.parse(response)
+                var data = d.ident
+                $('#hdnsource_IataCode').val(data);
+            },
+            error: function (response) {
+                //alert(response.responseText);
+            },
+            failure: function (response) {
+                //alert(response.responseText);
+            }
+        });
+    }
+
+    //get destination airport code based on lat/lon
+    function getReverseGeocodeDest(lat, long) {
+        $.ajax({
+            url: apiUrl + "api/Navg_Servicecontroller/GetAirportIACO",
+            data: { "aiportLat": lat, "aiportLong": long },
+            dataType: "json",
+            type: "GET",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                var d = JSON.parse(response)
+                var data = d.ident
+                $('#hdndest_IataCode').val(data);
+            },
+            error: function (response) {
+                //alert(response.responseText);
+            },
+            failure: function (response) {
+                //alert(response.responseText);
+            }
+        });
+    }
+
+</script>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

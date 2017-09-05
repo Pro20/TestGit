@@ -1,0 +1,173 @@
+﻿
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+
+    button, input, optgroup, select, textarea {
+        color: initial !important;
+    }
+</style>
+
+@*<html data-ng-app="RESTClientModule">*@
+<html>
+@{
+    ViewBag.Title = "Airborne-Order Management";
+}
+
+<body data-ng-controller="Order_ManagerController as ctrl" ng-cloak>
+
+    <img src="~/image/blank.gif" alt="" width="1" height="10" />
+    <table width="99%" style="border-bottom:3px solid #3273d5;">
+        <tr>
+            <td width="250"></td>
+            <td class="style1" align="center">
+                <h3>Welcome to Airborne Order managment</h3>
+            </td>
+            <td align="right">
+                <div>
+                    Today Date is :
+                    {{ctrl.date | date:'yyyy-MM-dd'}}
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <img src="~/image/blank.gif" alt="" width="1" height="6" />
+    <table id="tblContainer" style='width: 99%;table-layout:fixed;'>
+        <tr>
+            <td>
+                <table style="background-color:#FFFFFF; border:solid 2px #6D7B8D; padding:5px;width:99%;table-layout:fixed;" cellpadding="2" cellspacing="2">
+                    <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+                        <td width="40" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="ctrl.predicate = 'OrderID'; ctrl.reverse=!ctrl.reverse">
+                            <b>Order Id</b>
+                        </td>
+
+                        <td width="120" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="ctrl.predicate = 'PaypalTransactionID'; ctrl.reverse=!ctrl.reverse">
+                            <b>Paypal Order Id</b>
+                        </td>
+
+                        <td width="60" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="ctrl.predicate = 'Status'; ctrl.reverse=!ctrl.reverse">
+                            <b>Status</b>
+                        </td>
+                        <td width="90" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="ctrl.predicate = 'Email'; ctrl.reverse=!ctrl.reverse">
+                            <b>User Email</b>
+                        </td>
+
+                        <td width="30" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="ctrl.predicate = 'OrderItems'; ctrl.reverse=!ctrl.reverse">
+                            <b>Order Items</b>
+                        </td>
+
+                        <td width="40" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="ctrl.predicate = 'OrderPrice'; ctrl.reverse=!ctrl.reverse">
+                            <b>Order Price</b>
+                        </td>
+
+                        <td width="70" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="ctrl.predicate = 'CreatedDate'; ctrl.reverse=!ctrl.reverse">
+                            <b>Order Date</b>
+                        </td>
+                    </tr>
+                    <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+                        <td width="40" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+
+                            <input ng-model="ctrl.search.OrderID" style="width:76px" placeholder="Order Id...">
+                        </td>
+
+                        <td width="120" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+                            <input ng-model="ctrl.search.PaypalTransactionID" placeholder="Paypal Order Id...">
+                        </td>
+
+                        <td width="40" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+                            <input ng-model="ctrl.search.Status" placeholder="Status...">
+                        </td>
+
+                        <td width="90" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+                            <input ng-model="ctrl.search.Email" placeholder="Email...">
+                        </td>
+
+                        <td width="30" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;"></td>
+
+                        <td width="40" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;"></td>
+
+                        <td width="70" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+                            <input ng-model="ctrl.search.CreatedDate">
+                        </td>
+                    </tr>
+                    <tbody data-ng-repeat="detail in ctrl.filtered = (ctrl.getItemDetailsDisp | filter:ctrl.search  | orderBy:ctrl.predicate:ctrl.reverse) | startFrom:(ctrl.currentPage-1)*(ctrl.itemsPerPage | number) | limitTo:ctrl.itemsPerPage ">
+                        <tr>
+                            <td style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+                                <span style="color:#9F000F" ng-click="ctrl.redirectToDetail(detail.OrderID)">
+                                    {{detail.OrderID}}
+                                </span>
+
+                                @*<md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.redirectToDetail(detail.Item_ID)">
+                                        <md-icon md-svg-icon="img/icons/more_vert.svg">
+                                        </md-icon>
+                                    </md-button>*@
+                            </td>
+
+                            <td style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+                                <span style="color:#9F000F">
+                                    {{detail.PaypalTransactionID}}
+                                </span>
+                            </td>
+                            <td align="center" style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+                                <span style="color:#9F000F">
+                                    {{detail.Status}}
+                                </span>
+                            </td>
+                            <td align="center" style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+                                <span style="color:#9F000F">
+                                    {{detail.Email}}
+                                </span>
+                            </td>
+
+                            <td align="center" align="right" style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+                                <span style="color:#9F000F">
+                                    {{detail.OrderItems | number}}
+                                </span>
+                            </td>
+
+                            <td align="center" style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+                                <span style="color:#9F000F">
+                                    {{detail.OrderPrice | currency}}
+                                </span>
+                            </td>
+
+                            <td style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+                                <span style="color:#9F000F">
+                                    {{detail.CreatedDate}}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="7">
+                                <ul uib-pagination total-items="ctrl.filtered.length" items-per-page=ctrl.itemsPerPage ng-model="ctrl.currentPage" max-size="10"
+                                    class="pagination-sm" boundary-link-numbers="true" rotate="false"></ul>
+                            </td>
+
+                        </tr>
+                    </tfoot>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <img src="~/image/blank.gif" alt="" width="1" height="10" />
+</body>
+
+</html>
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+<script src="~/Scripts/Angular/svg-assets-cache.js"></script>
+<script src="~/Scripts/Angular/angular-material.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.4.js"></script>
+<script src="~/Scripts/Angular/Modules.js"></script>
+<script src="~/Scripts/Angular/Services.js"></script>
+<script src="~/Scripts/Angular/OrdermanagerController.js"></script>*@

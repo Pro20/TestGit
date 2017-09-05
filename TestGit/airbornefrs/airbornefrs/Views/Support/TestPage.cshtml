@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "TestPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="heading">General</h2>
+        <!-- Breadcrumb pattern -->
+        <ol class="breadcrumb breadcrumb-pages">
+            <li><a href="~/Home/Index">Home</a></li>
+            <li class="active">General</li>
+        </ol>
+        <!-- Default one color devider -->
+        <div class="devider"></div>
+    </div>
+</section>
+
+<!-- end section show current page and breadcrumb -->
+<div class="inner-page-template extra clearfix" ng-controller="contactCtrl">
+    <div class="container">
+        <h2>General</h2>
+        {{title}}
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 form-text">
+                <h3>Contact Us</h3>
+                <p class="p-space">We welcome your comments and strive to maintain Airborne FRS as the best-in-class aviation tracking, security, and training product on the market. We welcome your comments, suggestions, criticism, and questions. Simply use the form on this page. If you are an Airborne customer and have the premium support package, you can also call the support telephone number you were given when you received your product.</p>
+                <p>Once you submit the form on this page, you will receive an email message with the support ticket identification. Our Ground Crew will then contact you via the email support ticket. Thank you.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 support-form contact-form">
+                <h3>We Love to Hear from You!</h3>
+                <div class="text-right">
+                    <p>NOTE: * in front of field name means mandatory</p>
+                </div>
+                <form method="post" role="form" ng-focus="true" ng-submit="submitForm()" name="supportGeneralForm" id="supportGeneralForm">
+                    <div class="form-group">
+                        <label>*Name</label>
+                        <input type="text" class="contact__field" placeholder="" ng-model="data.contactData.Name" name="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>*Email Address</label>
+                        <input type="text" class="contact__field" placeholder="" ng-model="data.contactData.Email" name="Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" class="contact__field" placeholder="" ng-model="data.contactData.CompanyName" name="CompanyName">
+                    </div>
+                    <div class="form-group">
+                        <label>*Reason for Inquiry</label>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="Sales" name="ReasonInquiry" ng-model="data.contactData.ReasonInquiry" id="sales" data-fv-field="Sales">
+                            Sales
+                        </div>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="Suggestion" name="ReasonInquiry" ng-model="data.contactData.ReasonInquiry" id="suggestion" data-fv-field="Suggestion"> Suggestion
+                        </div>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="Operational Use" name="ReasonInquiry" ng-model="data.contactData.ReasonInquiry" id="use" data-fv-field="Operational Use"> Operational Use
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>*Product</label>
+                        <select class="select-box" name="data.contactData.Product">
+                            <option value="" selected="selected">Select One</option>
+                            <option value="Airborne C100">Airborne C100 </option>
+                            <option value="Airborne C100">Airborne C100</option>
+                            <option value="Airborne S100">Airborne S100</option>
+                            <option value="Airborne S200">Airborne S200</option>
+                            <option value="Airborne D500">Airborne D500</option>
+                            <option value="VISability™ Portal">VISability™ Portal </option>
+                            <option value="Airborne Flight Sense™ Base Sensor System">Airborne Flight Sense™ Base Sensor System</option>
+                            <option value="Airborne Flight Sense™ Sensors">Airborne Flight Sense™ Sensors</option>
+                            <option value="Airborne FRS Training Program">Airborne FRS Training Program</option>
+                            <option value="ADS - B Interoperability Demonstration Kit">ADS - B Interoperability Demonstration Kit</option>
+                            <option value="ADS - B Interoperability Radio">ADS - B Interoperability Radio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Enter IMEI (if applicable)</label>
+                        <input type="text" class="contact__field" ng-model="data.contactData.IMEI" name="IMEI">
+                    </div>
+                    <div class="form-group">
+                        <label>*How can we help?</label>
+                        <textarea class="contact__field" ng-model="data.contactData.AdditionalInfo" name="AdditionalInfo"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Human Test </label>
+                        <div id="captchaContainer">
+                            <div class="g-recaptcha" data-sitekey="6Lfppw8TAAAAAPyLD_-5SAbI_6b3z_l48nFZVJiz"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="submit_btn" type="submit" name="submitButton" class="btn btn-warning">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end container -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade--zoom" aria-labelledby="fastfacts" tabindex="-1" role="dialog" id="fastfacts">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                <h4 class="modal-title" id="fastfacts">FastFacts</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="list">
+                    <li> Airborne Flight Reporting System: for all Air &amp; Ground Crews, Passengers, Family &amp; Associates!</li>
+                    <li>Affordable Flight Tracking &amp; Management: great for General Aviation flight either VFR &amp; IFR!</li>
+                    <li>Airborne FRS for Vertical Lift: Reports on the unique Flight Characteristics of VTOLs!</li>
+                    <li> Lightweight for the Drones: Provides enhanced Flight Monitoring for Drones!</li>
+                    <li>Makes Unpredictable Flight Safer: If it Takes-off, is should have Airborne!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="top-scroll"><i class="fa fa-angle-up"></i></div>
+
+@section BottomScript{
+    <script>
+        var objPickup = {};
+        var objContact = {};
+
+        $(document).ready(function () {
+            staffSlider();
+            scrollSlider();
+        });
+    </script>
+    <script src="~/assets/js/controllers/supportGeneral.js"></script>
+}

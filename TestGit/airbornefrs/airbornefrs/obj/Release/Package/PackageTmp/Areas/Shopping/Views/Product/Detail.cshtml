@@ -1,0 +1,117 @@
+﻿@model airbornefrs.Models.ShoppingcartModel.itemDetailsDataContract
+@using airbornefrs.Models
+<link href="~/Content/Custom/shoppingDetail.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Airborne-Shopping";
+}
+
+@if (Model != null && Model.Item_ID != null)
+{
+    <div class="box-wrapper">
+        <div class="container">
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="product service-image-left clearfix">
+                    <img id="item-display" src="~/images/Products/@Model.Image_Name" class="img-responsive" alt="" />
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-8 col-sm-6">
+                <div class="product-title">@Model.Item_Name</div>
+                <div>Item Code: @Model.Item_code</div>
+                <div class="product-desc" style="white-space: pre-line;">@Html.Raw(Model.Short_Description)</div>
+
+                @Html.HiddenFor(m => m.Item_ID)
+                <hr>
+                <div class="product-price">@Html.DisplayFor(model => model.Item_Price, "Currency")</div>
+                <div class="product-stock">
+                    @{ var ItemStatus = ShoppingcartModel.GetItemStatus(Model.Status); }
+                    @ItemStatus
+                </div>
+                <hr>
+                <div class="btn-group">
+                    @if (!string.IsNullOrEmpty(Model.Status) && Model.Status.Equals("0"))
+                    {
+                        <button type="button" class="btn btn-success" onclick="AddToCart('@Model.Item_ID','@Model.Item_code', '@Model.Item_Name',@Model.Item_Price,'@Model.Image_Name',@Model.Shipping_Price,@Model.Tax_Amount);">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-success" disabled>
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart
+                        </button>
+                    }
+                </div>
+
+                <div class="btn-group wishlist">
+                    <button type="button" class="btn btn-danger" onclick="@("window.location.href='" + @Url.Action("Index", "Product", new { area = "Shopping" }) + "'");">
+                       <div class="clearfix"></div>
+                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Continue Shopping
+                    </button>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="col-md-12 product-info">
+                <ul id="myTab" class="nav nav-tabs nav_tabs">
+                    <li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="service-one">
+                        <section class="container product-info" style="white-space: pre-line;">
+                            @Html.Raw(Model.Description)
+                        </section>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+                        }
+                        else
+                        {
+                            <div class="box-wrapper">
+                                <div class="container">
+                                    <div class="product-title"><label>No content available</label></div>
+                                </div>
+                            </div>
+                        }
+
+<script type="text/javascript">
+    var ItemCountExist = 0;
+    //This method is used to add items to cart
+    AddToCart = function (id, ItemCode, name, price, imagename, Shippingcost, tax) {
+        debugger;
+        var items = (localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined) ? [] : JSON.parse(localStorage.getItem("cart"));
+        if (items.length > 0) {
+            for (count = 0; count < items.length; count++) {
+                if (items[count].Item_ID == id) {
+                    ItemCountExist = items[count].ItemCounts + 1;
+                    items[count].ItemCounts = ItemCountExist;
+                    items[count].ItemTotalPrice = ItemCountExist * price;
+                    localStorage.setItem("cart", JSON.stringify(items));
+                    toastr.success(name + " successfully added to the cart")
+                }
+            }
+        }
+        if (ItemCountExist <= 0) {
+            ItemCountExist = 1;
+            var ItmDetails = {
+                Item_ID: id,
+                Item_code: ItemCode,
+                Item_Name: name,
+                //Description: description,
+                Item_Price: price,
+                Image_Name: imagename,
+                ItemCounts: ItemCountExist,
+                ItemTotalPrice: price,
+                ItemShippingCost: Shippingcost,
+                ItemTax: tax
+
+            };
+            items.push(ItmDetails);
+            localStorage.setItem("cart", JSON.stringify(items));
+            toastr.success(name + " successfully added to the cart")
+        }
+        checkcartcount();
+    }
+</script>

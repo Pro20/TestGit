@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_GreatCircleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="airport_frequencies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="airport_ref" Type="bigint" />
+    <Property Name="airport_ident" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="frequency_mhz" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="airports">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="ident" Type="varchar(max)" />
+    <Property Name="type" Type="varchar(max)" />
+    <Property Name="name" Type="varchar(max)" />
+    <Property Name="latitude_deg" Type="varchar(max)" />
+    <Property Name="longitude_deg" Type="varchar(max)" />
+    <Property Name="elevation_ft" Type="varchar(max)" />
+    <Property Name="continent" Type="varchar(max)" />
+    <Property Name="iso_country" Type="varchar(max)" />
+    <Property Name="iso_region" Type="varchar(max)" />
+    <Property Name="municipality" Type="varchar(max)" />
+    <Property Name="scheduled_service" Type="varchar(max)" />
+    <Property Name="gps_code" Type="varchar(max)" />
+    <Property Name="iata_code" Type="varchar(max)" />
+    <Property Name="local_code" Type="varchar(max)" />
+    <Property Name="home_link" Type="varchar(max)" />
+    <Property Name="wikipedia_link" Type="varchar(max)" />
+    <Property Name="keywords" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="countries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar(max)" />
+    <Property Name="continent" Type="varchar" MaxLength="50" />
+    <Property Name="wikipedia_link" Type="varchar(max)" />
+    <Property Name="keywords" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="navaids">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="filename" Type="varchar" MaxLength="50" />
+    <Property Name="ident" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="frequency_khz" Type="varchar" MaxLength="50" />
+    <Property Name="latitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="longitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="elevation_ft" Type="varchar" MaxLength="50" />
+    <Property Name="iso_country" Type="varchar" MaxLength="50" />
+    <Property Name="dme_frequency_khz" Type="varchar" MaxLength="50" />
+    <Property Name="dme_channel" Type="varchar" MaxLength="50" />
+    <Property Name="dme_latitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="dme_longitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="dme_elevation_ft" Type="varchar" MaxLength="50" />
+    <Property Name="slaved_variation_deg" Type="varchar" MaxLength="50" />
+    <Property Name="magnetic_variation_deg" Type="varchar" MaxLength="50" />
+    <Property Name="usageType" Type="varchar" MaxLength="50" />
+    <Property Name="power" Type="varchar" MaxLength="50" />
+    <Property Name="associated_airport" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="regions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="50" />
+    <Property Name="local_code" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar(max)" />
+    <Property Name="continent" Type="varchar" MaxLength="50" />
+    <Property Name="iso_country" Type="varchar" MaxLength="50" />
+    <Property Name="wikipedia_link" Type="varchar(max)" />
+    <Property Name="keywords" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="runways">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="airport_ref" Type="bigint" />
+    <Property Name="airport_ident" Type="varchar" MaxLength="50" />
+    <Property Name="length_ft" Type="varchar" MaxLength="50" />
+    <Property Name="width_ft" Type="varchar" MaxLength="50" />
+    <Property Name="surface" Type="varchar(max)" />
+    <Property Name="lighted" Type="varchar" MaxLength="50" />
+    <Property Name="closed" Type="varchar" MaxLength="50" />
+    <Property Name="le_ident" Type="varchar" MaxLength="50" />
+    <Property Name="le_latitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="le_longitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="le_elevation_ft" Type="varchar" MaxLength="50" />
+    <Property Name="le_heading_degT" Type="varchar" MaxLength="50" />
+    <Property Name="le_displaced_threshold_ft" Type="varchar" MaxLength="50" />
+    <Property Name="he_ident" Type="varchar" MaxLength="50" />
+    <Property Name="he_latitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="he_longitude_deg" Type="varchar" MaxLength="50" />
+    <Property Name="he_elevation_ft" Type="varchar" MaxLength="50" />
+    <Property Name="he_heading_degT" Type="varchar" MaxLength="50" />
+    <Property Name="he_displaced_threshold_ft" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_airport_frequencies_airports">
+    <End Role="airports" Type="Self.airports" Multiplicity="0..1" />
+    <End Role="airport_frequencies" Type="Self.airport_frequencies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airports">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="airport_frequencies">
+        <PropertyRef Name="airport_ref" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_runways_airports">
+    <End Role="airports" Type="Self.airports" Multiplicity="0..1" />
+    <End Role="runways" Type="Self.runways" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airports">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="runways">
+        <PropertyRef Name="airport_ref" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_GreatCircleModelStoreContainer">
+    <EntitySet Name="airport_frequencies" EntityType="Self.airport_frequencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="airports" EntityType="Self.airports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="navaids" EntityType="Self.navaids" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="regions" EntityType="Self.regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="runways" EntityType="Self.runways" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_airport_frequencies_airports" Association="Self.FK_airport_frequencies_airports">
+      <End Role="airports" EntitySet="airports" />
+      <End Role="airport_frequencies" EntitySet="airport_frequencies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_runways_airports" Association="Self.FK_runways_airports">
+      <End Role="airports" EntitySet="airports" />
+      <End Role="runways" EntitySet="runways" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

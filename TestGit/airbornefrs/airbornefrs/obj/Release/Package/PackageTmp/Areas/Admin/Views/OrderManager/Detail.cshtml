@@ -1,0 +1,157 @@
+﻿<link href="~/Content/Custom/shoppingCart.css" rel="stylesheet" />
+@model IEnumerable<airbornefrs.Models.ShoppingcartModel.OrderDetailsModel>
+@{
+    ViewBag.Title = "Order-Details";
+}
+<style>
+    .alert {
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .table > thead > tr > th {
+        vertical-align: initial;
+    }
+</style>
+
+<html>
+<body>
+    <div class="container">
+        <div class="row">
+            @if (Model != null && Model.Count() > 0)
+            {<div class="col-md-12">
+                @foreach (var model in Model)
+                {
+
+                    <form name="form" class="css-form" novalidate>
+                        <div class="row">
+                            <div class="pannel-section clearfix mbclear">
+                                <div class="pannel-heading">
+                                    <div class="col-md-3 col-sm-3"><strong>Product</strong></div>
+                                    <div class="col-md-1 col-sm-1" align="center"><strong>Quantity</strong></div>
+                                    <div class="col-md-2 col-sm-2" align="center"><strong>Price (per unit)</strong></div>
+                                    <div class="col-md-2 col-sm-2" align="center"><strong>Shipping (per unit)</strong></div>
+                                    <div class="col-md-2 col-sm-2" align="center"><strong>Tax (per unit)</strong></div>
+                                    <div class="col-md-2 col-sm-2"><strong span style="float:right;">Total</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        @foreach (var item in model.ItemModel)
+                        {
+                            <div class="row thumbnail mbradius">
+                                <div class="clearfix">
+                                    <div class="col-md-3">
+                                        <div class="col-sm-2 col-xs-3 col-md-5" style="">
+                                            <img class="img-responsive mimgsize" src="~/images/Products/@item.ProductImage" ng-click="ctrl.redirectToDetail(detail.Item_ID)" />
+                                        </div>
+                                        <div class="col-sm-10 col-xs-9 col-md-7" style="font-weight:bold; font-size:18px;">
+                                            @item.ProductName
+                                        </div>
+                                    </div>
+                                    <div class="pannel-heading">
+                                        <div class="col-md-1" align="center">@item.Quantity</div>
+                                        <div class="col-md-2" align="center">@Html.DisplayFor(m => item.Price, "Currency")</div>
+                                        <div class="col-md-2" align="center">@Html.DisplayFor(m => item.ShippingPerUnit, "Currency")</div>
+                                        <div class="col-md-2" align="center">@Html.DisplayFor(m => item.TaxPerUnit, "Currency")</div>
+                                        <div class="col-md-2"><span style="float:right;"> @Html.DisplayFor(m => item.TotalPrice, "Currency")</span></div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="mobile-pannel">
+                                        <div class="mobile-pannel-border"></div>
+                                        <div class="col-md-3 col-sm-10 col-xs-9"> Quantity</div>
+                                        <div class="col-md-3 col-sm-2 col-xs-3 prices">
+                                            @item.Quantity
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="mobile-pannel-border"></div>
+                                        <div class="col-md-3 col-xs-6"> Price (per unit)</div>
+                                        <div class="col-md-3 col-xs-6 prices">@Html.DisplayFor(m => item.Price, "Currency")</div>
+
+                                        <div class="clearfix"></div>
+                                        <!-- <div class="mobile-pannel-border"></div> -->
+                                        <div class="col-md-3 col-xs-6"> Shipping (per unit)</div>
+                                        <div class="col-md-3 col-xs-6 prices"> @Html.DisplayFor(m => item.ShippingPerUnit, "Currency")</div>
+
+                                        <div class="clearfix"></div>
+                                        <!-- <div class="mobile-pannel-border"></div> -->
+                                        <div class="col-md-3 col-xs-6"> Tax (per unit)</div>
+                                        <div class="col-md-3 col-xs-6 prices">@Html.DisplayFor(m => item.TaxPerUnit, "Currency")</div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="mobile-pannel-border"></div>
+                                        <div class="col-md-3 col-xs-6"> <strong>Total</strong></div>
+                                        <div class="col-md-3 col-xs-6 prices"> <strong>@Html.DisplayFor(m => item.TotalPrice, "Currency")</strong></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div class="row">
+                            <div class="pannel-section clearfix">
+                                <div class="col-md-6">&nbsp;</div>
+                                <div class="col-md-3 col-xs-6">Subtotal</div>
+                                <div class="col-md-3 prices">@Html.DisplayFor(m => model.CartSubtotal, "Currency") </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="pannel-section clearfix">
+                                <div class="col-md-6">&nbsp;</div>
+                                <div class="col-md-3 col-xs-6"> Estimated shipping</div>
+                                <div class="col-md-3 col-xs-6 prices">
+                                    @Html.DisplayFor(m => model.ShippingPrice, "Currency")
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="pannel-section clearfix">
+                                <div class="col-md-6">&nbsp;</div>
+                                <div class="col-md-3 col-xs-6"> Tax</div>
+                                <div class="col-md-3 col-xs-6 prices">
+                                    @Html.DisplayFor(m => model.Tax, "Currency")
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="pannel-section clearfix">
+                                <div class="col-md-6 col-xs-12 col-sm-6"></div>
+                                <div class="col-md-3 col-xs-6 col-sm-3"><strong style="font-size:25px;">Total</strong></div>
+                                <div class="col-md-3 col-xs-6 col-sm-3 total-prices"><strong style="font-size:25px; float:right;">@Html.DisplayFor(m => model.OrderPrice, "Currency")</strong></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="pannel-section clearfix">
+                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                    <strong>Delivery Address&nbsp;</strong><br />
+                                    Street: @Html.Raw(model.Street) <br />
+                                    City: @Html.Raw(model.City) <br />
+                                    State: @Html.Raw(model.State) <br />
+                                    Postal code: @Html.Raw(model.PostalCode) <br />
+                                    Country code: @Html.Raw(model.CountryCode) <br />
+                                    <br />
+                                </div>
+                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                    <strong>Recipient Name&nbsp;</strong><br /> @Html.Raw(model.RecipientName)
+                                    <br />
+                                    <br />
+                                    <strong>Recipient Phone no.&nbsp;</strong><br /> @Html.Raw(model.PhoneNumber)
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </form>
+                }
+            </div>
+            }
+            else
+            { <h2>There are no Items..</h2>}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿@model airbornefrs.Models.ShoppingcartModel.OrderDetailsModel
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Purchased Order email</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    @if (Model != null)
+    {
+
+    <table class="content" align="center" cellpadding="4" cellspacing="0" border="0" style="width: 100%; max-width:800px;">
+        <tr>
+            <td style="width:100%;">Dear @Model.RecipientName ,</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <br />
+    <table class="content" align="center" cellpadding="4" cellspacing="0" border="1" style="width: 100%; max-width:800px; border-collapse:collapse;">
+        <tr style="text-align:center;">
+            <th width="12%">Product</th>
+            <th width="17%">Quantity</th>
+            <th width="17%">Price (Per Unit)</th>
+            <th width="17%">Shipping (Per Unit)</th>
+            <th width="17%">Tax (Per Unit)</th>
+            <th width="17%">Total</th>
+        </tr>
+        @foreach (var item in Model.ItemModel)
+        {
+        <tr style="text-align:center;">
+            <!--<td><img src="~/Images/@item.ProductImage" width="100%" /><br />@item.ProductName</td>-->
+            <td><img src="@item.ProductImage" width="100%" /><br />@item.ProductName</td>
+            <td>@item.Quantity</td>
+            <td>$ @item.Price</td>
+            <td>$ @item.ShippingPerUnit</td>
+            <td>$ @item.TaxPerUnit</td>
+            <td>$ @item.TotalPrice</td>
+        </tr>
+        }
+
+        <tr style="">
+            <td colspan="4" style="text-align:right;">Subtotal</td>
+            <td colspan="2" style="text-align:right;">$ @Model.CartSubtotal</td>
+        </tr>
+
+        <tr style="">
+            <td colspan="4" style="text-align:right;">Estimated Shipping</td>
+            <td colspan="2" style="text-align:right;">$ @Model.ShippingPrice</td>
+        </tr>
+
+        <tr style="">
+            <td colspan="4" style="text-align:right;">Tax</td>
+            <td colspan="2" style="text-align:right;">$ @Model.Tax</td>
+        </tr>
+
+        <tr style="">
+            <td colspan="4" style="text-align:right; font-size:25px; font-weight:bold;">Total</td>
+            <td colspan="2" style="text-align:right; font-size:25px; font-weight:bold;">$ @Model.OrderPrice</td>
+        </tr>
+    </table>
+    <br />
+
+    <table class="content" align="center" cellpadding="4" cellspacing="0" border="0" style="width: 100%; max-width:800px;">
+        <tr>
+            <td colspan="6">
+                <strong>Delivery Address&nbsp;</strong><br />
+                Street:  @Model.Street <br />
+                City:  @Model.City <br />
+                State:  @Model.State <br />
+                Postal code:  @Model.PostalCode <br />
+                Country code:  @Model.CountryCode <br />
+        </tr>
+        <tr>
+            <td colspan="6">Thank you for shopping with us.</td>
+        </tr>
+    </table>
+    }
+</body>
+</html>

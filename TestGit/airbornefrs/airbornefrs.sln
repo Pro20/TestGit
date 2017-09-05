@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{640196B8-F903-4C91-9495-A7F87B28EFC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Core (Data + Entities + Framework)", "4. Core (Data + Entities + Framework)", "{391AC609-127F-4813-AF12-43E3BB21505E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "airbornefrs", "airbornefrs\airbornefrs.csproj", "{F60528BA-CAA7-4726-9E48-D378C4C81512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "airbornefrs.Data", "airbornefrs.Data\airbornefrs.Data.csproj", "{6E20C956-BA56-43C7-883A-09BFDB0F29B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "airbornefrs.Entities", "airbornefrs.Entities\airbornefrs.Entities.csproj", "{386CB280-FE33-4561-85A7-6F327AC83C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "airbornefrs.Framework", "airbornefrs.Framework\airbornefrs.Framework.csproj", "{39E02F19-9270-4309-96E6-C2A7800036AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F60528BA-CAA7-4726-9E48-D378C4C81512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F60528BA-CAA7-4726-9E48-D378C4C81512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F60528BA-CAA7-4726-9E48-D378C4C81512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F60528BA-CAA7-4726-9E48-D378C4C81512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E20C956-BA56-43C7-883A-09BFDB0F29B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E20C956-BA56-43C7-883A-09BFDB0F29B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E20C956-BA56-43C7-883A-09BFDB0F29B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E20C956-BA56-43C7-883A-09BFDB0F29B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{386CB280-FE33-4561-85A7-6F327AC83C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386CB280-FE33-4561-85A7-6F327AC83C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386CB280-FE33-4561-85A7-6F327AC83C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386CB280-FE33-4561-85A7-6F327AC83C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E02F19-9270-4309-96E6-C2A7800036AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E02F19-9270-4309-96E6-C2A7800036AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E02F19-9270-4309-96E6-C2A7800036AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E02F19-9270-4309-96E6-C2A7800036AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F60528BA-CAA7-4726-9E48-D378C4C81512} = {640196B8-F903-4C91-9495-A7F87B28EFC3}
+		{6E20C956-BA56-43C7-883A-09BFDB0F29B4} = {391AC609-127F-4813-AF12-43E3BB21505E}
+		{386CB280-FE33-4561-85A7-6F327AC83C12} = {391AC609-127F-4813-AF12-43E3BB21505E}
+		{39E02F19-9270-4309-96E6-C2A7800036AF} = {391AC609-127F-4813-AF12-43E3BB21505E}
+	EndGlobalSection
+EndGlobal

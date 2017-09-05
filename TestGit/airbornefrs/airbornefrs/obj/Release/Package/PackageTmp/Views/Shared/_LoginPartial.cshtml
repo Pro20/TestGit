@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+    <li> @Html.ActionLink("Store Manager", "Index", "StoreManager", new { area = "Admin" }, null)</li>
+
+    <li> @Html.ActionLink("Order Manager", "Index", "OrderManager", new { area = "Admin" }, null)</li>
+    <li style="display: inline-flex;">
+        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    </li>
+    <li><a href="~/Support/LiveChat">Live chat</a></li>
+    <li><a href="javascript:void(0)" data-toggle="modal" data-target="#fastfacts">FastFacts</a></li>
+}
+else
+{
+    @*<li> @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) </li>*@
+    <li> @Html.ActionLink("Log in", "Login", "Account", new { area=""}, null) </li>
+    <li><a href="~/Support/LiveChat">Live chat</a></li>
+    <li><a href="javascript:void(0)" data-toggle="modal" data-target="#fastfacts">FastFacts</a></li>
+    <li><span><i class="fa fa-shopping-cart" style="color:white !important;" aria-hidden="true"></i>&nbsp; @Html.ActionLink("Cart", "Cart", "Product", new { area = "Shopping" }, null)&nbsp;<span id="cart-count" style="padding:0;color:white !important;"></span></span></li>
+    @*<ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>*@
+}

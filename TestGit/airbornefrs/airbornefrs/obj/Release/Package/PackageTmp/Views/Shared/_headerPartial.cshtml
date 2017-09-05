@@ -1,0 +1,249 @@
+﻿@using Microsoft.AspNet.Identity
+<header class="header header--dark">
+    <div class="header-fixed">
+        <div class="header-line header-line--shop waypoint" data-animate-down="header-up" data-animate-up="header-down">
+            <div class="container">
+                <!-- Contact information about company -->
+                <address class="contact-info pull-left hidden-lower">
+                    <a class="contact-info__item" href="tel://1-856-302-0077"> <i class="fa fa-mobile"></i> +1-856-302-0077 </a> <a class="contact-info__item" href="mailto:info@airbornefrs.com?subject=Email from website"> <i class="fa fa-envelope"></i> <img src="~/images/mail.png" alt="info@airbornefrs.com"> </a>
+                </address>
+                <!-- end contact information -->
+                <!-- Search field -->
+                <form class="search search--centered" id="search-form" name="search-form" method="get" action="#">
+                    <!--<input class="search__field" name="search-request" type="search" placeholder="search" value="">-->
+                    <gcse:search></gcse:search>
+                    <button class="search__btn" type="submit"> <i class="fa fa-search"></i> </button>
+                </form>
+                <!-- end search field -->
+                <ol class="breadcrumb breadcrumb--nav">
+                    @Html.Partial("_LoginPartial")
+                </ol>
+
+            </div>
+            <!-- end container -->
+        </div>
+        <div class="fixed-top header-down">
+            <div class="container">
+                <!--  Logo  -->
+                <a class="logo" href="~/Home/Index">
+                    <!-- Remove comments to choose image and add comment to h1 -->
+                    <!--<img src="images/logo-full.png" alt="">-->
+                    <h1 class="logo__text"><img src="~/images/logo-full-light.png" alt="airborne"> </h1>
+                </a>
+                <!-- End Logo -->
+                <!-- Navigation section -->
+                <nav class="z-nav">
+                    <!-- Toggle for menu mobile view -->
+                    <a href="#" class="z-nav__toggle">
+                        <span class="menu-icon"></span> <span class="menu-text">navigation</span>
+                        <div class="menu-head"></div>
+                    </a>
+                    <ul class="z-nav__list">
+                        <li class="z-nav__item">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="~/Home/Index">Home</a>
+                        </li>
+                        <li class="z-nav__item">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="~/GCNavigation/Index">Flight Plan</a>
+                        </li>
+                        <li class="z-nav__item">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="~/Products/Index">Products</a>
+                            <!-- Subsidiary menu list-->
+                            <ul class="z-nav__list-secondary">
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index">ADS-B Interoperability</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index#alert-notice"> Alerts &amp; Notices</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index#enroute-track">Enroute Track &amp; Monitor</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index#flight-planning">Flight Planning</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index#mobile-applications">Mobile Applications</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index#security-ground">Security &amp; Ground Ops</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index#system-monitoring">Systems Monitoring </a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Products/Index#training">Training</a>
+                                </li>
+                            </ul>
+                            <!-- end subsidiary menu list-->
+                        </li>
+                        <li class="z-nav__item">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="~/Features/Index">Features</a>
+                            <!-- Subsidiary menu list-->
+                            <ul class="z-nav__list-secondary">
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Features/Index">NextGen &amp; ADS-B</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Features/Index#air-vehicle"> Air Vehicle Management </a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Features/Index#safety">Safety</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Features/Index#communication">Communications</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/Features/Index#installation">Installation</a>
+                                </li>
+                            </ul>
+                            <!-- end subsidiary menu list-->
+                        </li>
+                        <li class="z-nav__item">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="~/About/Index">About</a>
+                            <!-- Subsidiary menu list-->
+                            <ul class="z-nav__list-secondary">
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/About/Index#invented-by-aerospace">Invented by Aerospace Engineers &amp; Pilots !</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/About/Index#history">History</a>
+                                </li>
+                                <li class="z-nav__item">
+                                    <a class="z-nav__link" href="~/About/Index#flight-information">Flight Information</a>
+                                </li>
+                            </ul>
+                            <!-- end subsidiary menu list-->
+                        </li>
+                        <li class="z-nav__item skip-element">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="~/Buy/Index">Offers</a>
+                            <!-- Subsidiary menu list-->
+                            <ul class="z-nav__list-secondary mega-menu">
+                                <div class="col-sm-3">
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#android">Mobile Application for Android</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#ios">Mobile Application for iOS</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#airbornec">Airborne C100</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#airbornec2">Airborne C200</a>
+                                    </li>
+                                </div>
+                                <div class="col-sm-3">
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#airbornes">Airborne S100</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#airbornes2">Airborne S200</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#airborned">Airborne D500</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#airborned2">VISability™ Portal</a>
+                                    </li>
+                                </div>
+                                <div class="col-sm-3">
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#alert">Alerts &amp; Notice</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#flightsensebase">Airborne Flight Sense™ Base Sensor System</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#sensors">Airborne Flight Sense™ Sensors </a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#frstraining">Airborne FRS Training Program </a>
+                                    </li>
+                                </div>
+                                <div class="col-sm-3">
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#demokit">ADS - B Interoperability Demonstration Kit</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#radio">ADS - B Interoperability Radio</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Buy/Index#airwave">AirWave Telemetry Subscription Renewal</a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="z-nav__item">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="~/Shopping/Product/Index">Store</a>
+                        </li>
+                        <li class="z-nav__item skip-element">
+                            <!-- Subsidiary menu toogle button -->
+                            <span class="z-nav__toggle-sub plus"><i class="fa fa-plus"></i><i class="fa fa-minus"></i></span> <a class="z-nav__link" href="javascript:void(0)">Support</a>
+                            <ul class="z-nav__list-secondary mega-menu">
+                                <div class="col-sm-4">
+                                    <li class="z-nav__item">
+                                        <strong></strong>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="http://portal2.airbornefrs.com/AIRBORNEFRSlogin.aspx" target="_blank">VISability Login</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/Rma">Returns (RMA) </a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/Eula">EULA</a>
+                                    </li>
+                                    <!--<li class="z-nav__item"><a class="z-nav__link" href="website-map.html">Website Map</a>
+                                    </li>-->
+                                </div>
+                                <div class="col-sm-4">
+                                    <li class="z-nav__item">
+                                        <strong>Support Ticket </strong>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/PreSale">Pre Sales</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/MobileApplication">Mobile Applications</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/PurchasedProduct">Purchased Product</a>
+                                    </li>
+                                </div>
+                                <div class="col-sm-4">
+                                    <li class="z-nav__item">
+                                        <strong>Contact Us </strong>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/General">General</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/BecomeReseller"> Become a Reseller</a>
+                                    </li>
+                                    <li class="z-nav__item">
+                                        <a class="z-nav__link" href="~/Support/CorporateAdvertising">Corporate Advertising</a>
+                                    </li>
+                                </div>
+                                <!-- <li class="z-nav__item"><a class="z-nav__link" href="#">Shortcodes</a></li> -->
+                            </ul>
+                            <!-- end subsidiary menu list-->
+                        </li>
+
+                    </ul>
+                    <!-- end list menu item -->
+                </nav>
+                <!-- end navigation section -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end fixed top block -->
+    </div>
+</header>
+

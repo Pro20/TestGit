@@ -1,0 +1,160 @@
+﻿@model airbornefrs.Models.MobileAppModel
+@{
+    ViewBag.Title = "Airborne FRS: MobileApplication";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <link href="~/external/bootstrap-select/bootstrap-select.css" rel="stylesheet">
+    <link href="~/external/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="~/Content/intlTelInput.css" rel="stylesheet" />
+
+    
+        <!-- Section show current page and breadcrumb -->
+        <section class="page-indecator">
+            <div class="container">
+                <h2 class="heading">Mobile Applications</h2>
+
+                <!-- Breadcrumb pattern -->
+                <ol class="breadcrumb breadcrumb-pages">
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <li class="active">Mobile Applications</li>
+                </ol>
+                <!-- Default one color devider -->
+                <div class="devider"></div>
+            </div>
+        </section>
+        <!-- end section show current page and breadcrumb -->
+        <div class="inner-page-template extra clearfix">
+            <div class="container">
+                <h2>Mobile Applications</h2>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 form-text">
+                        <h3>Mobile Application Support</h3>
+                        <p class="p-space">Use this form if you are an existing mobile application registered user or if you are a fleet manager or operate more than one phone or mobile application.</p>
+                        <p>Once you submit the form on this page, you will receive an email message with the support ticket identification. Our Ground Crew will then contact you via the email support ticket. Thank you.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 support-form" ng-controller="mobileappCtrl">
+                        <h3>Mobile Application Support Form</h3>
+                        <form class="contact" method="post" role="form" ng-focus="true" ng-submit="submitForm()" name="mobileappForm" id="mobileappForm">
+                            <div class="form-group">
+                                <label>*Name</label>
+                                <input type="text" class="contact__field" placeholder="" name="Name" id="Name" ng-model="data.mobileappData.Name">
+                            </div>
+                            <div class="form-group">
+                                <label>*Email Address</label>
+                                <input type="text" class="contact__field" placeholder="" name="Email" id="Email" ng-model="data.mobileappData.Email">
+                            </div>
+                            <div class="form-group">
+                                <label>Company Name</label>
+                                <input type="text" class="contact__field" name="Companyname" id="Companyname" placeholder="" ng-model="data.mobileappData.Companyname">
+                            </div>
+                            <div class="form-group">
+                                <label>*Operation System</label>
+                                <div class="radio radio--dark">
+                                    <input type="radio" value="iOS" name="Os" id="Os" ng-model="data.mobileappData.Os">
+                                    <label for="iOS">iOS</label>
+                                </div>
+                                <div class="radio radio--dark">
+                                    <input type="radio" value="Android" name="Os" id="Os" ng-model="data.mobileappData.Os">
+                                    <label for="android">Android</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>*Primary Platform</label>
+                                <div class="radio radio--dark">
+                                    <input type="radio" value="Smart phone" name="PrimaryPlat" id="PrimaryPlat" ng-model="data.mobileappData.PrimaryPlat">
+                                    <label for="smart-phone">Smart phone</label>
+                                </div>
+                                <div class="radio radio--dark">
+                                    <input type="radio" value="Tablet" name="PrimaryPlat" id="PrimaryPlat" ng-model="data.mobileappData.PrimaryPlat">
+                                    <label for="tablet">Tablet</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>*Your Registered Cell Phone number (with country code)</label>
+                                <div class="row">
+                                    <!--<div class="col-xs-4 col-sm-3">
+                        <select class="select-box" id="select-box1" name="select-box1" tabindex="0">
+                            <option value="default" selected="selected">+1</option>
+                            <option value="+11">+11</option>
+                            <option value="+13">+13</option>
+                            <option value="+14">+14</option>
+                        </select>
+                    </div>-->
+                                    <div class="col-xs-12 col-sm-9">
+                                        <input type="text" class="contact__field" placeholder="" name="Phone" id="Phone" ng-model="data.mobileappData.Phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Use</label>
+                                <div class="radio radio--dark">
+                                    <input type="radio" value="General Aviation" name="Use" id="Use" ng-model="data.mobileappData.Use">
+                                    <label for="radio1"> General Aviation</label>
+                                </div>
+                                <div class="radio radio--dark">
+                                    <input type="radio" value="Business" name="Use" id="Use" ng-model="data.mobileappData.Use">
+                                    <label for="radio2">Business</label>
+                                </div>
+                                <div class="radio radio--dark">
+                                    <input type="radio" value="Carrier" name="use" id="Use" ng-model="data.mobileappData.Use">
+                                    <label for="radio3">Carrier</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>*How can we help?</label>
+                                <textarea class="contact__field" name="Howcanhelp" id="Howcanhelp" ng-model="data.mobileappData.Howcanhelp"></textarea>
+                            </div>
+                            <div class="form-group clearfix">
+                                <label>*Human Test </label>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 form-group" id="captchaContainer">
+                                        <div class="g-recaptcha" data-sitekey="6Lfppw8TAAAAAPyLD_-5SAbI_6b3z_l48nFZVJiz"></div>
+                                    </div>
+                                    <!--<div class="col-xs-12 col-sm-6 form-group">
+                        <input type="text" class="contact__field" placeholder="Type captcha here">
+                    </div>-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button id="submit_btn" type="submit" name="submitButton" class="btn btn--decorated btn-warning btn-submit">Submit</button>
+                            </div>
+                        </form>
+                        <div id="dvAfterSubmit"></div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade--zoom" aria-labelledby="fastfacts" tabindex="-1" role="dialog" id="fastfacts">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title" id="fastfacts">FastFacts</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list">
+                            <li> Airborne Flight Reporting System: for all Air &amp; Ground Crews, Passengers, Family &amp; Associates!</li>
+                            <li>Affordable Flight Tracking &amp; Management: great for General Aviation flight either VFR &amp; IFR!</li>
+                            <li>Airborne FRS for Vertical Lift: Reports on the unique Flight Characteristics of VTOLs!</li>
+                            <li> Lightweight for the Drones: Provides enhanced Flight Monitoring for Drones!</li>
+                            <li>Makes Unpredictable Flight Safer: If it Takes-off, is should have Airborne!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-scroll"><i class="fa fa-angle-up"></i></div>
+@section BottomScript{
+    <script>
+        var objMobileApp = @Html.Raw(Model.GetJsonData());
+    </script>
+<script src="~/assets/js/controllers/mobileappCtrl.js"></script>
+    
+}
+

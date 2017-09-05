@@ -1,0 +1,201 @@
+﻿@model airbornefrs.Models.ShoppingcartModel.itemDetailsDataContract
+@using airbornefrs.Models
+<link href="~/Content/Custom/shoppingDetail.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Edit-Product";
+}
+
+<style>
+    .clsReq {
+        color: red;
+    }
+</style>
+@if (Model != null && Model.Item_ID != null)
+{
+    <div class="box-wrapper">
+            <div class="container">
+                <div class="col-md-4 col-lg-4 col-sm-6">
+                    <div class="product service-image-left clearfix">
+                            <img id="blah" src="~/images/Products/@Model.Image_Name" class="img-responsive" alt="" />
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-8 col-sm-6">
+
+                    <div class="row">
+                        @using (Html.BeginForm("Edit", "StoreManager",new { area="Admin"}, FormMethod.Post, new { role = "form" , enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>Item Code:</label>
+                                @Html.TextBoxFor(model => model.Item_code, new { @class = "form-control", @type = "text" })
+                                @Html.ValidationMessageFor(model => model.Item_code, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>Item Name:<span class="clsReq">*</span></label>
+                                @Html.TextBoxFor(m => m.Item_Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Item_Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>*Item Description:<span class="clsReq">*</span></label>
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = "8" })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>*Item Short Description:<span class="clsReq">*</span></label>
+                                @Html.TextAreaFor(model => model.Short_Description, new { @class = "form-control", @rows = "2" , @maxlength = "200" })
+                                @Html.ValidationMessageFor(model => model.Short_Description, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>Item Price:<span class="clsReq">*</span></label>
+                                @Html.TextBoxFor(model => model.Item_Price, new { @class = "form-control",  @type = "number" })
+                                @Html.ValidationMessageFor(model => model.Item_Price, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>Status:<span class="clsReq">*</span></label>
+                                @Html.DropDownList("ddlstatus", (IEnumerable<SelectListItem>)ViewBag.ListItemStatus, new { @class = "form-control", @onchange= "ChangeStatus();" })
+                                @Html.HiddenFor(model => model.Status)
+                            </div>
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>Shipping Cost:</label>
+                                @Html.TextBoxFor(model => model.Shipping_Price, new { @class = "form-control", @type = "number" })
+                                @Html.ValidationMessageFor(model => model.Shipping_Price, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-xs-12 form-group col-xs-12">
+                                <label>Tax:</label>
+                                @Html.TextBoxFor(model => model.Tax_Amount, new { @class = "form-control", @type = "number" })
+                                @Html.ValidationMessageFor(model => model.Tax_Amount, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-xs-12 form-group">
+                                <label>Upload Image</label>
+                                <input type="file" id="file" name="file" value="Upload File" accept="image/*" />
+                                @Html.HiddenFor(model => model.Item_ID)
+                                @Html.HiddenFor(model => model.Image_Name)
+                            </div>
+                                <div class="col-xs-12 form-group">
+                                    <hr>
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Update
+                                        </button>
+                                    </div>
+                                    <div class="btn-group wishlist">
+
+                                        <button type="button" class="btn btn-danger" onclick="@("location.href='"+ @Url.Action("DeleteProduct", "StoreManager",new { area = "Admin" , id=Model.Item_ID})+ "'")">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete
+                                        </button>
+                                    </div>
+                                    <div class="btn-group wishlist">
+                                        <button type="button" class="btn btn-gray" onclick="@("window.location.href='" + @Url.Action("Index", "StoreManager", new { area = "Admin" }) + "'");">
+                                            &nbsp;Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-12 product-info">
+                </div>
+            </div>
+    </div>
+}
+else
+{
+    <div class="box-wrapper">
+        <div class="container">
+            <div class="product-title"><label>No content available</label></div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        setDefaultStatus();
+
+    });
+
+    function ChangeStatus() {
+        var ddlstatus = document.getElementById("ddlstatus"); 
+        var selectedStatus = ddlstatus.options[ddlstatus.selectedIndex].value;
+        document.getElementById("Status").value = selectedStatus;
+    }
+
+
+    function setDefaultStatus() {
+        var status= @Model.Status;
+        $('#ddlstatus option[value="'+ status +'"]').attr("selected", "selected");
+    }
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            //var reader = new FileReader();
+            //reader.onload = function (e) {
+            //    $('#blah').attr('src', e.target.result);
+            //}
+            //reader.readAsDataURL(input.files[0]);
+            var files = input.files[0];
+            if ((files.type == 'image/png' || files.type == 'image/jpeg' || files.type == 'image/gif')) {
+
+                var reader = new FileReader();
+                reader.readAsDataURL(files);
+                reader.onload = function (e) {
+                    var image = new Image();
+                    image.src = e.target.result;
+                
+                    image.onload = function () {
+                        var height = this.height;
+                        var width = this.width;
+                        if (height < 500 || width < 500) {
+                            toastr.warning("Image height and width must be equal to or greater than 500x500 px, please choose appropriate Image.");
+                            $('input[type=file]').val(null);
+                            return false;
+                        }
+
+                        if (file.size > (800 * 800)) {
+                            toastr.warning("Image size should be less than 625Kb");
+                            $('input[type=file]').val(null);
+                            return false;
+                        }
+                        $('#blah').attr('src', e.target.result);
+                        return true;
+                    };
+                }
+
+            } else {
+                toastr.warning("Please select a valid Image file(.jpg,.png,.gif).");
+                return false;
+            }
+        }
+    }
+
+    $("#file").change(function () {
+        readURL(this);
+    });
+
+
+
+
+    //File Validation
+    function ChechFileValid(file) {
+        var isValid = false;
+        if (input.files[0] != null) {
+            if ((file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/gif') && file.size <= (800 * 800)) {
+                //vm.FileInvalidMessage = "";
+                isValid = true;
+            }
+            else {
+              alert("Only JPEG/PNG/Gif Image can be upload");
+            }
+        }
+        else {
+            vm.FileInvalidMessage = "Image required!";
+        }
+        vm.IsFileValid = isValid;
+    };
+
+</script>

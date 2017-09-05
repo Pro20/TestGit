@@ -1,0 +1,266 @@
+﻿
+@*<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css" />*@
+@*<link href="~/Scripts/Angular/AngularCustom.css" rel="stylesheet" />*@
+
+
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+
+    .alert {
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .table > thead > tr > th {
+        vertical-align: initial;
+    }
+
+    .modal-backdrop.in {
+    opacity: 0.5;
+    z-index:0;
+}
+</style>
+@{
+    ViewBag.Title = "Airborne-Shopping";
+
+}
+
+@*<html data-ng-app="RESTClientModule">*@
+<html>
+<body>
+    <div class="container" data-ng-controller="CartController as ctrl" style="min-height:450px;" >
+        <div class="row" ng-cloak>
+            <h2 ng-if="ctrl.getItemDetailsDisp.length<=0">There is no Items In your Cart. Add Items to view your Cart Details !</h2>
+            <div class="col-md-12" ng-if="ctrl.getItemDetailsDisp.length>0">
+                @*<form name="form" class="css-form" novalidate>*@
+                <div class="row">
+                    <div class="pannel-section clearfix mbclear">
+                        <div class="pannel-heading">
+                            <div class="col-md-3 col-sm-3"><strong>Product</strong></div>
+                            <div class="col-md-1 col-sm-1"><strong>Quantity</strong></div>
+                            <div class="col-md-2 col-sm-2"><strong>Price (per unit)</strong></div>
+                            <div class="col-md-2 col-sm-2"><strong>Shipping (per unit)</strong></div>
+                            <div class="col-md-2 col-sm-2"><strong>Tax (per unit)</strong></div>
+                            <div class="col-md-2 col-sm-2"><strong>Total</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row thumbnail mbradius" data-ng-repeat="detail in ctrl.getItemDetailsDisp track by $index">
+                    <div class="clearfix">
+                        <div class="col-md-3">
+                            <div class="col-sm-2 col-xs-3 col-md-5" style="">
+                                <img class="img-responsive mimgsize" ng-src="~/images/Products/{{detail.Image_Name}}" title="Display product details" ng-click="ctrl.redirectToDetail(detail.Item_ID)" />
+                            </div>
+                            <div class="col-sm-10 col-xs-9 col-md-7" style="font-weight:bold; font-size:18px;">
+                                {{detail.Item_Name}}
+                            </div>
+                            <button type="button" class="btn btn-danger desktop-btn-danger" style="float:right; margin-top:-22px;" ng-click="ctrl.removeFromCart($index)">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="pannel-heading">
+                            <div class="col-md-1">
+                                @*<input type="number" min="1" max="10" class="form-control ng-pristine ng-valid ng-not-empty ng-valid-min ng-valid-max ng-touched" onkeydown="return false;" onkeypress="return false;" onkeyup="return false;" onpast="return false;" ng-model="detail.ItemCounts" aria-invalid="false" style="">*@
+                                <input type="number" min="1" max="10" class="form-control ng-pristine ng-valid ng-not-empty ng-valid-min ng-valid-max ng-touched" onpast="return false;" ng-model="detail.ItemCounts" aria-invalid="false" style="">
+                            </div>
+
+                            <div class="col-md-2">{{detail.Item_Price | currency}}</div>
+                            <div class="col-md-2">{{detail.ItemShippingCost | currency}}</div>
+                            <div class="col-md-2">{{detail.ItemTax | currency}}</div>
+                            <div class="col-md-2">
+                                {{(detail.ItemCounts*(detail.Item_Price + detail.ItemShippingCost + detail.ItemTax)) | currency}}
+                                <button type="button" class="btn btn-danger" style="float:right;" ng-click="ctrl.removeFromCart($index)">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="mobile-pannel">
+
+                            <div class="mobile-pannel-border"></div>
+                            <div class="col-md-3 col-sm-10 col-xs-9"> Quantity</div>
+                            <div class="col-md-3 col-sm-2 col-xs-3 prices">
+                                <input type="number" min="1" max="10" class="form-control ng-pristine ng-valid ng-not-empty ng-valid-min ng-valid-max ng-touched" onkeydown="return false;" onkeypress="return false;" onkeyup="return false;" onpast="return false;" ng-model="detail.ItemCounts" aria-invalid="false">
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="mobile-pannel-border"></div>
+                            <div class="col-md-3 col-xs-6"> Price (per unit)</div>
+                            <div class="col-md-3 col-xs-6 prices">{{detail.Item_Price | currency}}</div>
+
+                            <div class="clearfix"></div>
+                            <!-- <div class="mobile-pannel-border"></div> -->
+                            <div class="col-md-3 col-xs-6"> Shipping (per unit)</div>
+                            <div class="col-md-3 col-xs-6 prices"> {{detail.ItemShippingCost | currency}}</div>
+
+                            <div class="clearfix"></div>
+                            <!-- <div class="mobile-pannel-border"></div> -->
+                            <div class="col-md-3 col-xs-6"> Tax (per unit)</div>
+                            <div class="col-md-3 col-xs-6 prices">{{detail.ItemTax | currency}}</div>
+
+                            <div class="clearfix"></div>
+                            <div class="mobile-pannel-border"></div>
+                            <div class="col-md-3 col-xs-6"> <strong>Total</strong></div>
+                            <div class="col-md-3 col-xs-6 prices"> <strong>{{(detail.ItemCounts*(detail.Item_Price + detail.ItemShippingCost + detail.ItemTax)) | currency}}</strong></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <br />
+
+                <div class="row">
+                    <div class="pannel-section clearfix">
+                        <div class="col-md-6">&nbsp;</div>
+                        <div class="col-md-3 col-xs-6"> Subtotal</div>
+                        <div class="col-md-3 prices">{{ctrl.subTotal() | currency}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="pannel-section clearfix">
+                        <div class="col-md-6">&nbsp;</div>
+                        <div class="col-md-3 col-xs-6"> Estimated shipping</div>
+                        <div class="col-md-3 col-xs-6 prices"> {{ctrl.TotalShippingCost() | currency}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="pannel-section clearfix">
+                        <div class="col-md-6">&nbsp;</div>
+                        <div class="col-md-3 col-xs-6"> Tax</div>
+                        <div class="col-md-3 col-xs-6 prices"> {{ctrl.tax() | currency}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="pannel-section clearfix">
+                        <div class="col-md-6">&nbsp;</div>
+                        <div class="col-md-3 col-xs-6"><strong style="font-size:25px;">Total</strong></div>
+                        <div class="col-md-3 col-xs-6 total-prices"><strong style="font-size:25px; float:right;">{{ctrl.GrandtotalPrice() | currency}}</strong></div>
+                    </div>
+                </div> <br>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-4 col-xs-12">&nbsp;</div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <button type="button" class="btn btn-default btn-md btn-block" style="background-color:#ccc;color: #333333;" onclick="@("window.location.href='" + @Url.Action("Index", "Product", new { area = "Shopping" }) + "'");">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                        </button>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12 prices-btn">
+                        @*<button type="submit" class="btn btn-success btn-block btn-md" ng-disabled="form.uEmail.$dirty && form.uEmail.$invalid" ng-click="form.$valid && ctrl.submit(ctrl.getItemDetailsDisp,ctrl.subTotal(),ctrl.TotalShippingCost(),ctrl.GrandtotalPrice(),ctrl.tax())">
+                                Checkout using Paypal <i class="fa fa-play" aria-hidden="true"></i>
+                            </button>*@
+
+                        <button type="button" class="btn btn-success btn-block btn-md"  data-original-title="Edit" data-toggle="modal" data-target="#modal-popout">
+                            Checkout <i class="fa fa-play" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <br />
+
+
+                <div class="modal fade" id="modal-popout" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-dialog-popout">
+                        <div class="modal-content">
+                            <div class="col-md-12">
+                                <form name="form" class="css-form" novalidate>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="pannel-section clearfix">
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-sm-3 col-xs-3 control-label" style="margin-top:6px;">Email<span style="color:red">*</span> :</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                                        @*<input type="email" name="uEmail" required="" ng-model="ctrl.Email" placeholder="Email..." />
+                                                            <br />
+                                                            <div class="alert alert-danger" style="margin-left:0px;" ng-hide="!form.uEmail.$dirty || !form.uEmail.$invalid" ng-show="form.$submitted">
+                                                            <span ng-show="form.uEmail.$error.required"><strong>Error! </strong>Tell us your email.</span>
+                                                                <span ng-show="form.uEmail.$error.email"><strong>Error! </strong>This is not a valid email.</span>
+                                                            </div>*@
+
+                                                        <input type="email" class="form-control" name="uEmail" required="" ng-model="ctrl.Email" placeholder="Email..." />
+                                                        <div class="help-block" ng-show="form.uEmail.$dirty || form.uEmail.$error">
+                                                            <span ng-show="form.uEmail.$error.required"><strong></strong>Tell us your email.</span>
+                                                            <span ng-show="form.uEmail.$error.email"><strong></strong>Email is invalid.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 col-sm-3 col-xs-3 control-label" style="margin-top:6px;">Phone<span style="color:red">*</span> :</label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                                        @*<input type="tel" name="uPhone" id="uPhone" required="" ng-model="ctrl.Phone" phone-Number-Validator placeholder="Phone number..." />
+                                                            <br />
+                                                            <div class="alert alert-danger" style="margin-left:0px;" ng-hide="!form.uPhone.$dirty || !form.uPhone.$invalid" ng-show="form.$submitted">
+                                                                <span ng-show="form.uPhone.$error.required"><strong>Error! </strong>Tell us your phone number.</span>
+                                                            </div>*@
+
+                                                        <input type="number" class="form-control" ng-pattern="ctrl.ph_numbr" ng-minlength="10" ng-maxlength="10" id="uPhone" name="uPhone" placeholder="Phone number..." ng-model="ctrl.Phone" ng-required="true">
+
+                                                        <div class="help-block" ng-show="form.uPhone.$dirty || form.uPhone.$error">
+                                                            <p ng-show="form.uPhone.$error.required">Tell us your phone number.</p>
+                                                            <p ng-show="form.uPhone.$error.pattern">Phone number is invalid.</p>
+                                                            <p ng-show="((form.uPhone.$error.minlength || form.uPhone.$error.maxlength)&& form.uPhone.$dirty)">
+                                                                Phone number should be 10 digits
+                                                            </p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <button type="button" class="btn btn-default btn-md btn-block" style="background-color:#ccc;color: #333333" onclick="@("window.location.href='" + @Url.Action("Index", "Product", new { area = "Shopping" }) + "'");">
+                                                <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12 prices-btn">
+                                            <button type="submit" class="btn btn-success btn-block btn-md" ng-disabled="form.uEmail.$dirty && form.uEmail.$invalid && form.uPhone.$dirty && form.uPhone.$invalid" ng-click="form.$valid && ctrl.submit(ctrl.getItemDetailsDisp,ctrl.subTotal(),ctrl.TotalShippingCost(),ctrl.GrandtotalPrice(),ctrl.tax())">
+                                                Checkout using Paypal <i class="fa fa-play" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*</form>*@
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@*<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">*@
+@*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+<script src="~/Scripts/Angular/svg-assets-cache.js"></script>
+<script src="~/Scripts/Angular/angular-material.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<script src="~/Scripts/angular-file-upload.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.4.js"></script>*@
+
+@*<script src="~/Scripts/Angular/Modules.js"></script>
+<script src="~/Scripts/Angular/Services.js"></script>*@

@@ -1,0 +1,77 @@
+﻿
+@*<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css" />
+<link href="~/Scripts/Angular/AngularCustom.css" rel="stylesheet" />*@
+
+<link href="~/Content/lightbox/css/lightbox.css" rel="stylesheet" />
+<script src="~/Content/lightbox/js/lightbox.js"></script>
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+
+    .md-subhead {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        max-height: 3em;
+        line-height:1.5;
+        -webkit-box-orient: vertical;
+    }
+</style>
+
+@*<html data-ng-app="RESTClientModule">*@
+<html>
+@{
+    ViewBag.Title = "Airborne-Shopping";
+}
+
+<body>
+    <div data-ng-controller="ShoppingController as ctrl" class="container" style="margin-top:20px;min-height:450px;">
+        <div class="row" ng-cloak>
+            <div class="col-sm-12 col-md-4" data-ng-repeat="detail in ctrl.getItemDetailsDisp | filter:ctrl.search  | orderBy:predicate:ctrl.reverse track by $index">
+                <md-card md-theme="{{ ctrl.showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; max-height: 1.5em;max-height: 1.5em;line-height: 1.5;">{{detail.Item_Name}}</span>
+                            <span class="md-subhead">{{detail.Short_Description}}</span>
+                            <span style="color:#9F000F">
+                                {{detail.Item_Price | currency}}
+                            </span>
+                            <input type="hidden" value='{{detail.Item_ID}}' />
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-md card-media">
+                                <a href="~/images/Products/{{detail.Image_Name}}" rel="lightbox" title="{{detail.Item_Name}} large image"><img ng-src="~/images/Products/{{detail.Image_Name}}" alt="{{detail.Item_Name}}" /></a>
+                            </div>
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-icon-button" aria-label="Settings" title="more..." ng-click="ctrl.redirectToDetail(detail.Item_ID)">
+                            <md-icon md-svg-icon="img/icons/more_vert.svg">
+                            </md-icon>
+                        </md-button>
+                        <span flex></span>
+                        <md-button class="md-raised md-primary" ng-show="detail.Status =='0'" ng-click="ctrl.AddToCart(detail)">Add to cart</md-button>
+                        <md-button class="md-raised md-primary" ng-disabled="detail.Status =='1'" style="cursor:not-allowed;" ng-show="detail.Status =='1'">Out of stock</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>*@
+@*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+<script src="~/Scripts/Angular/svg-assets-cache.js"></script>
+<script src="~/Scripts/Angular/angular-material.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<script src="~/Scripts/angular-file-upload.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.4.js"></script>*@
+
+@*<script src="~/Scripts/Angular/Modules.js"></script>*@
+@*<script src="~/Scripts/Angular/Services.js"></script>
+<script src="~/Scripts/Angular/shoppingController.js"></script>*@

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31593f4de64b4c3681e16b6342cc6294" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="db_GreatCircleModel.airport_frequencies" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.airport" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.country" Width="1.5" PointX="5.875" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.ItemDetail" Width="1.5" PointX="10.375" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.navaid" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.Order_Items" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.Order_Payments" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.region" Width="1.5" PointX="5.875" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_GreatCircleModel.runway" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="db_GreatCircleModel.FK_airport_frequencies_airports" ManuallyRouted="false" />
+        <AssociationConnector Association="db_GreatCircleModel.FK_runways_airports" ManuallyRouted="false" />
+        <AssociationConnector Association="db_GreatCircleModel.FK_Order_Items_Order_Payments" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

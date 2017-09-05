@@ -1,0 +1,849 @@
+﻿@{
+    ViewBag.Title = "Airborne FRS: Offers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .btn-group {
+        /*padding-bottom: 105px !important;*/
+    margin-top:-20px !important;
+    }
+
+</style>
+<link href="~/Content/Custom/shoppingDetail.css" rel="stylesheet" />
+@*<link href="~/external/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />*@
+<script src="~/Scripts/Angular/External_Addtocart.js"></script>
+<!-- Section show current page and breadcrumb -->
+<section class="page-indecator">
+    <div class="container">
+        <h2 class="heading">
+            Offers
+        </h2>
+        <!-- Breadcrumb pattern -->
+        <ol class="breadcrumb breadcrumb-pages">
+            <li>
+                <a href="~/Home/Index">
+                    Home
+                </a>
+            </li>
+            <li class="active">
+                Offers
+            </li>
+        </ol>
+        <!-- Default one color devider -->
+        <div class="devider">
+        </div>
+    </div>
+</section>
+<!-- end section show current page and breadcrumb -->
+<div class="inner-page-template clearfix">
+    <section class="container">
+        <div class="row">
+            <div class="about for-android" id="android">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Mobile Application for
+                        </span>
+                        Android <small>(cell phones, tablets) Free</small>
+                    </h2>
+                    <p class="p-space">
+                        The Airborne FRS mobile application for Android devices works best with Android Lollipop (v5.0 or higher). It has been designed to work with KitKat v4.4.4. Features include Emergency Alerts, real-time tracking, profile management, airport location, and direct routing to airports. Group messaging features include create, manage and launch group messages, receive and store replies to messages you send, and message history.
+                    </p>
+                    <p class="p-space">
+                        Airborne FRS for Android is fully compatible with Airborne Ground Ops (AGO™) which can be purchased separately. The result is a powerful flight management and reporting system.
+                    </p>
+                    <ul class="list-unstyled list-inline">
+                        <li>
+                            <a href="https://play.google.com/store" target="_blank">
+                                <img class="img-responsive" src="~/images/play-store.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!-- end container -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about right" id="ios">
+                <div class="col-sm-6 pull-right col-xs-12">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Mobile Application for
+                        </span>
+                        iOS  <small>(iPhone / iPad) FREE</small>
+                    </h2>
+                    <p class="p-space">
+                        <strong>NOTE you have FREE… it should be Free </strong>
+                    </p>
+                    <p class="p-space">
+                        The Airborne FRS mobile application for iOS devices has been tested with iOS v5.1.1, v6.1.6, v7.1.2, and v9.0.1. Features include Emergency Alerts, real-time tracking, profile management, airport location, and direct routing to airports. Group messaging features include create, manage and launch group messages, receive and store replies to messages you send, and message history.
+                    </p>
+                    <p class="p-space">
+                        Airborne FRS for iOS is fully compatible with Airborne Ground Ops (AGO™) which can be purchased separately. The result is a powerful flight management and reporting system.
+                    </p>
+                    <ul class="list-unstyled list-inline">
+                        <li>
+                            <a href="https://play.google.com/store" target="_blank">
+                                <img class="img-responsive" src="~/images/app-store.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+
+    <section class="container">
+        <div class="row">
+            <div class="about airborne-c" id="airbornec">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne
+                        </span>
+                        C100
+                    </h2>
+                    <p class="p-space">
+                        Cellular tracking , monitoring and reporting system. Operates on battery alone or can be externally powered using a cigar plug or direct connection to fuse panel or air vehicle battery. Provides GPS coordinates, speed, altitude, heading, battery charge level, external battery charge level, and can accept two additional sensors ( sold separately ). @*For a product brochure, <a href="http://www.airbornefrs.com/Buy/AirborneC100.pdf" target="_blank">click here</a>.*@ Includes one - year Airborne Ground Ops (AGO™) license and one - year Airborne Air Wave ™ cellular air time.
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $995
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+
+                        <li>
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="SC4QGLMMLHB3C">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK01');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK01');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about right airborne-c2" id="airbornec2">
+                <div class="col-sm-6 pull-right">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne
+                        </span>
+                        C200
+                        
+                    </h2>
+                    <p class="p-space">
+                    <p>
+                        Similar to Airborne C1 , but can accommodate 4 optional sensors (sold separately). @*For a product brochure, <a href="http://www.airbornefrs.com/Buy/AirborneC200.pdf" target="_blank">click here</a>.*@ Includes one - year Airborne Ground Ops (AGO™) license and one - year Airborne Air Wave ™ cellular air time.
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $1,595
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="BGE4KZPFJQ3X8">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK02');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK02');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about airborne-s" id="airbornes">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne
+                        </span>
+                        S100
+                    </h2>
+                    <p class="p-space">
+                        An affordable and accurate satellite - based tracking, monitoring and reporting system. @*For a product brochure, <a href="http://www.airbornefrs.com/Buy/AirborneS100.pdf" target="_blank">click here</a>.*@ Includes one - year Airborne Ground Ops (AGO™) license and one - year Airborne Air Wave ™ satellite air time.
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $895
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="GRED3DS7BK6HL">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK03');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK03');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about right airborne-s2" id="airbornes2">
+                <div class="col-sm-6 pull-right">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne
+                        </span>
+                        S200
+                    </h2>
+                    <p class="p-space">
+                        Similar to Airborne S100, but can accommodate 3 optional sensors(sold separately). @*For a product brochure, <a href="" target="_blank">click here</a>*@ Includes one - year Airborne Ground Ops (AGO™) license and one - year Airborne Air Wave™ satellite air time.
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $1,595
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="X85JNZP9PUA9W">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK04');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK04');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!-- end container -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about airborne-d" id="airborned">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne
+                        </span>
+                        D500
+                    </h2>
+                    <p class="p-space">
+                        An advanced dual - mode cellular and satellite tracking, monitoring and reporting system. @*For a product brochure, <a href="http://www.airbornefrs.com/Buy/AirborneD500.pdf" target="_blank">click here</a>.*@ Includes one - year Airborne Ground Ops (AGO™) license and one - year Airborne Air Wave ™ cellular and satellite air time.
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $3,995
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="WEFVDWMZF9YXA">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK05');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK05');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about right visability" id="visability">
+                <div class="col-sm-6 pull-right">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne Ground Ops (AGO™)
+                        </span>
+                        Portal
+                    </h2>
+                    <p class="p-space">
+                        our cloud - based portal that provides complete management and real - time reporting of air vehicles, crew, maintenance, and systems. $495 annual license
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $495 / Annual
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="7K5MEPPAWLLU8">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK06');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK06');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!--VISability right -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about alert-notice" id="alert">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Alerts &amp;
+                        </span>
+                        Notices
+                    </h2>
+                    <p class="p-space">
+                        Using the Airborne Ground Ops (AGO™) portal for mobile applications, all Airborne information can be automatically disseminated to any number of individuals or other machines. Message types can include text, email, social media, and voice telephony. To send messages you need as a minimum to have a license for one Airborne FRS mobile application or Airborne Ground Ops (AGO™) and Available Message Credits (AMC). Message fees are based on AMC and include:
+                    </p>
+                    <ul class="listing">
+                        <li>3 credits per message sent to an individual email address</li>
+                        <li>7 credits per message sent via text message to an individual cell phone number</li>
+                        <li>30 credits per 30 second voice message sent to an individual phone number</li>
+                        <li>$ 47 for 5,000 credits </li>
+                    </ul>
+                    <ul class="list-unstyled list-inline">
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="JSXHDGDSF83X8">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK07');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK07');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!-- Alert notice left -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about right flightsensebase" id="flightsensebase">
+                <div class="col-sm-6 pull-right">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne Flight Sense™
+                        </span>
+                        Base Sensor System
+                    </h2>
+                    <p class="p-space">
+                        Advanced - designed sensors that operate in the unlicensed low frequency spectrum of UHF. This systems is sold as a complete set, and additional sensors are optional (sold separately ) @*For a product brochure, <a href="http://www.airbornefrs.com/Buy/AirborneFlightSense.pdf" target="_blank">click here.</a>*@ Includes base station, mobile phone cradle, mobile application, one - year Airborne Ground Ops (AGO™) license and one door position sensor .
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $1,395
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="7DGDMRWYH3KTQ">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK08');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK08');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="p-space">
+                        Delivery of this product is delayed until February 2016.
+                    </p>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!--flightsensebase right -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about sensors" id="sensors">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne Flight
+                        </span>
+                        Sense™ Sensors
+                    </h2>
+                    <p class="p-space">
+                        Requires Airborne FlightSense™ Base Sensor System . Specify sensor type: motion, position, temperature, humidity, or combination temperature and humidity. $ 195 each (specific sensor type)
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $195
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="ZSSJ7WQFZ5GQQ">
+                                    <table>
+                                        <tr><td><input type="hidden" name="on0" value="Sensor Type">Sensor Type</td></tr>
+                                        <tr>
+                                            <td>
+                                                <select name="os0" class="form-group">
+                                                    <option value="Temperature Sensor">Temperature Sensor $195.00 USD</option>
+                                                    <option value="Motion Sensor">Motion Sensor $195.00 USD</option>
+                                                    <option value="Humidty Sensor">Humidty Sensor $195.00 USD</option>
+                                                    <option value="Position Sensor">Position Sensor $195.00 USD</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br />
+                                    <input type="hidden" name="currency_code" value="USD">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>*@
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK09');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK09');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="p-space">
+                        Delivery of this product is delayed until February 2016.
+                    </p>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!-- sensers left -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about right training" id="frstraining">
+                <div class="col-sm-6 pull-right">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            Airborne FRS
+                        </span>
+                        Training Program
+                    </h2>
+                    <p class="p-space">
+                        Four - day training session on - site at customer location within the Contiguous 48 States. @*For a product brochure, click here <a href="http://www.airbornefrs.com/Buy/AirborneTraining.pdf" target="_blank">click here.</a>*@ Includes travel and accommodations. You provide the facilities (access to air vehicle not required).
+                    </p>
+
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            $12,995
+                            <br />
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                        </li>
+                        <li>
+                            @*<a href="https://www.paypal.com/in/webapps/mpp/home" target="_blank">
+                                    <img class="img-responsive" src="~/images/paypal.png">
+                                </a>*@
+                            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="3KVCGSHMJ8DGQ">
+                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            </form>*@
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_AddItemIncart('SUK10');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Add to cart</button>
+                            </div>
+                            <br />
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" onclick="ext_BuynowCart('SUK10');"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Buy now&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!--Training right -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about adsbdemokit" id="demokit">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            ADS - B Interoperability
+                        </span>
+                        Demonstration Kit
+                    </h2>
+                    <p class="p-space">
+                        Includes an assortment of cellular, satellite and UHF radio systems that provide valuable flight information and mock - up of the digital input and output of ADS - B systems. The kit helps air vehicle operators and flight leaders understand data type and flow and the necessary computational and algorithm challenges in building ADS - B interoperable components.
+                    </p>
+                    <p class="p-space">
+                        <a href="~/Support/General">Contact us</a> for payments arrangements via check or wire transfer
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                            @*$100,000*@
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!-- demokit left -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about right adsbradio" id="radio">
+                <div class="col-sm-6 pull-right">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            ADS - B
+                        </span>
+                        Interoperability Radio
+                    </h2>
+                    <p class="p-space">
+                        Requires prior purchase and implementation of the ADS - B Interoperability Demonstration Kit . Results from the Kit are used to construct and configure the ADS - B Interoperability Radio .
+                    </p>
+                    <p class="p-space">
+                        <a href="~/Support/General">Contact us</a> for payments arrangements via check or wire transfer
+                    </p>
+                    <ul class="list-unstyled list-inline buy-list">
+                        <li>
+                            @Html.ActionLink("View all Products", "Index", "Product", new { area = "Shopping" }, new { @Style = "font-size: 15px !important;" })
+                            @*$285,000*@
+                        </li>
+                    </ul>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!--ADSBradio right -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="about airwave" id="airwave">
+                <div class="col-sm-6">
+                    <h2 class="heading-cascade heading-cascade--danger">
+                        <span class="heading-cascade__step">
+                            AirWave Telemetry
+                        </span>
+                        Subscription Renewal
+                    </h2>
+                    <p class="p-space">
+                        We offer a variety of cellular and satellite air time subscription service plans. Our plans are tailored to best fit your specific Airborne FRS product and end-use application.
+                    </p>
+                    <p class="p-space">
+                        Please <a href="~/Support/General">contact us</a> for customer sales support on selecting the purchasing the right plan for you.
+                    </p>
+                </div>
+                <!-- end col -->
+                <div class="col-sm-6">
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end about -->
+        </div>
+        <!-- end row -->
+    </section>
+    <!--ADSBradio right -->
+    <div class="container">
+        <div class="devider-brand">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="last-buy text-center">
+            <p>Airborne FRS offers a wide - range of products and services to serve the needs of all air and ground - based personnel and systems associated with manned and unmanned flight systems. All produ cts are provided with our outstanding com mitment to service and quality. </p>
+            <p>
+                If you have special needs, please <a href="~/Support/General">contact us</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade--zoom" aria-labelledby="fastfacts" tabindex="-1" role="dialog" id="fastfacts">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                <h4 class="modal-title" id="fastfacts">FastFacts</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="list">
+                    <li> Airborne Flight Reporting System: for all Air &amp; Ground Crews, Passengers, Family &amp; Associates!</li>
+                    <li>Affordable Flight Tracking &amp; Management: great for General Aviation flight either VFR &amp; IFR!</li>
+                    <li>Airborne FRS for Vertical Lift: Reports on the unique Flight Characteristics of VTOLs!</li>
+                    <li> Lightweight for the Drones: Provides enhanced Flight Monitoring for Drones!</li>
+                    <li>Makes Unpredictable Flight Safer: If it Takes-off, is should have Airborne!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="top-scroll">
+    <i class="fa fa-angle-up">
+    </i>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+      staffSlider();
+      scrollSlider();
+    });
+    $(function () {
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - 105
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    (function () {
+        var cx = '011230577157378110874:_crwdl6d2nu';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+    })();
+</script>
+

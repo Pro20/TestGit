@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "LiveChat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <link href="~/external/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+     <!-- Section show current page and breadcrumb -->
+        <section class="page-indecator">
+            <div class="container">
+                <h2 class="heading">
+                    Live Chat
+                </h2>
+                <!-- Breadcrumb pattern -->
+                <ol class="breadcrumb breadcrumb-pages">
+                    <li>
+                        <a href="~/Home/Index">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">
+                        Live Chat
+                    </li>
+                </ol>
+                <!-- Default one color devider -->
+                <div class="devider">
+                </div>
+            </div>
+        </section>
+        <!-- end section show current page and breadcrumb -->
+        <div class="inner-page-template clearfix">
+            <section class="container">
+                <div class="row">
+                    <div class="about live-chat">
+                        <div class="col-sm-6">
+                            <h2 class="heading-cascade heading-cascade--danger">
+                                <span class="heading-cascade__step">
+                                    Live
+                                </span>
+                                Chat
+                            </h2>
+                            <p class="p-space">
+                                Airborne FRS has built its business and reputation with our personalized service. Our staff is trained in all aspects of our shipping business so they are prepared to provide you with the superior support that has become our trademark for the past two decades! CHAT WITH A LIVE OPERATOR
+                            </p>
+                            <p class="p-space">
+                                Our operators are available during normal business hours. If after hours, or if you prefer to speak with one of our support team members, please call us at 888.485.9991 any time, any day!
+                            </p>
+                            <p class="p-space">
+                                You can always use our online form by <a href="~/Support/General" target="_blank">clicking here.</a>
+                            </p>
+                        </div>
+                        <!-- end col -->
+                        <div class="col-sm-6">
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end about -->
+                </div>
+                <!-- end row -->
+            </section>
+            <!-- end container -->
+            <div class="container">
+                <div class="devider-brand">
+                </div>
+            </div>
+            <!-- end container -->
+        </div>
+       
+        <!-- Modal -->
+        <div class="modal fade--zoom" aria-labelledby="fastfacts" tabindex="-1" role="dialog" id="fastfacts">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title" id="fastfacts">FastFacts</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list">
+                            <li> Airborne Flight Reporting System: for all Air &amp; Ground Crews, Passengers, Family &amp; Associates!</li>
+                            <li>Affordable Flight Tracking &amp; Management: great for General Aviation flight either VFR &amp; IFR!</li>
+                            <li>Airborne FRS for Vertical Lift: Reports on the unique Flight Characteristics of VTOLs!</li>
+                            <li> Lightweight for the Drones: Provides enhanced Flight Monitoring for Drones!</li>
+                            <li>Makes Unpredictable Flight Safer: If it Takes-off, is should have Airborne!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-scroll">
+            <i class="fa fa-angle-up">
+            </i>
+        </div>
+   
+    
+   
+    <script>
+        $(document).ready(function () {
+            staffSlider();
+            scrollSlider();
+        });
+        $(function () {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - 105
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+        (function () {
+            var cx = '011230577157378110874:_crwdl6d2nu';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>

@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Payment Success";
+}
+<div class="row" style="min-height:250px;">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+        <hgroup class="title">
+            <h1>@ViewBag.Title.</h1>
+        </hgroup>
+        <div>
+            <p>
+                @if (TempData["Status"] != null && (string)TempData["Status"] != "")
+                {
+                    <span> Your Payment for orderId: @TempData["Status"].ToString() has been processed Successfully.</span>
+                }
+                else
+                {
+                    <span>
+                        Your Payment has been processed Successfully.
+                    </span>
+                }
+                @Html.ActionLink("click here to continue shopping", "Index", "Product", new { area="Shopping"},null)
+            </p>
+        </div>
+
+    </div>
+    <div class="col-lg-3">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        localStorage.clear();
+    });
+
+</script>

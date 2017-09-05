@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="A Template by Designzway team">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Designzway team" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,600,700italic,400,700,800italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link href="~/external/z-nav/z-nav.css" rel="stylesheet" />
+    <link href="~/external/swiper/idangerous.swiper.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/intlTelInput.css" />
+    <link href="~/assets/js/plugins/formvalidation/dist/css/formValidation.css" rel="stylesheet" />
+
+    <link href="~/external/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="~/external/bootstrap-select/bootstrap-select.css" rel="stylesheet">
+
+    <link href="~/assets/js/plugins/craftpip-jquery-confirm/css/jquery-confirm.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/assets/js/jquery-1.11.1.min.js"></script>
+    @**@
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css" />
+    <link href="~/Scripts/Angular/AngularCustom.css" rel="stylesheet" />
+    <link href="~/Content/Custom/shoppingCart.css" rel="stylesheet" />
+    <link href="~/Scripts/toast/toastr.min.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @**@
+
+    @*[Dev-arv]*@
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyCZZvYI5j97Y97UCphBCG2ANHkOFmE30"></script>
+</head>
+<body ng-app="btApp">
+    <div class="wrapper" id="top">
+        @Html.Partial("_headerPartial")
+
+        <div class="body-content">
+            @RenderBody()
+        </div>
+
+        @Html.Partial("_footerPartial")
+    </div>
+    <!-- Modal -->
+    <div class="modal fade--zoom" aria-labelledby="fastfacts" tabindex="-1" role="dialog" id="fastfacts">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title" id="fastfacts">FastFacts</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list">
+                        <li> Airborne Flight Reporting System: for all Air &amp; Ground Crews, Passengers, Family &amp; Associates!</li>
+                        <li>Affordable Flight Tracking &amp; Management: great for General Aviation flight either VFR &amp; IFR!</li>
+                        <li>Airborne FRS for Vertical Lift: Reports on the unique Flight Characteristics of VTOLs!</li>
+                        <li> Lightweight for the Drones: Provides enhanced Flight Monitoring for Drones!</li>
+                        <li>Makes Unpredictable Flight Safer: If it Takes-off, is should have Airborne!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    @*<script src="~/assets-vendor/js/libs/angular/angular.min.js"></script>*@
+    <script src="~/assets/js/app.js"></script>
+
+
+    @*<script type="text/javascript" src="~/assets/js/jquery-1.11.1.min.js"></script>*@
+    <script type="text/javascript" src="~/assets/js/responsive-tabs.js"></script>
+    <script src="~/assets/js/plugins/formvalidation/dist/js/formValidation.min.js"></script>
+    <script src="~/assets/js/plugins/craftpip-jquery-confirm/js/jquery-confirm.js"></script>
+    <script type="text/javascript" src="~/assets/js/general.js"></script>
+    <script type="text/javascript" src="~/assets/js/bootstrap.min2.js"></script>
+    <script type="text/javascript" src="~/assets/js/intlTelInput.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/reCaptcha2.js"></script>
+    <script src="~/external/bootstrap-select/bootstrap-select.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js">    </script>
+
+    @*<script> window.jQuery || document.write('<script src="~/external/jquery/jquery-1.10.1.min.js"><\/script>')</script>*@
+    <script src="~/external/modernizr/modernizr.custom.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="~/external/z-nav/jquery.mobile.menu.js"></script>
+    <script src="~/external/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/external/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/external/swiper/idangerous.swiper.js"></script>
+    <script src="~/external/scrollto/jquery.scrollTo.min.js"></script>
+    <script src="~/external/livicons/livicons-1.3.min.js"></script>
+    <script src="~/external/livicons/raphael-min.js"></script>
+    <script src="~/external/inview/jquery.inview.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+    @*<script src="~/external/twitterfeed/twitterfeed.js"></script>*@
+    @*<script src="~/external/scrollto/jquery.scrollTo.min.js"></script>*@
+    @*<script src="~/external/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>*@
+    <!--Support page Js-->
+
+    @**@
+        <script src="~/Scripts/toast/toastr.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+        <script src="~/Scripts/Angular/svg-assets-cache.js"></script>
+        <script src="~/Scripts/Angular/angular-material.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="~/Scripts/angular-file-upload.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.4.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.min.js"></script>
+
+        <script src="~/Scripts/Angular/Services.js"></script>
+        <script src="~/Scripts/Angular/shoppingController.js"></script>
+        <script src="~/Scripts/Angular/CartController.js"></script>
+        <script src="~/Scripts/Angular/Controllers.js"></script>
+        <script src="~/Scripts/Angular/OrdermanagerController.js"></script>
+        @**@
+
+        @*[Dev-arv]*@
+        <script>
+            var apiUrl = '@System.Configuration.ConfigurationManager.AppSettings["rootUrl"]';
+        </script>
+
+        @RenderSection("BottomScript", required: false)
+
+        <script type="text/javascript">
+
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+
+            $(document).ready(function () {
+                checkcartcount();
+            });
+            setInterval(checkcartcount, 5000);
+
+            function checkcartcount() {
+                var cartcount = 0, c = document.getElementById('cart-count');
+                if (c === null || c === undefined)
+                    return;
+                c.innerHTML = '(' + cartcount + ')';
+                var items = (localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined) ? [] : JSON.parse(localStorage.getItem("cart"));
+                if (items.length > 0) {
+                    for (count = 0; count < items.length; count++) {
+                        cartcount = cartcount + items[count].ItemCounts
+                    }
+                    c.innerHTML = '(' + cartcount + ')';
+                }
+            }
+
+        </script>
+    </body>
+
+</html>

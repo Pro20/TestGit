@@ -1,0 +1,180 @@
+﻿@model airbornefrs.Models.RmaModel
+@{
+    ViewBag.Title = "Airborne FRS: Rma";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+   <link href="~/external/bootstrap-select/bootstrap-select.css" rel="stylesheet">
+   <link href="~/external/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    
+ <!-- Section show current page and breadcrumb -->
+        <section class="page-indecator">
+            <div class="container">
+                <h2 class="heading">RMA</h2>
+
+                <!-- Breadcrumb pattern -->
+                <ol class="breadcrumb breadcrumb-pages">
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <li class="active">RMA</li>
+                </ol>
+                <!-- Default one color devider -->
+                <div class="devider"></div>
+            </div>
+        </section>
+        <!-- end section show current page and breadcrumb -->
+        <div class="inner-page-template clearfix">
+    <div class="container">
+        <h2 class="block-title">Returns (RMA)</h2>
+        <h3>Requesting an RMA</h3>
+        <p class="p-space">Our entire team takes pride in providing the highest quality products and service, and our customers are important to us. As such, currently licensed End Users, Sublicensees or Distributors can request a product return.</p>
+        <p class="p-space">When you receive a product from us, it has been thoroughly tested and approved before it is shipped to you. However, we realize that exceptional circumstances can take place with regard to the character of the product we supply. DO NOT SEND your product back to us until you receive a Return Merchandize Authorization (RMA) number from us. We are not responsible for products sent to us without an RMA nor are we able to return any such product. An RMA number tells us that a return is being made and offers protection against fraudulent returns. You can use the RMA number to inquire as to the progress of a return.</p>
+        <p class="p-space">Any requests for exchanges will be honored based on the following criteria:</p>
+        <ul class="listing">
+            <li><strong>Shipping damage:</strong> While we use reputable shipping companies, there may be a possibility that your shipment was damaged in transit. In this event, you must report the damage to the shipping company with 24 hours from receipt of your shipment and also to us via our online web form, email or registered US Mail letter, within 48 hours from such receipt. If you are able to send us pictures of the damage to the package and to the contents (your Product), it may expedite resolution.</li>
+            <li>
+                <strong>Defective operation:</strong> Although all the products are thoroughly tested before release, unexpected errors may occur. Such issues must be submitted for our Technical Support Team's approval. We maintain the right to rectify the error or defect within 72 hours. If any deficiency is approved and we fail to correct it within 72 hours from the date of your submittal of the initial complaint via our online web form, email or registered US Mail letter, then we reserve the right to provide a replacement unit of equal of greater capabilities or refund your purchase price.
+                <ul class="listing">
+                    <li>Please be advised that temporary access to your computer or internet device may be requested by our technicians in order to identify and fix the possible issues with our Products. Failure to provide such access in a timely manner may result in a delayed resolution of the issue. Refusal to provide access to your computer or internet device may result in the inability to authorize an RMA.   </li>
+                </ul>
+            </li>
+        </ul>
+        <h3>How to request your RMA</h3>
+        <p class="p-space">
+            An RMA may not be necessary if we are able to resolve the issue through our normal support channels. To begin, simply complete the Support Ticket form (click here). You can expedite the process if you include the following information in your support ticket request: name of person who purchased the product; product name; date of purchase; applicable identification number(s) such as IMEI or Airborne FRS ID; your email address; as well as your billing address at time of purchase.
+        </p>
+        <h3>When you receive an RMA number, do the following:</h3>
+        <p class="p-space">
+            If you are issued an RMA, package the product in a protective wrapper and make sure you include all the original boxes, components, manuals, and any other items along with the product. You must write the RMA number on the outside of the box that the product is being shipped in. You must use a shipping company that can track packages. The shipper and tracking number must be emailed to us or called in using the information we provide to you when you receive your RMA number.
+        </p>
+        <p class="p-space">
+            Upon receipt, we will inspect the product(s) you returned to us to determine the cause of damage and verify proper packing materials were used (in accordance with the shipping terms). We reserve the right to reject your RMA for the following reasons:
+        </p>
+        <ul class="listing">
+            <li>If you did not properly package and ship the returned item, resulting in product damage from return shipping;</li>
+            <li>If you do not return the damaged product within ten (10) days from issuance of the RMA;</li>
+            <li>If your product has been determined to be used in a manner that violates the License Agreement;</li>
+            <li>If you store or utilize your product in a manner that is beyond the scope of the user's or installation manuals.</li>
+        </ul>
+        <p class="p-space">
+            Package the product in a protective wrapper and make sure you include all the original boxes, components, manuals, and any other items along with the product. You must write the RMA number on the outside of the box that the product is being shipped in. You must use a shipping company that can track packages. The shipper and tracking number must be emailed to us or called in using the information we provide to you when you receive your RMA number.
+        </p>
+        <p class="p-space">
+            <strong>Additional things you need to know</strong>
+        </p>
+        <ul class="listing">
+            <li>Products returned with serial number missing or tampered with will NOT BE ACCEPTED FOR RETURN.</li>
+            <li>If the product returned has any data or information stored on a storage device, we shall not be responsible for the transfer of such data or information to another product given to you as an exchange, or for the loss of any data or information or to maintain the confidentiality of any data or information still residing on the returned product.</li>
+            <li>Cut cable/wires are not eligible for exchanges.</li>
+            <li>Special order items that receive an RMA that are not eligible for an exchange will receive a refund.</li>
+        </ul>
+        <div class="col-xs-12 col-sm-6 support-form" ng-controller="rmaCtrl">
+            <h3>Support Form</h3>
+            <form class="contact" method="post" role="form" ng-focus="true" ng-submit="submitForm()" name="rmaForm" id="rmaForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="contact__field" name="Name" id="Name" placeholder="" ng-model="data.rmaData.Name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="text" class="contact__field" name="Email" id="Email" placeholder="" ng-model="data.rmaData.Email">
+                </div>
+                <div class="form-group">
+                    <label>Zip Code *</label>
+                    <input type="text" class="contact__field" name="Zipcode" id="Zipcode" placeholder="" ng-model="data.rmaData.Zipcode">
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" class="contact__field" name="Country" id="Country" placeholder="" ng-model="data.rmaData.Country">
+                </div>
+                <div class="form-group">
+                    <label>IMEI *</label>
+                    <input type="text" class="contact__field" name="IMEI" id="IMEI" ng-model="data.rmaData.IMEI">
+                </div>
+                <div class="form-group">
+                    <label>DID *</label>
+                    <input type="text" class="contact__field" name="DID" id="DID" ng-model="data.rmaData.DID">
+                </div>
+                <div class="form-group">
+                    <label>Product Requiring RMA</label>
+                    <select class="select-box" id="ProductReqRMA" name="ProductReqRMA" tabindex="0" ng-model="data.rmaData.ProductReqRMA">
+                        <option value="Select One" selected="selected">Select One</option>
+                        <option value="Airborne C100">Airborne C100 </option>
+                        <option value="Airborne C100">Airborne C100</option>
+                        <option value="Airborne S100">Airborne S100</option>
+                        <option value="Airborne S200">Airborne S200</option>
+                        <option value="Airborne D500">Airborne D500</option>
+                        <option value="VISability™ Portal">VISability™ Portal </option>
+                        <option value="Airborne Flight Sense™ Base Sensor System">Airborne Flight Sense™ Base Sensor System</option>
+                        <option value="Airborne Flight Sense™ Sensors">Airborne Flight Sense™ Sensors</option>
+                        <option value="Airborne FRS Training Program">Airborne FRS Training Program</option>
+                        <option value="ADS - B Interoperability Demonstration Kit">ADS - B Interoperability Demonstration Kit</option>
+                        <option value="ADS - B Interoperability Radio">ADS - B Interoperability Radio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Was this a Personal or Business purchase?</label>
+                    <div class="radio radio--dark">
+                        <input type="radio" value="Personal" name="PersonalOrBuzz" id="PersonalOrBuzz" ng-model="data.rmaData.PersonalOrBuzz">
+                        <label for="radio3">Personal</label>
+                    </div>
+                    <div class="radio radio--dark">
+                        <input type="radio" value="Business" name="PersonalOrBuzz" id="PersonalOrBuzz" ng-model="data.rmaData.PersonalOrBuzz">
+                        <label for="radio4">Business</label>
+                    </div>
+                </div>
+                <div class="form-group clearfix">
+                    <label>Human Test </label>
+                    <div id="captchaContainer">
+                        <div class="g-recaptcha" data-sitekey="6Lfppw8TAAAAAPyLD_-5SAbI_6b3z_l48nFZVJiz"></div>
+                    </div>
+                </div>
+                @*<div class="form-group clearfix">
+                    <label>Human Test </label>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 form-group" id="captchaContainer">
+                            <div class="g-recaptcha" data-sitekey="6Lfppw8TAAAAAPyLD_-5SAbI_6b3z_l48nFZVJiz"></div>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="form-group">
+                    <button id="submit_btn" type="submit" name="submitButton" class="btn btn--decorated btn-warning btn-submit">Submit</button>
+                </div>
+            </form>
+            <div id="dvAfterSubmit"></div>
+        </div>
+    </div><!-- end container -->
+</div>
+
+       
+        <!-- Modal -->
+        <div class="modal fade--zoom" aria-labelledby="fastfacts" tabindex="-1" role="dialog" id="fastfacts">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title" id="fastfacts">FastFacts</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list">
+                            <li> Airborne Flight Reporting System: for all Air &amp; Ground Crews, Passengers, Family &amp; Associates!</li>
+                            <li>Affordable Flight Tracking &amp; Management: great for General Aviation flight either VFR &amp; IFR!</li>
+                            <li>Airborne FRS for Vertical Lift: Reports on the unique Flight Characteristics of VTOLs!</li>
+                            <li> Lightweight for the Drones: Provides enhanced Flight Monitoring for Drones!</li>
+                            <li>Makes Unpredictable Flight Safer: If it Takes-off, is should have Airborne!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-scroll"><i class="fa fa-angle-up"></i></div>
+@section BottomScript{
+    <script>
+        var objRma = @Html.Raw(Model.GetJsonData());
+    </script>
+<script src="~/assets/js/controllers/rmaCtrl.js"></script>
+}
+
+
+

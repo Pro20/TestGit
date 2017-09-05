@@ -1,0 +1,1086 @@
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('../fonts/museosans_500-webfont.eot');
+    src: url('../fonts/museosans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans_500-webfont.woff2') format('woff2'),
+         url('../fonts/museosans_500-webfont.woff') format('woff'),
+         url('../fonts/museosans_500-webfont.ttf') format('truetype'),
+         url('../fonts/museosans_500-webfont.svg#museo_sans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo_sans700';
+    src: url('../fonts/museosans_700-webfont.eot');
+    src: url('../fonts/museosans_700-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans_700-webfont.woff2') format('woff2'),
+         url('../fonts/museosans_700-webfont.woff') format('woff'),
+         url('../fonts/museosans_700-webfont.ttf') format('truetype'),
+         url('../fonts/museosans_700-webfont.svg#museo_sans700') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo_sans900';
+    src: url('../fonts/museosans_900-webfont.eot');
+    src: url('../fonts/museosans_900-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans_900-webfont.woff2') format('woff2'),
+         url('../fonts/museosans_900-webfont.woff') format('woff'),
+         url('../fonts/museosans_900-webfont.ttf') format('truetype'),
+         url('../fonts/museosans_900-webfont.svg#museo_sans900') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo_sans300';
+    src: url('../fonts/museosans-300-webfont.eot');
+    src: url('../fonts/museosans-300-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museosans-300-webfont.woff2') format('woff2'),
+         url('../fonts/museosans-300-webfont.woff') format('woff'),
+         url('../fonts/museosans-300-webfont.ttf') format('truetype'),
+         url('../fonts/museosans-300-webfont.svg#museo_sans300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/******************************************
+
+			Reset css
+
+***********************************************/
+* {
+	box-sizing: border-box;
+}
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, dialog, figure, footer, header, 
+hgroup, menu, nav, section, menu,
+time, mark, audio, video, source {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}
+body {
+	line-height:1.427;
+}
+article, aside, dialog, figure, footer, header, 
+hgroup, menu, nav, section, menu { 
+	display:block;
+}
+nav ul {
+	list-style:none;
+}
+blockquote, q {
+	quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content:'';
+	content:none;
+}
+ins {
+	background-color:#ff9;
+	text-decoration:none;
+}
+mark {
+	background-color:#ff9;
+	font-style:italic;
+	font-weight:bold;
+}
+del {
+	text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+	border-bottom:1px dotted #000;
+	cursor:help;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+hr {
+    display:block;
+    height:1px;
+    border:0;	
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+input, select {
+	vertical-align:middle;
+}
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	font-family: 'museo_sans300';
+}
+/* common css */
+.container {
+	width: 100%;
+	padding: 0 15px;
+}
+.clearfix:after,
+.clearfix:before {
+	display: table;
+	clear: both;
+	content: "";
+}
+h1 {
+	font-size: 24px;
+}
+h2 {
+	font-size: 24px;
+	position: relative;
+	letter-spacing: 0.75px;
+	margin-bottom: 30px;
+}
+p {
+	margin-bottom: 10px;
+	color: #666;
+}
+
+.common {
+	padding: 50px 0;
+	font-family: 'museo_sans300';
+}
+.common h2 {
+	padding-left: 45px;
+}
+.common h2:before {
+	position: absolute;
+	width: 290px;
+	left: 0;
+	bottom: -10px;
+	content: "";
+	background: #fb9b11;
+	height: 1px;
+}
+.common h2 svg {
+	max-width: 30px;
+	position: absolute;
+	left: 0;
+}
+.we-are-heading {
+	margin-bottom: 20px;
+}
+.we-are-heading p {
+	font-family: 'museo_sans700';
+	margin-bottom: 15px;
+	font-size: 28px;
+}
+.common .right .we-are-heading p {
+	color: #fff;
+}
+.list-inline {
+	list-style: none;
+	margin-bottom: 10px;
+}
+.list-inline li {
+	display: inline-block;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+.list-shield {
+	list-style: none;
+	margin-bottom: 0;;
+}
+.list-shield li {
+	position: relative;
+	font-family: 'museo_sans500';
+	padding-left: 30px;
+	margin-bottom: 15px;
+	letter-spacing: 0.75px;
+}
+.list-shield li:last-child {
+	margin-bottom: 0;
+}
+.list-shield li:before {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	background: url(../image/shield-icon.svg) no-repeat left center;
+	width: 25px;
+	height: 25px;
+	content: "";
+}
+.btn-yellow {
+	padding: 5px 15px;
+	color: #fff;
+	background: #fb9b11;
+	font-family: 'museo_sans700';
+	text-decoration: none;
+	letter-spacing: 0.5px;
+	font-size: 13px;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	display: inline-block;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+}
+.btn-yellow:hover,
+.btn-yellow:focus,
+.btn-yellow:active {
+	background: #eb8e08;
+}
+.form-group {
+	margin-bottom: 10px;
+}
+.form-control {
+	padding: 5px 10px;
+	border: none;
+	border-bottom: 1px solid #abacac;
+	display: block;
+	box-shadow: none;
+	width: 100%;
+	font-family: 'museo_sans500';
+	font-size: 16px;
+	color: #abacac;
+	border-radius: 0;
+	outline-color: red;
+}
+.checkbox {
+	position: relative;
+}
+.checkbox label {
+	padding-left: 22px;
+}
+input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin: 1px 8px 0 0;
+    vertical-align: middle;
+    background: url(../image/check.png) left 2px no-repeat;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+input[type="checkbox"]:checked + label span {
+    background: url(../image/check-yellow.png) left 2px no-repeat;
+}
+.center {
+	text-align: center;
+}
+/* header css start */
+.main-header {
+	position: fixed;
+	width: 100%;
+	top: -200px;
+	left: 0;
+	background: #fff;
+	z-index: 99;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+}
+.main-header.inner-page {
+	top: 0;
+}
+.btn-warning.disabled, .btn-warning.disabled.active, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled:focus, .btn-warning.disabled:hover, .btn-warning[disabled], .btn-warning[disabled].active, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled]:focus, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning.active, fieldset[disabled] .btn-warning.focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning:hover {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+.main-header .logo a {
+	color: #050505;
+	font-family: 'museo_sans500';
+	font-size: 18px;
+	position: relative;
+	padding-left: 55px;
+	text-decoration: none;
+	display: block;
+}
+.main-header .logo a span {
+	display: block;
+	font-family: 'museo_sans700';
+}
+.main-header .logo a svg {
+	position: absolute;
+	left: 0;
+	top: -3px;
+	width: 40px;
+}
+.main-header .logo {
+	float: left;
+	width: 50%;
+	padding: 8px 0;
+}
+.inner-page .logo {
+	width: 100%;
+}
+.main-header.inner-page .header-button ul li a {
+	padding: 5px 10px;
+}
+.main-header .header-button {
+	float: right;
+	text-align: right;
+}
+.main-header .header-button ul {
+	text-align: right;
+	list-style: none;
+}
+.main-header .header-button ul li {
+	display: inline-block;
+	margin-right: 12px;
+}
+.main-header .header-button ul li:last-child {
+	margin: 0;
+}
+.main-header .header-button ul li a {
+	padding: 25px 15px;
+}
+.main-header .header-button ul li a:hover,
+.main-header .header-button ul li a:focus,
+.main-header .header-button ul li a:active {
+	background: #0d314e;
+}
+/* main-banner css start */
+.main-banner {
+	min-height: 100%;
+	display: table;
+	width: 100%;
+	background: url(../image/bannerfirst.jpg) no-repeat center center / cover;
+	height: 100%;
+	text-align: center;
+	position: relative;
+}
+.main-banner .container {
+	display: table-cell;
+	height: 100%;
+	vertical-align: middle;
+}
+.main-banner h1 {
+	color: #fff;
+	font-family: 'museo_sans300';
+	letter-spacing: 0.75px;
+	margin-bottom: 20px;
+	position: absolute;
+	top: 15px;
+	width: 100%;
+	left: 0;
+	text-align: left;
+	padding-left: 15px;
+}
+.main-banner h1 strong {
+	font-family: 'museo_sans500';
+}
+.main-banner h2 {
+	color: #fff;
+	font-family: 'museo_sans700';
+	letter-spacing: 0.75px;
+	font-size: 30px;
+	line-height: 1.2;
+}
+.main-banner ul {
+	list-style: none;
+	text-align: center;
+}
+.main-banner ul li {
+	display: inline-block;
+}
+.main-banner ul li:last-child {
+	margin-right: 0;
+}
+.main-banner ul li a {
+	min-width: 175px;
+	display: block;
+	margin-bottom: 10px;
+}
+.mainbanner-footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 15px;
+	text-align: left;
+	font-family: 'museo_sans500';
+	background: rgba(0, 0, 0, 0.5);
+}
+.mainbanner-footer li {
+	color: #fff;
+	font-size: 12px;
+	padding: 0 10px;
+	margin-bottom: 10px;
+}
+.mainbanner-footer li:last-child {
+	margin:0;
+}
+.mainbanner-footer li span {
+	display: block;
+}
+/* driver-benefits css start */
+.driver-benefits {
+	background: #d0cfbd;
+	padding: 50px 0;
+}
+.driver-benefits .we-are-heading p,
+.driver-benefits h2, 
+.we-offers h2 {
+	font-family: 'museo_sans500';
+	color: #1e1e1e;
+}
+.driver-benefits ul li,
+.we-offers ul li {
+	color: #1e1e1e;
+}
+/* company profile css */
+.company-benefits,
+.reuirements {
+	background: #0d314e;
+}
+.company-benefits h2,
+.reuirements h2 {
+	font-family: 'museo_sans500';
+	color: #fff;
+}
+.company-benefits ul li,
+.reuirements ul li {
+	color: #fff;
+}
+/* WE offers */
+.we-offers {
+	background: #fefefe;
+}
+.great-mileage {
+	margin-top: 20px;
+	border: 2px solid #f9980c;
+	color: #f9980c;
+	border-radius: 4px;
+	padding: 10px 15px;
+	max-width: 320px;
+}
+.great-mileage h4 {
+	font-size: 18px;
+}
+.great-mileage ul li {
+	font-size: 14px;
+	display: inline-block;
+	color: #1e1e1e;
+	font-family: 'museo_sans500';
+}
+/* reuirements start */
+.reuirements h2 svg {
+	top: 4px;
+}
+.reuirements .list-shield {
+	margin-bottom: 20px;
+}
+.reuirements .btn-yellow {
+	min-width: 160px;
+}
+/* footer css start */
+.footer {
+	padding: 30px 0 20px;
+	background: #2d2d2d;
+}
+.footer .logo {
+	margin-bottom: 25px;
+}
+.footer .logo p {
+	color: #fff;
+	padding-left: 70px;
+	background: url(../image/handle-icon.svg) no-repeat left center;
+	font-family: 'museo_sans500';
+	line-height: 1.6;
+}
+.footer .logo p span {
+	display: block;
+	font-size: 22px;
+}
+.footer-link ul {
+	list-style: none;
+}
+.footer-link ul li a {
+	font-family: 'museo_sans500';
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	margin-bottom: 10px;
+}
+.copyright {
+	margin-top: 15px;
+}
+.copyright p,
+.copyright p a {
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.6);
+	font-family: 'museo_sans300';
+	text-align: center;
+	text-decoration: none;
+}/* -------------------------------- 
+
+xpopup 
+
+-------------------------------- */
+.cd-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  z-index: 999;
+  font-family: 'museo_sans300';
+}
+.cd-popup.is-visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+  transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+.cd-popup-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: 2em auto;
+  background: #FFF;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(-40px);
+  -moz-transform: translateY(-40px);
+  -ms-transform: translateY(-40px);
+  -o-transform: translateY(-40px);
+  transform: translateY(-40px);
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-backface-visibility: hidden;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.cd-popup-container .cd-buttons:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-popup-container .cd-buttons li {
+  float: left;
+  width: 50%;
+}
+.cd-popup-container .cd-buttons a {
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: #FFF;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+.cd-popup-container .cd-buttons li:first-child a {
+  background: #fc7169;
+  border-radius: 0 0 0 .25em;
+}
+.no-touch .cd-popup-container .cd-buttons li:first-child a:hover {
+  background-color: #fc8982;
+}
+.cd-popup-container .cd-buttons li:last-child a {
+  background: #b6bece;
+  border-radius: 0 0 .25em 0;
+}
+.no-touch .cd-popup-container .cd-buttons li:last-child a:hover {
+  background-color: #c5ccd8;
+}
+.cd-popup-container .cd-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  text-indent: 99999px;
+}
+.cd-popup-container .cd-popup-close::before, 
+.cd-popup-container .cd-popup-close::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  width: 14px;
+  height: 3px;
+  background-color: #fff;
+}
+.cd-popup-container .cd-popup-close::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: 8px;
+}
+.cd-popup-container .cd-popup-close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  right: 8px;
+}
+.is-visible .cd-popup-container {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+.cd-popup-heading {
+	padding: 8px 15px;
+	background: #fb9b11;
+}
+.cd-popup-heading h2 {
+	color: #fff;
+	font-size: 22px;
+	margin: 0;
+}
+.pop-up-content {
+	padding: 20px 0;
+	position: relative;
+}
+.pop-up-content .form-group p {
+	position: relative;
+	color: #a1a1a1;
+	font-size: 13px;
+	padding-left: 25px;
+}
+.pop-up-content .form-group p span {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.checkbox label {
+	color: #a1a1a1;
+	font-size: 13px;
+	display: block;
+}
+.contact-no p a {
+	font-size: 22px;
+	color: #fb9b11;
+	text-decoration: none;
+	margin: 25px 0;
+	display: inline-block;
+}
+#submit_btn {
+	border: none;
+	box-shadow: none;
+	background: #f1b113;
+	font-size: 13px;
+	text-align: center;
+	padding: 5px 15px;
+	letter-spacing: 0.5px;
+	font-family: "museo_sans700";
+	cursor: pointer;
+	color: #fff;
+}
+
+#submit_btn.disabled {
+	background: #f0ad4e;
+	color: #fff;
+}
+/* inner page css */
+.innerpage-content {
+	margin-top: 100px;
+	padding: 20px 0 30px;
+}
+.innerpage-content h1 {
+	margin-bottom: 25px;
+	font-family: "museo_sans500";
+	font-size: 28px;
+	line-height: 1.2;
+}
+.innerpage-content h2 {
+	font-size: 22px;
+	color: #333;
+	font-family: "museo_sans500";
+	margin-bottom: 20px;
+}
+.innerpage-content h3 {
+	font-size: 16px;
+	color: #555;
+	font-family: "museo_sans500";
+	margin-bottom: 15px;
+}
+.innerpage-content p {
+	margin-bottom: 22px;
+}
+.innerpage-content ul {
+	padding-left: 30px;
+	margin-bottom: 22px;
+	color: #666;
+}
+.innerpage-content ul li {
+	margin-bottom: 22px;
+}
+.innerpage-content ul li:last-child {
+	margin-bottom: 0;
+}
+.innerpage-content p a {
+	color: #fb9b11;
+}
+.innerpage-content p a:hover,
+.innerpage-content p a:focus,
+.innerpage-content p a:hover {
+	color: #0d314e;
+}
+.form-group {
+	margin-bottom: 20px;
+}
+.intl-tel-input {
+	width: 100%;
+	margin-bottom: 15px;
+}
+label,
+.radio {
+	color: #abacac;
+	font-family: "museo_sans500";
+}
+.form-group .radio {
+	display: inline-block;
+	width: 45%;
+    padding-left: 20px;
+}
+.form-group .radio input {
+	margin-top: 3px;
+}
+.form-group > label {
+	display: block;
+	margin-bottom: 10px;
+}
+.help-block {
+	font-size: 12px;
+	color: #d50907;
+	font-family: "museo_sans500";
+	display: block;
+}
+.home-page .main-header { top: -75px;  }
+.home-page .main-header.inner-page.darkHeader { top: 0; }
+.main-header.inner-page.darkHeader { top: -75px;  }
+/* media query start */
+@media(min-width: 768px){
+	/* common css start */
+	.container {
+		width: 750px;
+		margin: 0 auto;
+	}
+	.we-are-heading p {
+		font-size: 32px;
+	}
+	.common h2 {
+		font-size: 32px;
+	}
+	.list-shield li {
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+	.common h2 svg {
+		max-width: 35px;
+	}
+	.common .right {
+		float: right;
+	}
+	.common .container {
+		height: 100%;
+		display: table;
+	}
+	.common .common-container {
+		display: table-cell;
+		vertical-align: middle;
+		height: 100%;
+	}
+	.btn-yellow {
+		padding: 10px 25px;
+	}
+	/* header css start */
+	.darkHeader {
+		top: 0;
+	}
+	/* main-banner css start */
+	.main-banner {
+		-webkit-background-attachment: fixed;
+		-moz-background-attachment: fixed;
+		-ms-background-attachment: fixed;
+		background-attachment: fixed;
+	}
+	.inner-page .logo {
+		width: auto;
+	}
+	.main-header.inner-page .header-button ul li a {
+		padding: 25px 15px;
+	}
+	.main-banner h1 {
+		font-size: 36px;
+		letter-spacing: 1.5px;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		top: 40px;
+	}
+	.main-banner h2 {
+		font-size: 40px;
+	}
+	.main-banner ul li {
+		margin-right: 15px;
+	}
+	.main-banner ul li a {
+		font-size: 14px;
+		min-width: 170px;
+		display: block;
+	}
+	.mainbanner-footer {
+		padding: 20px 15px;
+	}
+	.mainbanner-footer ul li {
+		text-align: left;
+		font-size: 14px;
+		margin-bottom: 0;
+		margin-right: 45px;
+		padding: 0;
+		line-height: 1.8;
+	}
+	.mainbanner-footer ul li:last-child {
+		margin:0;
+	}
+	/* driver-benefits css start */
+	.driver-benefits {
+		background:#d0cfbd url(../image/bannersecond.jpg) no-repeat center center / cover;
+		padding: 0;
+		display: table;
+		height: 100%;
+		width: 100%;
+		-webkit-background-attachment: fixed;
+		-moz-background-attachment: fixed;
+		-ms-background-attachment: fixed;
+		background-attachment: fixed;
+	}
+	/* driver-benefits css start */
+	.company-benefits {
+		background:#0d314e url(../image/bannerthird.jpg) no-repeat center center / cover;
+		padding: 0;
+		display: table;
+		height: 100%;
+		width: 100%;
+		-webkit-background-attachment: fixed;
+		-moz-background-attachment: fixed;
+		-ms-background-attachment: fixed;
+		background-attachment: fixed;
+	}
+	.common .container {
+		height: 100%;
+		display: table;
+	}
+	.common .common-container {
+		display: table-cell;
+		vertical-align: middle;
+		height: 100%;
+	}
+	/* WE offers */
+	.we-offers {
+		background:#fefefe url(../image/bannerfourth.jpg) no-repeat center center / cover;
+		padding: 0;
+		display: table;
+		height: 100%;
+		width: 100%;
+		-webkit-background-attachment: fixed;
+		-moz-background-attachment: fixed;
+		-ms-background-attachment: fixed;
+		background-attachment: fixed;
+	}
+	.great-mileage {
+		padding: 15px 25px;
+		max-width: 380px;
+	}
+	.great-mileage h4 {
+		font-size: 22px;
+		margin-bottom: 10px;
+	}
+	.great-mileage ul li {
+		font-size: 16px;
+		margin-right: 15px;
+	}
+	.great-mileage ul li:last-child {
+		margin-right: 0;
+	}
+	/* reuirements start */
+	.reuirements {
+		background:#0d314e url(../image/bannerfifth.jpg) no-repeat center center / cover;
+		padding: 0;
+		display: table;
+		height: 100%;
+		width: 100%;
+		-webkit-background-attachment: fixed;
+		-moz-background-attachment: fixed;
+		-ms-background-attachment: fixed;
+		background-attachment: fixed;
+	}
+	.reuirements .right {
+		min-width: 440px;
+	}
+	.reuirements .list-shield li span {
+		display: block;
+	}
+	.reuirements h2 svg {
+		top: 8px;
+	}
+	/* footer css start */
+	.footer {
+		padding: 45px 0 20px;
+	}
+	.footer .logo {
+		float: left;
+		width: 30%;
+	}
+	.footer .logo p span {
+		font-family: 'museo_sans700';
+	}
+	.footer-link {
+		float: right;
+		width: 70%;
+		text-align: right;
+	}
+	.footer-link ul li {
+		display: inline-block;
+		margin-right: 20px;
+		position: relative;
+	}
+	.footer-link ul li:before {
+		position: absolute;
+		right: -13px;
+		content: "";
+		top: 4px;
+		height: 15px;
+		width: 2px;
+		background: #fff;
+	}
+	.footer-link ul li:last-child {
+		margin-right: 0;
+	}
+	.footer-link ul li:last-child:before {
+		background: transparent;
+	}
+	.copyright {
+		margin-top: 0;
+	}
+	
+}
+@media(min-width: 992px){
+	/* common css start */
+	.btn-yellow {
+		padding: 15px 35px;
+		font-size: 16px;
+	}
+	.container {
+		width: 970px;
+	}
+	.we-are-heading p {
+		font-size: 40px;
+	}
+	.common h2 {
+		padding-left: 60px;
+		font-size: 40px;
+	}
+	.common h2 svg {
+		max-width: 45px;
+	}
+	.common h2:before {
+		width: 380px;
+	}
+	/* main-banner css start */
+	.main-banner h1 {
+		font-size: 40px;
+	}
+	.main-banner h2 {
+		font-size: 50px;
+	}
+	/* popup */
+	#submit_btn {
+		font-size: 16px;
+		padding: 10px 15px;
+	}
+	.contact-no p a {
+		margin: 10px 0 0;
+		font-family: "museo_sans500";
+	}
+	.pop-up-content form {
+		padding-right: 400px;
+		background: url(../image/popup-bg.png) no-repeat right 20px / 350px;
+	}
+	.contact-no {
+		position: absolute;
+		right: 111px;
+		top: 350px;
+	}
+}
+@media(min-width: 1200px){
+	/* common css start */
+	.container {
+		width: 1170px;
+	}
+	/* main-banner css start */
+	
+	.main-banner h2 {
+		font-size: 58px;
+	}
+	.main-banner > ul li {
+		margin-right: 40px;
+	}
+	.main-banner .btn-yellow {
+		font-size: 20px;
+		min-width: 200px;
+	}
+	.mainbanner-footer ul li {
+		font-size: 18px;
+	}
+	/* footer */
+	.footer-link {
+		width: 58%;
+	}
+	/* popup */
+	.pop-up-content form {
+		padding-right: 500px;
+		background-size: auto;
+	}
+	#submit_btn {
+		font-size: 20px;
+		margin-top: 25px;
+		padding: 15px 30px;
+	}
+	.contact-no {
+		top: 450px;
+		right: 140px;
+	}
+	.contact-no p a {
+		font-size: 24px;
+	}
+}

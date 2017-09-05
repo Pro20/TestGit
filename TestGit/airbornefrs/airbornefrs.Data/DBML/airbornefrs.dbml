@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="shieliteexpress" Class="airbornefrsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.1.34;Initial Catalog=shieliteexpress;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="shieliteexpressConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.emailSettings_GET_sp_V02" Method="emailSettings_GET_sp_V02">
+    <Parameter Name="emailsettingid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="emailSettings_GET_sp_V02Result">
+      <Column Name="emailsettingid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="outgoingsmtp" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="port" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fromemailaddress" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="emailpwd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fromemailname" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="enablessl" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="defaultto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="defaultcc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="defaultbcc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="subject" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="isbodyhtml" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="defaultmailbody" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="OrgId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Support_ContactUs_General_Save_SP" Method="Support_ContactUs_General_Save_SP">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ReasonInquiry" Parameter="reasonInquiry" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Product" Parameter="product" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IMEI" Parameter="iMEI" Type="System.String" DbType="VarChar(130)" />
+    <Parameter Name="AdditionalInfo" Parameter="additionalInfo" Type="System.String" DbType="VarChar(500)" />
+    <ElementType Name="Support_ContactUs_General_Save_SPResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Support_SupportTicket_PurchasedProduct_Save_SP" Method="Support_SupportTicket_PurchasedProduct_Save_SP">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Product" Parameter="product" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IMEI" Parameter="iMEI" Type="System.String" DbType="VarChar(130)" />
+    <Parameter Name="Location" Parameter="location" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Howcanwehelp" Parameter="howcanwehelp" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="Support_SupportTicket_PurchasedProduct_Save_SPResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Support_RMA_Save_SP" Method="Support_RMA_Save_SP">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Zipcode" Parameter="zipcode" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Country" Parameter="country" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IMEI" Parameter="iMEI" Type="System.String" DbType="VarChar(130)" />
+    <Parameter Name="DID" Parameter="dID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Product" Parameter="product" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Waspersonalorbuz" Parameter="waspersonalorbuz" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="Support_RMA_Save_SPResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Support_ContactUs_Reseller_Save_SP" Method="Support_ContactUs_Reseller_Save_SP">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Telephone" Parameter="telephone" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="TeleType" Parameter="teleType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="BuisnessType" Parameter="buisnessType" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="AdditionalInfo" Parameter="additionalInfo" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="Support_ContactUs_Reseller_Save_SPResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Support_ContactUs_CorporateAdvertising_Save_SP" Method="Support_ContactUs_CorporateAdvertising_Save_SP">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Telephone" Parameter="telephone" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="TeleType" Parameter="teleType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="BuisnessType" Parameter="buisnessType" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Location" Parameter="location" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="AdditionalInfo" Parameter="additionalInfo" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="Support_ContactUs_CorporateAdvertising_Save_SPResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Support_SupportTicket_PreSales_Save_SP" Method="Support_SupportTicket_PreSales_Save_SP">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="BuisnessType" Parameter="buisnessType" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="OtherProductIntrest" Parameter="otherProductIntrest" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Use" Parameter="use" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Location" Parameter="location" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="AdditionalInfo" Parameter="additionalInfo" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="Support_SupportTicket_PreSales_Save_SPResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Support_SupportTicket_MobileApp_Save_SP" Method="Support_SupportTicket_MobileApp_Save_SP">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="OperatingSys" Parameter="operatingSys" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="PrimaryPlat" Parameter="primaryPlat" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Use" Parameter="use" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Howcanwehelp" Parameter="howcanwehelp" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="Support_SupportTicket_MobileApp_Save_SPResult">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ErrorCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

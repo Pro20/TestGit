@@ -1,0 +1,171 @@
+﻿@model airbornefrs.Models.SupportPreSales 
+@{
+    ViewBag.Title = "Airborne FRS: PreSale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <link href="~/external/bootstrap-select/bootstrap-select.css" rel="stylesheet">
+    <link href="~/external/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    
+        <!-- Section show current page and breadcrumb -->
+        <section class="page-indecator">
+            <div class="container">
+               
+
+                <!-- Breadcrumb pattern -->
+                <ol class="breadcrumb breadcrumb-pages">
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <li class="active">Pre-Sales</li>
+                </ol>
+                <!-- Default one color devider -->
+                <div class="devider"></div>
+            </div>
+        </section>
+        <!-- end section show current page and breadcrumb -->
+        <div class="inner-page-template extra clearfix" ng-controller="PreSalesCtrl">
+    <div class="container">
+        <h2>Pre-Sales </h2>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 form-text">
+                <h3>Pre-Sales only</h3>
+                <p class="p-space">Use this form to ask us about any of our products, software, and mobile applications.</p>
+                <p class="p-space">We welcome fleet operators, maintenance facilities, and carriers and our corporate sales team is standing by to assist you in your decision process.</p>
+                <p class="p-space">Once you submit the form on this page, you will receive an email message with the support ticket identification. Our Ground Crew will then contact you via the email support ticket. Thank you.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 support-form">
+                <h3>Pre-Sales Form</h3>
+                <div class="text-right">
+                    <p>NOTE: * in front of field name means mandatory</p>
+                </div>
+                <form method="post" class="contact" role="form" ng-focus="true" ng-submit="submitForm()" name="PreSales" id="PreSales">
+                    <div class="form-group has-feedback">
+                        <label>*Name</label>
+                        <input type="text" class="contact__field" placeholder="" ng-model="data.PreSalesData.Name" name="Name">
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>*Email Address</label>
+                        <input type="text" class="contact__field" placeholder="" ng-model="data.PreSalesData.Email" name="Email">
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>Company Name</label>
+                        <input type="text" class="contact__field" placeholder="" ng-model="data.PreSalesData.CompanyName" name="CompanyName">
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>*Primary Type Of Buisness</label>
+                        <select class="select-box" name="PrimaryTypeOfBuisness" ng-model="data.PreSalesData.BuisnessType">
+                            <option value="" selected="selected">Select One</option>
+                            <option value="Mobile application for android">Mobile Application for android</option>
+                            <option value="Mobile Application for iOS">Mobile Application for iOS</option>
+                            <option value="Airborne C100">Airborne C100</option>
+                            <option value="Airborne C100">Airborne C100</option>
+                            <option value="Airborne S100">Airborne S100</option>
+                            <option value="Airborne S200">Airborne S200 </option>
+                            <option value="Airborne D500">Airborne D500</option>
+                            <option value="VISability™ Portal">VISability™ Portal </option>
+                            <option value="Airborne Flight Sense™ Base Sensor System">Airborne Flight Sense™ Base Sensor System</option>
+                            <option value="Airborne Flight Sense™ Sensors">Airborne Flight Sense™ Sensors</option>
+                            <option value="Airborne FRS Training Program">Airborne FRS Training Program</option>
+                            <option value="ADS - B Interoperability Demonstration Kit">ADS - B Interoperability Demonstration Kit</option>
+                            <option value="ADS - B Interoperability Radio">ADS - B Interoperability Radio</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label>Other product Interest</label>
+                        <select class="select-box" id="OtherproductInterest" name="OtherproductInterest" ng-model="data.PreSalesData.OtherProduct">
+                            <option value="">Select...</option>
+                            <option value="default">Mobile application for android</option>
+                            <option value="Mobile Application for iOS">Mobile Application for iOS</option>
+                            <option value="Airborne C100">Airborne C100 </option>
+                            <option value="Airborne C100">Airborne C100</option>
+                            <option value="Airborne S100">Airborne S100</option>
+                            <option value="Airborne S200">Airborne S200</option>
+                            <option value="Airborne D500">Airborne D500</option>
+                            <option value="VISability™ Portal">VISability™ Portal </option>
+                            <option value="Airborne Flight Sense™ Base Sensor System">Airborne Flight Sense™ Base Sensor System</option>
+                            <option value="Airborne Flight Sense™ Sensors">Airborne Flight Sense™ Sensors</option>
+                            <option value="Airborne FRS Training Program">Airborne FRS Training Program</option>
+                            <option value="ADS - B Interoperability Demonstration Kit">ADS - B Interoperability Demonstration Kit</option>
+                            <option value="ADS - B Interoperability Radio">ADS - B Interoperability Radio</option>
+                        </select>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label>*Use</label>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="General Aaviation" name="USe" ng-model="data.PreSalesData.Use" id="General Aaviation" data-fv-field="General Aaviation">
+                            General Aaviation
+                        </div>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="Buisness" name="USe" ng-model="data.PreSalesData.Use" id="Buisness" data-fv-field="Buisness">
+                            Buisness
+                        </div>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="carrier" name="USe" ng-model="data.PreSalesData.Use" id="carrier" data-fv-field="carrier">
+                            carrier
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label>*Location</label>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="USA" name="Location" ng-model="data.PreSalesData.Location" id="USA" data-fv-field="USA">
+                            USA
+                        </div>
+                        <div class="radio radio--dark">
+                            <input type="radio" value="International" name="Location" ng-model="data.PreSalesData.Location" id="International" data-fv-field="International">
+                            International
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label>*How can we help?</label>
+                        <textarea class="contact__field" ng-model="data.PreSalesData.AdditionalInfo" name="AdditionalInfo"></textarea>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label>Human Test </label>
+                        <div id="captchaContainer">
+                            <div class="g-recaptcha" data-sitekey="6Lfppw8TAAAAAPyLD_-5SAbI_6b3z_l48nFZVJiz"></div>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <button id="submit_btn" type="submit" name="submitButton" class="btn btn-warning btn--decorated">Submit</button>
+                    </div>
+                </form>
+                <div id="dvAfterSubmit"></div>
+            </div>
+        </div>
+    </div><!-- end container -->
+</div>
+
+
+        <!-- Modal -->
+        <div class="modal fade--zoom" aria-labelledby="fastfacts" tabindex="-1" role="dialog" id="fastfacts">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title" id="fastfacts">FastFacts</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list">
+                            <li> Airborne Flight Reporting System: for all Air &amp; Ground Crews, Passengers, Family &amp; Associates!</li>
+                            <li>Affordable Flight Tracking &amp; Management: great for General Aviation flight either VFR &amp; IFR!</li>
+                            <li>Airborne FRS for Vertical Lift: Reports on the unique Flight Characteristics of VTOLs!</li>
+                            <li> Lightweight for the Drones: Provides enhanced Flight Monitoring for Drones!</li>
+                            <li>Makes Unpredictable Flight Safer: If it Takes-off, is should have Airborne!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-scroll"><i class="fa fa-angle-up"></i></div>
+  
+   
+  @section BottomScript{
+    <script>
+        var objPreSales = @Html.Raw(Model.GetJsonData());
+    </script>
+    <script src="~/assets/js/controllers/supportPreSales.js"></script>
+}

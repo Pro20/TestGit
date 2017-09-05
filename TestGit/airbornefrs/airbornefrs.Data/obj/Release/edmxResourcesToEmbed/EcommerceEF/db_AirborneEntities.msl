@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_GreatCircleModelStoreContainer" CdmEntityContainer="db_AirborneEntities">
+    <EntitySetMapping Name="airport_frequencies">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.airport_frequencies">
+        <MappingFragment StoreEntitySet="airport_frequencies">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="airport_ref" ColumnName="airport_ref" />
+          <ScalarProperty Name="airport_ident" ColumnName="airport_ident" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="frequency_mhz" ColumnName="frequency_mhz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="airports">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.airport">
+        <MappingFragment StoreEntitySet="airports">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ident" ColumnName="ident" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="latitude_deg" ColumnName="latitude_deg" />
+          <ScalarProperty Name="longitude_deg" ColumnName="longitude_deg" />
+          <ScalarProperty Name="elevation_ft" ColumnName="elevation_ft" />
+          <ScalarProperty Name="continent" ColumnName="continent" />
+          <ScalarProperty Name="iso_country" ColumnName="iso_country" />
+          <ScalarProperty Name="iso_region" ColumnName="iso_region" />
+          <ScalarProperty Name="municipality" ColumnName="municipality" />
+          <ScalarProperty Name="scheduled_service" ColumnName="scheduled_service" />
+          <ScalarProperty Name="gps_code" ColumnName="gps_code" />
+          <ScalarProperty Name="iata_code" ColumnName="iata_code" />
+          <ScalarProperty Name="local_code" ColumnName="local_code" />
+          <ScalarProperty Name="home_link" ColumnName="home_link" />
+          <ScalarProperty Name="wikipedia_link" ColumnName="wikipedia_link" />
+          <ScalarProperty Name="keywords" ColumnName="keywords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.country">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="continent" ColumnName="continent" />
+          <ScalarProperty Name="wikipedia_link" ColumnName="wikipedia_link" />
+          <ScalarProperty Name="keywords" ColumnName="keywords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemDetails">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.ItemDetail">
+        <MappingFragment StoreEntitySet="ItemDetails">
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Item_code" ColumnName="Item_code" />
+          <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+          <ScalarProperty Name="Item_Price" ColumnName="Item_Price" />
+          <ScalarProperty Name="Image_Name" ColumnName="Image_Name" />
+          <ScalarProperty Name="Short_Description" ColumnName="Short_Description" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ShippingCost" ColumnName="ShippingCost" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="navaids">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.navaid">
+        <MappingFragment StoreEntitySet="navaids">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="ident" ColumnName="ident" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="frequency_khz" ColumnName="frequency_khz" />
+          <ScalarProperty Name="latitude_deg" ColumnName="latitude_deg" />
+          <ScalarProperty Name="longitude_deg" ColumnName="longitude_deg" />
+          <ScalarProperty Name="elevation_ft" ColumnName="elevation_ft" />
+          <ScalarProperty Name="iso_country" ColumnName="iso_country" />
+          <ScalarProperty Name="dme_frequency_khz" ColumnName="dme_frequency_khz" />
+          <ScalarProperty Name="dme_channel" ColumnName="dme_channel" />
+          <ScalarProperty Name="dme_latitude_deg" ColumnName="dme_latitude_deg" />
+          <ScalarProperty Name="dme_longitude_deg" ColumnName="dme_longitude_deg" />
+          <ScalarProperty Name="dme_elevation_ft" ColumnName="dme_elevation_ft" />
+          <ScalarProperty Name="slaved_variation_deg" ColumnName="slaved_variation_deg" />
+          <ScalarProperty Name="magnetic_variation_deg" ColumnName="magnetic_variation_deg" />
+          <ScalarProperty Name="usageType" ColumnName="usageType" />
+          <ScalarProperty Name="power" ColumnName="power" />
+          <ScalarProperty Name="associated_airport" ColumnName="associated_airport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Items">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.Order_Items">
+        <MappingFragment StoreEntitySet="Order_Items">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ShippingPerUnit" ColumnName="ShippingPerUnit" />
+          <ScalarProperty Name="TaxPerUnit" ColumnName="TaxPerUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Payments">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.Order_Payments">
+        <MappingFragment StoreEntitySet="Order_Payments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PaypalTransactionID" ColumnName="PaypalTransactionID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderDescription" ColumnName="OrderDescription" />
+          <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+          <ScalarProperty Name="OrderItems" ColumnName="OrderItems" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ShippingAddress" ColumnName="ShippingAddress" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ShippingPrice" ColumnName="ShippingPrice" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="RecipientName" ColumnName="RecipientName" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="regions">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.region">
+        <MappingFragment StoreEntitySet="regions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="local_code" ColumnName="local_code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="continent" ColumnName="continent" />
+          <ScalarProperty Name="iso_country" ColumnName="iso_country" />
+          <ScalarProperty Name="wikipedia_link" ColumnName="wikipedia_link" />
+          <ScalarProperty Name="keywords" ColumnName="keywords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="runways">
+      <EntityTypeMapping TypeName="db_GreatCircleModel.runway">
+        <MappingFragment StoreEntitySet="runways">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="airport_ref" ColumnName="airport_ref" />
+          <ScalarProperty Name="airport_ident" ColumnName="airport_ident" />
+          <ScalarProperty Name="length_ft" ColumnName="length_ft" />
+          <ScalarProperty Name="width_ft" ColumnName="width_ft" />
+          <ScalarProperty Name="surface" ColumnName="surface" />
+          <ScalarProperty Name="lighted" ColumnName="lighted" />
+          <ScalarProperty Name="closed" ColumnName="closed" />
+          <ScalarProperty Name="le_ident" ColumnName="le_ident" />
+          <ScalarProperty Name="le_latitude_deg" ColumnName="le_latitude_deg" />
+          <ScalarProperty Name="le_longitude_deg" ColumnName="le_longitude_deg" />
+          <ScalarProperty Name="le_elevation_ft" ColumnName="le_elevation_ft" />
+          <ScalarProperty Name="le_heading_degT" ColumnName="le_heading_degT" />
+          <ScalarProperty Name="le_displaced_threshold_ft" ColumnName="le_displaced_threshold_ft" />
+          <ScalarProperty Name="he_ident" ColumnName="he_ident" />
+          <ScalarProperty Name="he_latitude_deg" ColumnName="he_latitude_deg" />
+          <ScalarProperty Name="he_longitude_deg" ColumnName="he_longitude_deg" />
+          <ScalarProperty Name="he_elevation_ft" ColumnName="he_elevation_ft" />
+          <ScalarProperty Name="he_heading_degT" ColumnName="he_heading_degT" />
+          <ScalarProperty Name="he_displaced_threshold_ft" ColumnName="he_displaced_threshold_ft" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

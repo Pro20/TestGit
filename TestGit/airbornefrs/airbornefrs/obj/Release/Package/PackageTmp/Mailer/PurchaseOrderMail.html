@@ -1,0 +1,403 @@
+﻿@model airbornefrs.Models.ShoppingcartModel.OrderDetailsModel
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>Purchased Order email</title>
+    <!--
+    COLORE INTENSE  #9C010F
+    COLORE LIGHT #EDE8DA
+
+    TESTO LIGHT #3F3D33
+    TESTO INTENSE #ffffff
+     -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        .cls-custom-normal {
+            font-size: 14pt !important;
+        }
+
+        .cls-custom-disclaimer {
+            font-size: 8pt !important;
+        }
+
+        .cls-custom-footer {
+            font-size: 12pt !important;
+        }
+
+        .cls-custom-copyright {
+            font-size: 12pt !important;
+        }
+
+
+        #ko_onecolumnBlock_5 .textintenseStyle a, #ko_onecolumnBlock_5 .textintenseStyle a:link, #ko_onecolumnBlock_5 .textintenseStyle a:visited, #ko_onecolumnBlock_5 .textintenseStyle a:hover {
+            color: #fff;
+            color:;
+            text-decoration: none;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #ko_onecolumnBlock_5 .textlightStyle a:visited, #ko_onecolumnBlock_5 .textlightStyle a:hover {
+            color: #3f3d33;
+            color:;
+            text-decoration: none;
+            text-decoration:;
+            font-weight: bold;
+        }
+    </style>
+
+    <style type="text/css">
+        /* CLIENT-SPECIFIC STYLES */
+        #outlook a {
+            padding: 0;
+        }
+        /* Force Outlook to provide a "view in browser" message */
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+            /* Force Hotmail to display emails at full width */
+            .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+                line-height: 100%;
+            }
+        /* Force Hotmail to display normal line spacing */
+        body, table, td, a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        /* Prevent WebKit and Windows mobile changing default text sizes */
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        /* Remove spacing between tables in Outlook 2007 and up */
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+        /* Allow smoother rendering of resized image in Internet Explorer */
+
+        /* RESET STYLES */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        body {
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+        }
+
+        /* iOS BLUE LINKS */
+        .appleBody a {
+            color: #68440a;
+            text-decoration: none;
+        }
+
+        .appleFooter a {
+            color: #999999;
+            text-decoration: none;
+        }
+
+        /* MOBILE STYLES */
+        @@media screen and (max-width: 525px) {
+
+            /* ALLOWS FOR FLUID TABLES */
+            table[class="wrapper"] {
+                width: 100% !important;
+                min-width: 0px !important;
+            }
+
+            /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+            td[class="mobile-hide"] {
+                display: none;
+            }
+
+            img[class="mobile-hide"] {
+                display: none !important;
+            }
+
+            img[class="img-max"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            /* FULL-WIDTH TABLES */
+            table[class="responsive-table"] {
+                width: 100% !important;
+            }
+
+            /* UTILITY CLASSES FOR ADJUSTING PADDING ON MOBILE */
+            td[class="padding"] {
+                padding: 10px 5% 15px 5% !important;
+            }
+
+            td[class="padding-copy"] {
+                padding: 10px 5% 10px 5% !important;
+                text-align: center;
+            }
+
+            td[class="padding-meta"] {
+                padding: 30px 5% 0px 5% !important;
+                text-align: center;
+            }
+
+            td[class="no-pad"] {
+                padding: 0 0 0px 0 !important;
+            }
+
+            td[class="no-padding"] {
+                padding: 0 !important;
+            }
+
+            td[class="section-padding"] {
+                padding: 10px 15px 10px 15px !important;
+            }
+
+            td[class="section-padding-bottom-image"] {
+                padding: 10px 15px 0 15px !important;
+            }
+
+            /* ADJUST BUTTONS ON MOBILE */
+            td[class="mobile-wrapper"] {
+                padding: 10px 5% 15px 5% !important;
+            }
+
+            table[class="mobile-button-container"] {
+                margin: 0 auto;
+                width: 100% !important;
+            }
+
+            a[class="mobile-button"] {
+                width: 80% !important;
+                padding: 15px !important;
+                border: 0 !important;
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+
+@if (Model != null)
+{
+<body style="margin: 0; padding: 0;" bgcolor="#ffffff" align="center">
+
+    <!-- PREHEADER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="ko_headerBlock_4">
+        <tbody>
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 20px 15px 20px 15px;">
+
+                    <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+                        <!-- LOGO/Title TEXT -->
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td valign="top" style="padding: 0;" class="mobile-wrapper">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="30%" class="responsive-table" align="left">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td bgcolor="#ffffff">
+                                                                    <a target="_new" href="#"><img alt="" image-droppable="" width="150" class="img-max" border="0" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #3F3D33; font-size: 16px;" src="https://www.airbornefrs.com/img/EmailLogo.png" /></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="70%" class="responsive-table" align="right">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td bgcolor="#ffffff" align="center">
+                                                                    <table class="cls-custom-normal" border="0" cellpadding="0" cellspacing="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="center" style="padding: 10px 0 0 0px; font-family: Helvetica, Arial, sans-serif; color: #3F3D33; text-decoration: none;"><span style="color: #3F3D33; text-decoration: none;font-size: 14pt !important;">Thanks you for shopping with <a target="_new" href="https://www.airbornefrs.com/Buy/Index" style="text-decoration:none">Airborne Store</a>.</span></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="ko_onecolumnBlock_5">
+        <tbody>
+            <tr class="row-a">
+                <td bgcolor="#EDE8DA" align="center" class="section-padding" style="padding-top: 30px; padding-left: 15px; padding-bottom: 30px; padding-right: 15px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <!-- COPY -->
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="center" class="padding-copy" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #3F3D33; padding-top: 0px;"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" class="padding-copy textlightStyle" style="padding: 20px 0 0 0; font-size: 12px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #3F3D33;">
+
+                                                                    <p class="cls-custom-normal" style="margin-top:0px; text-align: justify;font-size: 14pt !important;" data-mce-style="margin-top:0px; text-align: justify;font-size: 14pt !important;">
+                                                                        Dear @Model.RecipientName ,
+                                                                        <br />
+                                                                        <br />
+                                                                        We appreciate your recent purchase from our Airborne FRS store! We strive to provide quality products and services that make air travel safer and more pleasant for pilots, passengers, ground crews and people brought together by air transportation!
+                                                                        <br />
+                                                                        <br />
+                                                                        Please save this receipt in the event you have any questions.
+                                                                        <br />
+                                                                    </p>
+
+                                                                    <table class="content cls-custom-normal" style="width: 100%; border-collapse: collapse;font-size: 14pt !important;" border="1" cellspacing="0" cellpadding="0" align="center" data-mce-style="width: 100%; border-collapse: collapse;font-size: 14pt !important;">
+                                                                        <tbody>
+                                                                            <tr style="text-align: center;" data-mce-style="text-align: center;">
+                                                                                <th width="30%">Product</th>
+                                                                                <th max-width="15%">Qty</th>
+                                                                                <th max-width="15%">Unit Price</th>
+                                                                                <!--<th max-width="15%">Shipping (Per Unit)</th>
+                                                                                <th max-width="15%">Tax (Per Unit)</th>-->
+                                                                                <th max-width="15%">Block Price</th>
+                                                                            </tr>
+                                                                            @foreach (var item in Model.ItemModel)
+                                                                            {
+                                                                            <tr style="text-align: center;" data-mce-style="text-align: center;">
+                                                                                <!--<td style="text-align: center;" data-mce-style="text-align: left;"><a href="https://mosaico.io/files/y0n0sb8/picture1.png" style="color: ;text-decoration: ;font-weight: bold;"><img src="@item.ProductImage" alt="" width="50%" /></a><br />@item.ProductName</td>-->
+                                                                                <td style="text-align: center;" data-mce-style="text-align: center;"><img src="@item.ProductImage" alt="" width="50%" /><br />@item.ProductName</td>
+                                                                                <td style="text-align: center;" data-mce-style="text-align: center;">@item.Quantity</td>
+                                                                                <td style="text-align: right;padding-right: 10px;" data-mce-style="text-align: right;padding-right: 10px;">$ @item.Price</td>
+                                                                                <!--<td>$ @item.ShippingPerUnit</td>
+                                                                                <td>$ @item.TaxPerUnit</td>-->
+                                                                                <td style="text-align: right;padding-right: 10px;" data-mce-style="text-align: right;padding-right: 10px;">$ @item.TotalPrice</td>
+                                                                            </tr>
+                                                                            }
+                                                                            <!--<tr><td style="text-align: right;" colspan="4" data-mce-style="text-align: right;">Subtotal</td><td style="text-align: right;" colspan="2" data-mce-style="text-align: right;">$ @Model.CartSubtotal</td></tr>
+                                                                            <tr><td style="text-align: right;" colspan="4" data-mce-style="text-align: right;">Estimated Shipping</td><td style="text-align: right;" colspan="2" data-mce-style="text-align: right;">$ @Model.ShippingPrice</td></tr>
+                                                                            <tr><td style="text-align: right;" colspan="4" data-mce-style="text-align: right;">Tax</td><td style="text-align: right;" colspan="2" data-mce-style="text-align: right;">$ @Model.Tax</td></tr>
+                                                                            <tr><td style="text-align: right; font-size: 25px; font-weight: bold;" colspan="4" data-mce-style="text-align: right; font-size: 25px; font-weight: bold;">Total</td><td style="text-align: right; font-size: 25px; font-weight: bold;" colspan="2" data-mce-style="text-align: right; font-size: 25px; font-weight: bold;">$ @Model.OrderPrice</td></tr>-->
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <p><br /></p>
+                                                                    <table class="content mce-item-table" style="width: 60%;margin-left:0px; " border="0" cellspacing="0" cellpadding="0" align="center" data-mce-style="width: 100%;">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <table class="content cls-custom-normal" style="width: 100%; border-collapse: collapse;font-size: 14pt !important;" border="1" cellspacing="0" cellpadding="0" align="center" data-mce-style="width: 100%; border-collapse: collapse;font-size: 14pt !important;">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td style="text-align: center; width:50%;" data-mce-style="text-align: center;width:50%;">Sub-Total</td>
+                                                                                            <td style="text-align: right; width:50%;padding-right: 10px;" data-mce-style="text-align: right;width:50%;padding-right: 10px;">$ @Model.CartSubtotal</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="text-align: center;" data-mce-style="text-align: center;">Shipping</td>
+                                                                                            <td style="text-align:right;padding-right: 10px;" data-mce-style="text-align: right;padding-right: 10px;">$ @Model.ShippingPrice</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="text-align: center;" data-mce-style="text-align: center;">Tax</td>
+                                                                                            <td style="text-align: right;padding-right: 10px; " data-mce-style="text-align: right;padding-right: 10px;">$ @Model.Tax</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td style="text-align: right; padding-right: 10px;" data-mce-style="text-align: right; padding-right: 10px;"><strong>Total</strong></td>
+                                                                                            <td style="text-align: right;padding-right: 10px;" data-mce-style="text-align: right;padding-right: 10px;">$ @Model.OrderPrice</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                    <p class="cls-custom-normal" style="margin-top: 20px; text-align: left;font-size: 14pt !important;" data-mce-style="margin-top: 20px; text-align: left;font-size: 14pt !important;">
+                                                                        <br />Shipping Address :
+                                                                        <br />@Model.Street
+                                                                        <br />@Model.City , @Model.State , @Model.PostalCode
+                                                                        <br />
+                                                                        <br />
+                                                                    </p>
+
+                                                                    <p class="cls-custom-normal" style="margin-top: 20px; text-align: left;font-size: 14pt !important;" data-mce-style="margin-top: 20px; text-align: left;font-size: 14pt !important;">
+                                                                        Thank you for your business!
+                                                                        <br /> Sincerely,
+                                                                        <br /> Alyssa
+                                                                        <br /> Customer Support
+                                                                        <br /><a target="_new" href="https://www.airbornefrs.com">www.AirborneFRS.com</a>
+                                                                        <br />
+                                                                        <br />
+                                                                    </p>
+                                                                    <p class="cls-custom-footer" style="margin: 50px; text-align: center;font-size: 12pt !important;" data-mce-style="margin: 50px; text-align: center;font-size: 12pt !important;">
+                                                                        If you have any questions about this order, please visit our website at <a target="_new" href="https://www.airbornefrs.com" style="color: ;text-decoration:;">www.AirborneFRS.com</a> or to go directly to our Purchased Product page, <a target="_new" href="https://www.airbornefrs.com/Support/PurchasedProduct" style="color: ;text-decoration:none;">click here.</a>
+                                                                        <br />
+                                                                        <br />
+                                                                        Please add <a style="color: ;text-decoration:underline;">Store@AirborneFRS.com</a> to your address book
+                                                                    </p>
+
+                                                                    <p class="cls-custom-footer" style="margin-top: 20px; text-align: center;font-size: 12pt !important;" data-mce-style="margin-top: 20px; text-align: center;font-size: 12pt !important;">
+                                                                        <strong>DISCLAIMER OF WARRANTIES; LIABILITY LIMITATION</strong>
+                                                                    </p>
+                                                                    <p class="cls-custom-disclaimer" style="margin-top: 20px; text-align: justify; line-height: normal;font-size: 8pt !important;" data-mce-style="margin-top: 20px; text-align: justify; line-height: normal;font-size: 8pt !important;">
+                                                                        AIRBORNE shall remain the sole and exclusive property of Praxis Technologies, Inc. (LICENSOR), as shall all intellectual property rights associated therewith including those arising under patent, copyright, trademark and trade-secret law. You will take all steps necessary to protect AIRBORNE from unauthorized access. You shall not remove or deface or circumvent proprietary notices and security devices placed on or in AIRBORNE or any part of it.
+                                                                        <br /><br />To the extent LICENSOR’s rights rely on third party rights, each third party may protect its rights in and to the software separately and may enforce its rights separately.
+                                                                        <br /><br />LICENSOR, ITS LICENSEE, RESELLERS, REPRESENTATIVES OR ASSIGNS DOES NOT AND CANNOT WARRANT THE INFORMATION, DOCUMENTATION, OR SOFTWARE INCLUDED OR ACCESSED BY AIRBORNE OR THE PERFORMANCE OR RESULTS OBTAINED BY USING THIS INFORMATION, DOCUMENTATION, OR SOFTWARE OR THAT YOU WILL HAVE CONTINUOUS OR UNINTERRUPTED ACCESS TO AIRBORNE WEBSITE AND SPECIFICALLY DISCLAIMS RESPONSIBILITY FOR ANY INTERRUPTION THEREOF. LICENSOR EXPRESSLY DISCLAIMS ANY AND ALL OTHER WARRANTIES INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR (OR ANY) PURPOSE WHETHER ARISING BY STATUTE OR OTHERWISE, IN LAW OR EQUITY, OR FROM ANY OTHER COURSE OF DEALING OR USAGE OF TRADE.
+                                                                        <br /><br /> TO THE EXTENT YOU USE, ACCESS, OR IMPLEMENT THIS INFORMATION, DOCUMENTATION OR SOFTWARE, YOU DO SO AT YOUR OWN RISK. IN NO EVENT WILL LICENSOR BE LIABLE TO YOU FOR ANY DAMAGES ARISING FROM YOUR USE OR YOUR INABILITY TO USE AIRBORNE ANY INFORMATION, DOCUMENTATION, OR SOFTWARE, INCLUDING ANY LOST PROFITS, LOST SAVINGS, OR OTHER INCIDENTAL OR CONSEQUENTIAL DAMAGES, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, OR FOR ANY CLAIM BY A THIRD PARTY.
+                                                                        <br /><br /> YOU MAY NOT DISASSEMBLE DECOMPILE OR DECRYPT THE SOFTWARE OR HARDWARE.
+                                                                        <br /><br /> LICENSOR, ITS LICENSEE, RESELLERS, REPRESENTATIVES OR ASSIGNS DISCLAIM ANY WARRANTY OR REPRESENTATION THAT USE OF AIRBORNE WILL MAKE ANY PREMISES OR OPERATION SAFE OR HEALTHFUL, OR PUT IT IN COMPLIANCE WITH ANY LAW, RULE OR REGULATION.
+                                                                        <br /><br /> IN NO EVENT SHALL LICENSOR, ITS LICENSEE, RESELLERS, REPRESENTATIVES OR ASSIGNS BE LIABLE TO END USER FOR ANY LOST PROFITS, LOSS OF BUSINESS, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE OR CONSEQUENTIAL DAMAGES SUFFERED BY END USER AS A RESULT OF THE PERFORMANCE OR NONPERFORMANCE OF ITS OBLIGATIONS UNDER ANY DOCUMENT, OR ITS ACTS OR OMISSIONS RELATED TO ANY DOCUMENT, WHETHER CLAIMED IN TORT, CONTRACT OR OTHERWISE, EVEN IF LICENSOR OR ANY OTHER PERSON HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT WILL LICENSOR’S LIABILITY FOR DAMAGES UNDER THIS AGREEMENT EXCEED THE ACTUAL AMOUNT PAID BY END USER HEREUNDER DURING THE SIXTY (60) DAY PERIOD IMMEDIATELY PRECEDING END USER'S CLAIM FOR RECOVERY. NO INDEMNIFICATION OF ANY KIND IS PROVIDED BY LICENSOR TO END USER OR ANY OTHER PERSON OR ENTITY PURSUANT TO OR ARISING FROM ANY USE OF AIRBORNE. ANY CLAIM HEREUNDER BY END USER MUST BE ASSERTED TO AIRBORNE AT THE ADDRESS LISTED BELOW AND MUST INCLUDE RETURN OF THE ORIGINAL AIRBORNE EQUIPMENT WITHIN THIRTY (30) DAYS OF ARISING OR BE FOREVER BARRED.
+                                                                        <br /><br />
+                                                                    </p>
+
+                                                                    <p class="cls-custom-copyright" style="text-align: center;font-size: 12pt !important;" data-mce-style="text-align: center;font-size: 12pt !important;">
+                                                                        ©2017 Praxis Technologies, Inc. All rights reserved.
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table><!-- FOOTER -->
+</body>
+}
+</html>
